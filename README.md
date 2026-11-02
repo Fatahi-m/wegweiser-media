@@ -10,3 +10,7 @@ Steps for one run:
 2. vidIQ `vidiq_video_upload` with `url` = item.url → get `videoUrl`.
 3. vidIQ `vidiq_instagram_publish_reel` with platformAccountId = item.account, videoUrl, caption = item.caption exactly. Continue with containerId until PUBLISHED (wait ~5 s between calls). Never republish on error.
 4. Set posted=true and permalink, commit, push.
+
+
+## Kurdish queue (`queue-ku.json`)
+Same procedure for Instagram @wegweiser_kurdi (account 28280473388298992), run by a separate scheduled task.
