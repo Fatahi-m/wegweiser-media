@@ -113,3 +113,18 @@ def render(build, total, out, tt=None):
     pr = subprocess.Popen(cmd, stdin=subprocess.PIPE)
     for i in range(n): pr.stdin.write(frame_at(i / FPS).tobytes())
     pr.stdin.close(); pr.wait()
+
+def align(script, audio):
+    """Real sentence starts from the voiceover file (download the MP3 first; *.amazonaws.com is allowed).
+    Uses ffmpeg silencedetect and snaps each estimated start to the nearest pause end. Returns (sentences, starts, total)."""
+    out = subprocess.run(["ffmpeg", "-i", audio, "-af", "silencedetect=n=-35dB:d=0.18", "-f", "null", "-"], capture_output=True, text=True).stderr
+    ends = [float(x) for x in re.findall(r"silence_end: ([0-9.]+)", out)]
+    total = float(subprocess.run(["ffprobe", "-v", "error", "-show_entries", "format=duration", "-of", "csv=p=0", audio], capture_output=True, text=True).stdout.strip())
+    sents, est = timings(script, total)
+    st = [est[0]]; used = set()
+    for e in est[1:]:
+        c = [x for x in ends if x not in used and x > st[-1] + 0.4]
+        best = min(c, key=lambda x: abs(x - e)) if c else e
+        if abs(best - e) > 3.0: best = e
+        used.add(best); st.append(round(best, 2))
+    return sents, st, total
