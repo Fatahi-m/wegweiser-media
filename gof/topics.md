@@ -1,0 +1,41 @@
+# Geld ohne Filter – Themenliste (Shorts, Deutsch)
+Status: [ ] offen · [x] erledigt (Datum). Die tägliche Aufgabe nimmt die ersten offenen Themen von oben.
+Vor jedem Thema aktuelle Zahlen/Regeln per Websuche prüfen (Stand heute). Unsichere Themen überspringen.
+
+- [x] Krankenkasse 2027 – Zusatzbeitrag & Sonderkündigungsrecht (04.11.2026)
+- [ ] Einstiegsgeld vom Jobcenter (§ 16b SGB II) – vor dem Arbeitsvertrag beantragen
+- [ ] Kinderzuschlag – wer ihn bekommt und wie viel (Stand prüfen)
+- [ ] Wohngeld 2027 – Wer hat Anspruch? Beispielrechnung
+- [ ] Rundfunkbeitrag: Befreiung oder Ermäßigung – wer muss nicht zahlen?
+- [ ] CO2-Kosten der Heizung: Vermieter muss mitzahlen (CO2KostAufG)
+- [ ] Urlaub nicht genommen? Urlaubsabgeltung bei Kündigung (§ 7 Abs. 4 BUrlG)
+- [ ] Steuererklärung: Durchschnittliche Erstattung & Fristen 2026/2027
+- [ ] Homeoffice-Pauschale – wie viel bringt sie wirklich?
+- [ ] Pendlerpauschale 2026/2027 – neue Regeln ab dem ersten Kilometer?
+- [ ] Bildungsgutschein & Weiterbildung bezahlt von der Agentur
+- [ ] Gründungszuschuss – Geld für die Selbstständigkeit
+- [ ] Minijob 2027 – neue Verdienstgrenze (Mindestlohn prüfen)
+- [ ] Midijob / Übergangsbereich – mehr Netto durch weniger Abgaben
+- [ ] Kindergeld 2027 – Betrag & Kinderfreibetrag (Zahlen prüfen)
+- [ ] Elterngeld – Basiselterngeld vs. ElterngeldPlus
+- [ ] Mietkaution – max. 3 Monatskaltmieten & Rückzahlung
+- [ ] Nebenkostenabrechnung prüfen – 3 häufige Fehler
+- [ ] Mieterhöhung – wann ist sie erlaubt? (Kappungsgrenze, Mietspiegel)
+- [ ] Schufa – kostenlose Datenkopie nach Art. 15 DSGVO
+- [ ] Dispo-Zinsen – teurer als jeder Kredit
+- [ ] Notgroschen – wie viel solltest du haben?
+- [ ] Inflation aktuell – was dein Geld verliert (neueste Destatis-Zahl)
+- [ ] Tagesgeld vs. Festgeld – aktuelle Zinsen (Stand prüfen)
+- [ ] ETF-Sparplan einfach erklärt (keine Anlageberatung)
+- [ ] Altersvorsorgedepot ab 2027 – was ist geplant? (Stand prüfen)
+- [ ] Rente: Wie viel Rente bekommst du pro Entgeltpunkt? (Rentenwert prüfen)
+- [ ] Arbeitslosengeld I – wie viel % vom Netto und wie lange?
+- [ ] Krankengeld – wie viel bekommst du nach 6 Wochen?
+- [ ] Deutschlandticket – Preis 2027 & Jobticket-Zuschuss
+- [ ] Handyvertrag kündigen – Kündigungsbutton & monatlich kündbar
+- [ ] Inkasso-Brief bekommen? Was du prüfen musst
+- [ ] Pfändungsfreigrenze & P-Konto (aktuelle Beträge prüfen)
+- [ ] Bürgergeld/Grundsicherung – Freibetrag beim Hinzuverdienst
+- [ ] Unterhaltsvorschuss – wenn der andere Elternteil nicht zahlt
+- [ ] Riester kündigen oder behalten?
+- [ ] Freibetrag für Kapitalerträge – Sparerpauschbetrag 1.000 € (bereits Cover; nur wenn neu formuliert)
