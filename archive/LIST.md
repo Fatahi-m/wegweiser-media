@@ -71,3 +71,4 @@ fa/Wegweiser-7-Familiennachzug-Reel.mp4 | 7 Aufenthaltstitel ohne Familiennachzu
 ku/Kurdi-7-Familiennachzug-Reel.mp4 | 7 Aufenthaltstitel ohne Familiennachzug | Kurdisch (Sorani) | 2026-11-04 | بەم ٧ ئیقامەیە ناتوانیت هاوسەر و منداڵەکانت بهێنیتە ئەڵمانیا! #Familiennachzug #ئیقامە #wegweiser_kurdi
 fa/Wegweiser-Minijob-Rechte-Reel.mp4 | 5 Rechte im Minijob | Persisch | 2026-11-04 | Minijob داری؟ مرخصی با حقوق، پول مریضی و تعطیلات رسمی حق توئه! #Minijob #حقوق_کار #wegweiser
 ku/Kurdi-Minijob-Rechte-Reel.mp4 | 5 Rechte im Minijob | Kurdisch (Sorani) | 2026-11-04 | Minijob ت هەیە؟ پشووی بە مووچە، پارەی نەخۆشی و پشووی فەرمی مافی خۆتە! #Minijob #کار #wegweiser_kurdi
+ku/Kurdi-Schwarzarbeit-Reel.mp4 | 5 Gründe gegen Schwarzarbeit | Kurdisch (Sorani) | 2026-11-05 | کاری ڕەش؟ تەنها خاوەنکار قازانج دەکات! ٥ هۆکار و ڕێگای باشتر. #کار #Jobcenter #wegweiser_kurdi
