@@ -77,3 +77,4 @@ ku/Kurdi-Inkasso-Reel.mp4 | Inkasso-Brief: 5 Dinge prüfen | Kurdisch (Sorani) |
 fa/Wegweiser-Inkasso-Reel.mp4 | Inkasso-Brief: 5 Dinge prüfen | Persisch | 2026-11-05 | نامه‌ی Inkasso اومده؟ یه یورو هم نده، اول این ۵ تا رو چک کن! #Inkasso #بدهی #wegweiser
 fa/Wegweiser-25b-Reel.mp4 | § 25b: 5 Dinge (Arten, Familie, Verlängerung, Niederlassung, Einbürgerung) | Persisch | 2026-11-06 | روی کارتت § 25b نوشته؟ این ۵ چیز رو بدون! #اقامت #25b #wegweiser
 ku/Kurdi-25b-Reel.mp4 | § 25b: 5 Dinge (Arten, Familie, Verlängerung, Niederlassung, Einbürgerung) | Kurdisch (Sorani) | 2026-11-06 | لەسەر کارتەکەت § 25b نووسراوە؟ ئەم ٥ شتە بزانە! #ئیقامە #25b #wegweiser_kurdi
+fa/Wegweiser-25a-Reel.mp4 | § 25a: 5 Dinge für junge Geduldete | Persisch | 2026-11-06 | زیر ۲۷ سالی و Duldung داری؟ شاید همین الان حق اقامت داری! #اقامت #25a #wegweiser
