@@ -75,3 +75,4 @@ ku/Kurdi-Schwarzarbeit-Reel.mp4 | 5 Gründe gegen Schwarzarbeit | Kurdisch (Sora
 fa/Wegweiser-Schwarzarbeit-Reel.mp4 | 5 Gründe gegen Schwarzarbeit | Persisch | 2026-11-05 | کار سیاه؟ فقط صاحبکار سود می‌بره! ۵ دلیل و راه بهتر. #کار_در_آلمان #جابسنتر #wegweiser
 ku/Kurdi-Inkasso-Reel.mp4 | Inkasso-Brief: 5 Dinge prüfen | Kurdisch (Sorani) | 2026-11-05 | نامەی Inkasso هات؟ یەک یۆرۆ مەدە، پێشتر ئەم ٥ خاڵە بپشکنە! #Inkasso #قەرز #wegweiser_kurdi
 fa/Wegweiser-Inkasso-Reel.mp4 | Inkasso-Brief: 5 Dinge prüfen | Persisch | 2026-11-05 | نامه‌ی Inkasso اومده؟ یه یورو هم نده، اول این ۵ تا رو چک کن! #Inkasso #بدهی #wegweiser
+fa/Wegweiser-25b-Reel.mp4 | § 25b: 5 Dinge (Arten, Familie, Verlängerung, Niederlassung, Einbürgerung) | Persisch | 2026-11-06 | روی کارتت § 25b نوشته؟ این ۵ چیز رو بدون! #اقامت #25b #wegweiser
