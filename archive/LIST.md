@@ -78,3 +78,4 @@ fa/Wegweiser-Inkasso-Reel.mp4 | Inkasso-Brief: 5 Dinge prüfen | Persisch | 2026
 fa/Wegweiser-25b-Reel.mp4 | § 25b: 5 Dinge (Arten, Familie, Verlängerung, Niederlassung, Einbürgerung) | Persisch | 2026-11-06 | روی کارتت § 25b نوشته؟ این ۵ چیز رو بدون! #اقامت #25b #wegweiser
 ku/Kurdi-25b-Reel.mp4 | § 25b: 5 Dinge (Arten, Familie, Verlängerung, Niederlassung, Einbürgerung) | Kurdisch (Sorani) | 2026-11-06 | لەسەر کارتەکەت § 25b نووسراوە؟ ئەم ٥ شتە بزانە! #ئیقامە #25b #wegweiser_kurdi
 fa/Wegweiser-25a-Reel.mp4 | § 25a: 5 Dinge für junge Geduldete | Persisch | 2026-11-06 | زیر ۲۷ سالی و Duldung داری؟ شاید همین الان حق اقامت داری! #اقامت #25a #wegweiser
+fa/Wegweiser-25-3-Reel.mp4 | § 25 Abs. 3 (Abschiebungsverbot): 5 Dinge | Persisch | 2026-11-07 | پناهندگی رد شد ولی Abschiebungsverbot گرفتی؟ این ۵ چیز رو بدون! #اقامت #Abschiebungsverbot #wegweiser
