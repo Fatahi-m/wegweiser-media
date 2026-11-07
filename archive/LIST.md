@@ -83,3 +83,4 @@ fa/Wegweiser-25-3-Reel.mp4 | § 25 Abs. 3 (Abschiebungsverbot): 5 Dinge | Persis
 - ku | 2026-11-07 | Wegweiser-Kurdi-25-3-Reel.mp4 | § 25 Abs. 3 Abschiebungsverbot (٥ خاڵ)
 - ku | 2026-11-07 | Wegweiser-Kurdi-30-Ehegatte-Reel.mp4 | § 30 ئیقامەی هاوسەر (٥ خاڵ)
 - fa | 2026-11-07 | Wegweiser-5-Briefe-Reel.mp4 | ۵ نامه‌ای که نباید نادیده گرفت (Mahnbescheid, Bescheid, Anhörung, ABH, Rundfunkbeitrag) – ohne Cover-Intro
+- ku | 2026-11-07 | Kurdi-Geburt-Fristen-Reel.mp4 | ٥ ماوە دوای لەدایکبوونی منداڵ (Standesamt, Elterngeld, Kindergeld, Erstausstattung, ABH) – ohne Cover-Intro
