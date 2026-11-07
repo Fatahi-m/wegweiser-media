@@ -80,3 +80,4 @@ ku/Kurdi-25b-Reel.mp4 | § 25b: 5 Dinge (Arten, Familie, Verlängerung, Niederla
 fa/Wegweiser-25a-Reel.mp4 | § 25a: 5 Dinge für junge Geduldete | Persisch | 2026-11-06 | زیر ۲۷ سالی و Duldung داری؟ شاید همین الان حق اقامت داری! #اقامت #25a #wegweiser
 fa/Wegweiser-25-3-Reel.mp4 | § 25 Abs. 3 (Abschiebungsverbot): 5 Dinge | Persisch | 2026-11-07 | پناهندگی رد شد ولی Abschiebungsverbot گرفتی؟ این ۵ چیز رو بدون! #اقامت #Abschiebungsverbot #wegweiser
 - fa | 2026-11-07 | Wegweiser-30-Ehegatte-Reel.mp4 | § 30 اقامت همسر (۵ نکته)
+- ku | 2026-11-07 | Wegweiser-Kurdi-25-3-Reel.mp4 | § 25 Abs. 3 Abschiebungsverbot (٥ خاڵ)
