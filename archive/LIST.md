@@ -85,3 +85,4 @@ fa/Wegweiser-25-3-Reel.mp4 | § 25 Abs. 3 (Abschiebungsverbot): 5 Dinge | Persis
 - fa | 2026-11-07 | Wegweiser-5-Briefe-Reel.mp4 | ۵ نامه‌ای که نباید نادیده گرفت (Mahnbescheid, Bescheid, Anhörung, ABH, Rundfunkbeitrag) – ohne Cover-Intro
 - ku | 2026-11-07 | Kurdi-Geburt-Fristen-Reel.mp4 | ٥ ماوە دوای لەدایکبوونی منداڵ (Standesamt, Elterngeld, Kindergeld, Erstausstattung, ABH) – ohne Cover-Intro
 - ku | 2026-11-08 | Kurdi-Heizkosten-Reel.mp4 | Heizkosten: 3% / 15% Kürzung (HeizkostenV, fernablesbar bis 31.12.2026) – ohne Cover-Intro
+- fa | 2026-11-08 | Wegweiser-Heizkosten-Reel.mp4 | Heizkosten: 3% / 15% Kürzung (HeizkostenV) – ohne Cover-Intro
