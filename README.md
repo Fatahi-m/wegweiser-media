@@ -14,3 +14,7 @@ Steps for one run:
 
 ## Kurdish queue (`queue-ku.json`)
 Same procedure for Instagram @wegweiser_kurdi (account 28280473388298992), run by a separate scheduled task.
+
+## Persian covers v2 (`archive/fa/v2/`, kit `archive/fa/kit/fa_covers.py`)
+Designed covers 1080x1920 (navy brand frame, big headline, per-topic illustration, key content inside y=285..1635 for the grid crop).
+For a reel without a v2 cover: add a function to `fa_covers.py` modeled on the existing ones (headline from the caption/video, one illustration: rcard, passport, coins, emoji, steps...), register it in JOBS as `<name>` (= file name without `-Reel.mp4`), run `python3 fa_covers.py <name>` → `archive/fa/v2/cover-<name>.jpg`, check it visually, commit.
