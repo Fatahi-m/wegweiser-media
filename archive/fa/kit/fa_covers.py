@@ -387,7 +387,49 @@ def c_familie():
     place(c, pill(F("کارت تو کدومه؟ کامنت کن", "Black", 820, 54, WHITE, pad=4), RED, 40, 14), 540, y, sh=True, rot=-2)
     return c
 
+# ======================= 9. Änderungen 2027 =======================
+def calendar_page(w, month="JANUAR 2027", day="1"):
+    h = int(w * 1.0); k = 2; s = Image.new("RGBA", (w * k, h * k), (0, 0, 0, 0)); d = ImageDraw.Draw(s)
+    W2, H2 = w * k, h * k
+    d.rounded_rectangle((0, 20 * k, W2 - 1, H2 - 1), 40 * k, fill=(248, 246, 240))
+    d.rounded_rectangle((0, 20 * k, W2 - 1, int(H2 * 0.3)), 40 * k, fill=RED)
+    d.rectangle((0, int(H2 * 0.2), W2 - 1, int(H2 * 0.3)), fill=RED)
+    for x in (0.27, 0.73):
+        d.rounded_rectangle((int(W2 * x) - 12 * k, 0, int(W2 * x) + 12 * k, 60 * k), 10 * k, fill=(60, 66, 80))
+    t = T(month, la("Black", int(H2 * 0.1)), WHITE, pad=0); s.alpha_composite(t, ((W2 - t.width) // 2, int(H2 * 0.165) - t.height // 2 + 10 * k))
+    t = T(day, la("Black", int(H2 * 0.55)), INK, pad=0); s.alpha_composite(t, ((W2 - t.width) // 2, int(H2 * 0.64) - t.height // 2))
+    return s.resize((w, h), Image.LANCZOS)
+
+def c_2027():
+    c = background([(540, 820, 420, BLUE, 60), (860, 1300, 320, GOLD, 50), (200, 1350, 300, GREEN, 40)])
+    frame(c, "تغییرات ۲۰۲۷")
+    y = 300
+    y = place(c, F("از ژانویه‌ی ۲۰۲۷", "Black", 940, 104, GOLD), 540, y, sh=True) - 6
+    y = place(c, F("این ۵ چیز عوض میشه!", "Black", 960, 112, WHITE), 540, y) + 24
+    cal = calendar_page(300)
+    place(c, cal, 540, y, sh=True, rot=-4)
+    place(c, pill(T("NEU", la("Black", 52), INK, pad=0), GOLD, 26, 10), 730, y + 10, sh=True, rot=10)
+    y = y + 330 + 40
+    def tile(icon, label, val, col, latin_val=True):
+        t = Image.new("RGBA", (450, 280), (0, 0, 0, 0)); d = ImageDraw.Draw(t)
+        d.rounded_rectangle((0, 0, 449, 279), 42, fill=(255, 255, 255, 24), outline=col, width=5)
+        ic = emoji(icon, 76); t.alpha_composite(ic, ((450 - ic.width) // 2, 24))
+        lb = F(label, "Bold", 400, 42, SOFT, latin=True, pad=2); t.alpha_composite(lb, ((450 - lb.width) // 2, 112))
+        v = F(val, "Black", 400, 80, col, latin=latin_val, pad=2); t.alpha_composite(v, ((450 - v.width) // 2, 168))
+        return t
+    tiles = [(tile("💶", "Mindestlohn", "14,60 €", GREEN), 300, 0),
+             (tile("👶", "Kindergeld", "267 €", GOLD), 780, 0),
+             (tile("🚆", "Deutschlandticket", "گرون‌تر", (255, 120, 110), False), 300, 1),
+             (tile("🏢", "Jobcenter", "خبرهای جدید", WHITE, False), 780, 1)]
+    # RTL reading order: first item on the right
+    for (t, x, r) in tiles:
+        place(c, t, 1080 - x, y + r * 300, sh=True)
+    y += 2 * 300 + 6
+    place(c, pill(F("همه‌ی تغییرات اینجاست", "Bold", 760, 50, INK, pad=4), GOLD, 36, 14), 540, y, sh=True)
+    return c
+
 JOBS = {
+    "Wegweiser-2027-Aenderungen": c_2027,
     "Wegweiser-Familiennachzug": c_familie,
     "Wegweiser-22-23": c_22_23,
     "Wegweiser-5-Komak": c_5_komak,
