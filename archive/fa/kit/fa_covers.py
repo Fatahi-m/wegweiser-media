@@ -355,7 +355,40 @@ def c_25_5ab():
     place(c, pill(F("ببین کدوم مال توئه", "Bold", 700, 50, INK, pad=4), WHITE, 36, 14), 540, y, sh=True)
     return c
 
+# ======================= 8. Familiennachzug (traffic light) =======================
+def c_familie():
+    c = background([(540, 1050, 460, GREEN, 40), (860, 420, 300, GOLD, 50), (200, 1450, 300, RED, 45)])
+    frame(c, "آوردن خانواده")
+    y = 300
+    fam = hstack([emoji("👨", 116), emoji("👩", 116), emoji("👧", 92)], 6)
+    y = place(c, fam, 540, y, sh=True) + 6
+    y = place(c, F("می‌خوای خانواده‌ت رو بیاری؟", "Black", 960, 84, WHITE), 540, y) + 4
+    y = place(c, F("با کدوم اقامت میشه؟", "Black", 960, 112, GOLD), 540, y, sh=True) + 24
+    LIGHT_R = (236, 64, 58); LIGHT_Y = (255, 192, 46)
+    rows = [(GREEN, "Flüchtling", "§ 25 Abs. 1 / 2", "میشه", GREEN, INK),
+            (LIGHT_Y, "subsidiär", "25.2 (4 AsylG)", "متوقف", LIGHT_Y, INK),
+            (LIGHT_R, "§ 25.5", "+ Duldung", "ممنوع", LIGHT_R, WHITE)]
+    for i, (lc, main, sub, st, sc, stc) in enumerate(rows):
+        card = Image.new("RGBA", (920, 230), (0, 0, 0, 0)); d = ImageDraw.Draw(card)
+        d.rounded_rectangle((0, 0, 919, 229), 44, fill=(248, 246, 240))
+        d.rounded_rectangle((900, 20, 914, 209), 7, fill=lc)
+        # light bulb on the right (RTL start)
+        bulb = Image.new("RGBA", (190, 190), (0, 0, 0, 0)); bd = ImageDraw.Draw(bulb)
+        bd.ellipse((0, 0, 189, 189), fill=(16, 24, 40))
+        g = Image.new("RGBA", (190, 190), (0, 0, 0, 0)); ImageDraw.Draw(g).ellipse((22, 22, 167, 167), fill=lc + (255,))
+        bulb.alpha_composite(g.filter(ImageFilter.GaussianBlur(6))); ImageDraw.Draw(bulb).ellipse((30, 30, 159, 159), fill=lc)
+        card.alpha_composite(bulb, (690, 20))
+        m = F(main, "Black", 460, 72, INK, latin=True, pad=2); card.alpha_composite(m, (650 - m.width, 34))
+        s_ = F(sub, "SemiBold", 460, 44, (70, 86, 110), latin=True, pad=2); card.alpha_composite(s_, (650 - s_.width, 136))
+        p = pill(T(st, fa("Black", 50), stc, rtl=True, pad=4), sc, 30, 10)
+        card.alpha_composite(p, (36, (230 - p.height) // 2))
+        place(c, card, 540, y + i * 262, sh=True)
+    y += 3 * 262 + 4
+    place(c, pill(F("کارت تو کدومه؟ کامنت کن", "Black", 820, 54, WHITE, pad=4), RED, 40, 14), 540, y, sh=True, rot=-2)
+    return c
+
 JOBS = {
+    "Wegweiser-Familiennachzug": c_familie,
     "Wegweiser-22-23": c_22_23,
     "Wegweiser-5-Komak": c_5_komak,
     "Wegweiser-Besuchsvisum": c_besuch,
