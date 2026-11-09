@@ -428,7 +428,45 @@ def c_2027():
     place(c, pill(F("همه‌ی تغییرات اینجاست", "Bold", 760, 50, INK, pad=4), GOLD, 36, 14), 540, y, sh=True)
     return c
 
+# ======================= 10. Pass-Jahre =======================
+def c_pass_jahre():
+    c = background([(300, 820, 380, BURG, 70), (860, 760, 320, GOLD, 45), (540, 1400, 380, BLUE, 45)])
+    frame(c, "سال‌های پاس آلمانی")
+    y = 300
+    y = place(c, F("۸ سال توی آلمانی؟", "Black", 960, 124, WHITE), 540, y) - 4
+    y = place(c, F("شاید فقط ۳ سالش حساب بشه!", "Black", 960, 92, GOLD), 540, y, sh=True) + 30
+    # passport (left) + counter 8 -> 3 (right, RTL start)
+    pp = passport(250)
+    place(c, pp, 270, y + 6, sh=True, rot=7)
+    LIGHT_R = (236, 64, 58)
+    eight = T("۸ سال", fa("Black", 118), (150, 170, 205), rtl=True, pad=6)
+    d = ImageDraw.Draw(eight); d.line((8, eight.height * 0.56, eight.width - 8, eight.height * 0.5), fill=LIGHT_R, width=14)
+    yy = place(c, eight, 720, y + 4)
+    yy = place(c, arrow_down(70, 74, SOFT), 720, yy + 4) + 6
+    three = pill(T("۳ سال", fa("Black", 118), INK, rtl=True, pad=4), GREEN, 40, 6)
+    place(c, three, 720, yy, sh=True, rot=-3)
+    y += 390
+    rows = [("پروسه‌ی پناهندگی: فقط اگه قبول بشی", "Gestattung · § 55 Abs. 3 AsylG", GOLD, "i"),
+            ("دولدونگ حساب نمیشه", "Duldung", LIGHT_R, "x"),
+            ("سفر بیشتر از ۶ ماه: از صفر", "§ 12b StAG", LIGHT_R, "x")]
+    for i, (main, sub, col, ic) in enumerate(rows):
+        card = Image.new("RGBA", (940, 158), (0, 0, 0, 0)); cd = ImageDraw.Draw(card)
+        cd.rounded_rectangle((0, 0, 939, 157), 38, fill=(248, 246, 240))
+        if ic == "x":
+            inner = Image.new("RGBA", (44, 44), (0, 0, 0, 0)); xd = ImageDraw.Draw(inner)
+            xd.line((4, 4, 40, 40), fill=WHITE, width=11); xd.line((40, 4, 4, 40), fill=WHITE, width=11)
+        else:
+            inner = T(ic, la("Black", 60), INK, pad=0)
+        b = circle_badge(104, col, inner); card.alpha_composite(b, (940 - 28 - 104, 27))
+        m = F(main, "Black", 740, 52, INK, pad=2); card.alpha_composite(m, (790 - m.width, 14))
+        sb = F(sub, "SemiBold", 740, 38, (70, 86, 110), latin=True, pad=2); card.alpha_composite(sb, (790 - sb.width, 92))
+        place(c, card, 540, y + i * 176, sh=True)
+    y += 3 * 176 + 4
+    place(c, pill(F("چند سالت حساب میشه؟ کامنت کن", "Black", 860, 54, INK, pad=4), GOLD, 40, 14), 540, y, sh=True, rot=-2)
+    return c
+
 JOBS = {
+    "Wegweiser-Pass-Jahre": c_pass_jahre,
     "Wegweiser-2027-Aenderungen": c_2027,
     "Wegweiser-Familiennachzug": c_familie,
     "Wegweiser-22-23": c_22_23,
