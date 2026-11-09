@@ -465,7 +465,33 @@ def c_pass_jahre():
     place(c, pill(F("چند سالت حساب میشه؟ کامنت کن", "Black", 860, 54, INK, pad=4), GOLD, 40, 14), 540, y, sh=True, rot=-2)
     return c
 
+# ======================= 11. Steuer 2022 =======================
+def c_steuer2022():
+    c = background([(300, 900, 380, GOLD, 55), (860, 820, 320, BLUE, 60), (540, 1450, 360, RED, 40)])
+    frame(c, "مالیات")
+    y = 330
+    y = place(c, F("پول مالیات ۲۰۲۲", "Black", 960, 124, WHITE), 540, y) - 6
+    y = place(c, F("رو پس بگیر!", "Black", 960, 140, GOLD), 540, y, sh=True) + 50
+    # right (RTL start): average refund; left: calendar deadline + coins
+    lab = F("میانگین برگشت", "Bold", 460, 54, SOFT)
+    amt = hstack([T("۱۱۷۲", fa("Black", 132), GOLD, rtl=True, pad=4), T("€", la("Black", 112), GOLD, pad=4)], 14)
+    yy = place(c, lab, 770, y + 30)
+    place(c, amt, 770, yy - 6, sh=True)
+    for (x, cy, r) in [(860, y + 250, 52), (700, y + 262, 40)]:
+        place(c, coin(r), x, cy, sh=True)
+    cal = calendar_page(300, "DEZEMBER 2026", "31")
+    place(c, cal, 290, y, sh=True, rot=5)
+    y += 420
+    y = place(c, pill(F("فقط تا ۳۱ دسامبر ۲۰۲۶", "Black", 840, 72, WHITE, pad=4), RED, 46, 18), 540, y, sh=True, rot=-2) + 60
+    card = Image.new("RGBA", (900, 240), (0, 0, 0, 0)); d = ImageDraw.Draw(card)
+    d.rounded_rectangle((0, 0, 899, 239), 44, fill=(248, 246, 240))
+    m = F("Steuererklärung", "Black", 820, 96, INK, latin=True, pad=2); card.alpha_composite(m, ((900 - m.width) // 2, 26))
+    s_ = F("اظهارنامه‌ی مالیاتی", "Bold", 820, 50, (70, 86, 110), pad=2); card.alpha_composite(s_, ((900 - s_.width) // 2, 150))
+    place(c, card, 540, y, sh=True)
+    return c
+
 JOBS = {
+    "Wegweiser-Steuer2022": c_steuer2022,
     "Wegweiser-Pass-Jahre": c_pass_jahre,
     "Wegweiser-2027-Aenderungen": c_2027,
     "Wegweiser-Familiennachzug": c_familie,
