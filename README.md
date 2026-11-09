@@ -18,3 +18,6 @@ Same procedure for Instagram @wegweiser_kurdi (account 28280473388298992), run b
 ## Persian covers v2 (`archive/fa/v2/`, kit `archive/fa/kit/fa_covers.py`)
 Designed covers 1080x1920 (navy brand frame, big headline, per-topic illustration, key content inside y=285..1635 for the grid crop).
 For a reel without a v2 cover: add a function to `fa_covers.py` modeled on the existing ones (headline from the caption/video, one illustration: rcard, passport, coins, emoji, steps...), register it in JOBS as `<name>` (= file name without `-Reel.mp4`), run `python3 fa_covers.py <name>` → `archive/fa/v2/cover-<name>.jpg`, check it visually, commit.
+
+## Kurdish covers v2 (`archive/ku/v2/`, kit `archive/ku/kit/ku_covers.py`)
+Same idea as the Persian kit but in the Kurdish brand (cream, sun, Kurdish-flag waves, green/red/gold); reuses helpers from `fa_covers.py`. Add a function, register it in JOBS as `<name>`, run `python3 ku_covers.py <name>` → `archive/ku/v2/cover-<name>.jpg`.
