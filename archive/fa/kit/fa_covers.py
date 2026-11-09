@@ -490,7 +490,54 @@ def c_steuer2022():
     place(c, card, 540, y, sh=True)
     return c
 
+# ======================= 12. Chancenkarte =======================
+def c_chancenkarte():
+    c = background([(820, 760, 360, GOLD, 55), (240, 820, 340, BLUE, 70), (540, 1450, 380, GREEN, 40)])
+    frame(c, "Chancenkarte")
+    y = 290
+    y = place(c, F("بدون پیشنهاد کار", "Black", 960, 120, WHITE), 540, y) - 6
+    y = place(c, F("بیا آلمان!", "Black", 960, 150, GOLD), 540, y, sh=True) + 34
+    # ticket-style card: Chancenkarte · 1 year job search
+    card = Image.new("RGBA", (900, 250), (0, 0, 0, 0)); d = ImageDraw.Draw(card)
+    d.rounded_rectangle((0, 0, 899, 249), 44, fill=(248, 246, 240))
+    d.rounded_rectangle((0, 0, 899, 92), 44, fill=GOLD); d.rectangle((0, 50, 899, 92), fill=GOLD)
+    t = T("CHANCENKARTE", la("Black", 62), INK, pad=0); card.alpha_composite(t, (44, 46 - t.height // 2))
+    pl = emoji("✈️", 66); card.alpha_composite(pl, (900 - 44 - pl.width, 46 - pl.height // 2))
+    m = F("تا ۱ سال اینجا دنبال کار بگرد", "Black", 820, 64, INK, pad=2)
+    card.alpha_composite(m, ((900 - m.width) // 2, 92 + (158 - m.height) // 2))
+    y = place(c, card, 540, y, sh=True, rot=-2) + 34
+    def tile(icon, top, val, col, latin_val=False):
+        t = Image.new("RGBA", (440, 250), (0, 0, 0, 0)); d = ImageDraw.Draw(t)
+        d.rounded_rectangle((0, 0, 439, 249), 42, fill=(255, 255, 255, 24), outline=col, width=5)
+        ic = emoji(icon, 70); t.alpha_composite(ic, ((440 - ic.width) // 2, 22))
+        v = F(val, "Black", 390, 66, col, latin=latin_val, pad=2); t.alpha_composite(v, ((440 - v.width) // 2, 104))
+        if top:
+            lb = F(top, "Bold", 390, 40, SOFT, pad=2); t.alpha_composite(lb, ((440 - lb.width) // 2, 184))
+        return t
+    lang = Image.new("RGBA", (440, 250), (0, 0, 0, 0)); d = ImageDraw.Draw(lang)
+    d.rounded_rectangle((0, 0, 439, 249), 42, fill=(255, 255, 255, 24), outline=WHITE, width=5)
+    ic = emoji("🗣️", 70); lang.alpha_composite(ic, ((440 - ic.width) // 2, 22))
+    r1 = hstack([T("A1", la("Black", 62), WHITE, pad=2), T("آلمانی", fa("Black", 54), WHITE, rtl=True, pad=2)], 14)
+    r2 = hstack([T("B2", la("Black", 54), GOLD, pad=2), T("انگلیسی", fa("Black", 46), GOLD, rtl=True, pad=2), T("یا", fa("Bold", 40), SOFT, rtl=True, pad=2)], 12)
+    lang.alpha_composite(r1, ((440 - r1.width) // 2, 98)); lang.alpha_composite(r2, ((440 - r2.width) // 2, 172))
+    eur = Image.new("RGBA", (440, 250), (0, 0, 0, 0)); d = ImageDraw.Draw(eur)
+    d.rounded_rectangle((0, 0, 439, 249), 42, fill=(255, 255, 255, 24), outline=GREEN, width=5)
+    ic = emoji("💶", 70); eur.alpha_composite(ic, ((440 - ic.width) // 2, 22))
+    a = hstack([T("۱۰۹۱", fa("Black", 66), GREEN, rtl=True, pad=2), T("€", la("Black", 58), GREEN, pad=2)], 10)
+    eur.alpha_composite(a, ((440 - a.width) // 2, 100))
+    lb = F("در ماه", "Bold", 390, 40, SOFT, pad=2); eur.alpha_composite(lb, ((440 - lb.width) // 2, 184))
+    tiles = [(tile("🎓", "Abschluss", "مدرک", GOLD), 300, 0),
+             (lang, 780, 0),
+             (tile("⭐", "Punkte", "۶ امتیاز", (255, 120, 110)), 300, 1),
+             (eur, 780, 1)]
+    for (t, x, r) in tiles:  # RTL: first item on the right
+        place(c, t, 1080 - x, y + r * 268, sh=True)
+    y += 2 * 268 + 2
+    place(c, pill(F("بعدش اقامت کار، دائم و پاس آلمانی", "Black", 900, 52, INK, pad=4), GOLD, 36, 14), 540, y, sh=True, rot=-1)
+    return c
+
 JOBS = {
+    "Wegweiser-Chancenkarte": c_chancenkarte,
     "Wegweiser-Steuer2022": c_steuer2022,
     "Wegweiser-Pass-Jahre": c_pass_jahre,
     "Wegweiser-2027-Aenderungen": c_2027,
