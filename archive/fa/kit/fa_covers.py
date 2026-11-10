@@ -536,7 +536,36 @@ def c_chancenkarte():
     place(c, pill(F("بعدش اقامت کار، دائم و پاس آلمانی", "Black", 900, 52, INK, pad=4), GOLD, 36, 14), 540, y, sh=True, rot=-1)
     return c
 
+# ======================= 13. DTZ B1 neu =======================
+def c_dtz_b1_neu():
+    c = background([(540, 1050, 440, GREEN, 40), (220, 700, 320, BLUE, 70), (880, 700, 300, GOLD, 45)])
+    frame(c, "امتحان B1")
+    y = 300
+    y = place(c, F("امتحان B1", "Black", 960, 150, WHITE), 540, y) - 10
+    y = place(c, F("سخت‌تر میشه!", "Black", 960, 130, GOLD), 540, y, sh=True) + 40
+    CW, RH = 940, 190
+    card = Image.new("RGBA", (CW, 120 + 3 * RH), (0, 0, 0, 0)); d = ImageDraw.Draw(card)
+    d.rounded_rectangle((0, 0, CW - 1, card.height - 1), 44, fill=(248, 246, 240))
+    t = T("DTZ · Ergebnis", la("Black", 58), INK, pad=0); card.alpha_composite(t, (CW - 50 - t.width, 60 - t.height // 2))
+    ic = emoji("📝", 62); card.alpha_composite(ic, (50, 60 - ic.height // 2))
+    d.line((40, 118, CW - 40, 118), fill=(210, 204, 190), width=4)
+    G_D = (24, 150, 96); GOLD_D = (190, 128, 10)
+    rows = [("Sprechen", "صحبت کردن · حتماً", "B1", G_D, (220, 246, 232)),
+            ("Hören/Lesen  —  Schreiben", "یکی از این دو", "B1", G_D, (220, 246, 232)),
+            ("Hören/Lesen  —  Schreiben", "اون یکی · حداقل", "A2", GOLD_D, (255, 240, 206))]
+    for i, (de, fa_, lvl, col, bgc) in enumerate(rows):
+        y0 = 120 + i * RH
+        if i: d.line((40, y0, CW - 40, y0), fill=(226, 220, 208), width=3)
+        b = pill(T(lvl, la("Black", 84), col, pad=0), bgc, 30, 14, r=26, outline=col, ow=6)
+        card.alpha_composite(b, (44, y0 + (RH - b.height) // 2))
+        m = F(de, "Black", 600, 56, INK, latin=True, pad=2); card.alpha_composite(m, (CW - 50 - m.width, y0 + 28))
+        f2 = F(fa_, "Bold", 600, 46, (70, 86, 110), pad=2); card.alpha_composite(f2, (CW - 50 - f2.width, y0 + 104))
+    y = place(c, card, 540, y, sh=True, rot=-1) + 46
+    place(c, pill(F("از ۱ نوامبر", "Black", 800, 76, WHITE, pad=4), RED, 50, 18), 540, y, sh=True, rot=-2)
+    return c
+
 JOBS = {
+    "Wegweiser-DTZ-B1-neu": c_dtz_b1_neu,
     "Wegweiser-Chancenkarte": c_chancenkarte,
     "Wegweiser-Steuer2022": c_steuer2022,
     "Wegweiser-Pass-Jahre": c_pass_jahre,
