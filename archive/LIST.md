@@ -88,3 +88,4 @@ fa/Wegweiser-25-3-Reel.mp4 | § 25 Abs. 3 (Abschiebungsverbot): 5 Dinge | Persis
 - fa | 2026-11-08 | Wegweiser-Heizkosten-Reel.mp4 | Heizkosten: 3% / 15% Kürzung (HeizkostenV) – ohne Cover-Intro
 - ku | 2026-11-08 | Kurdi-Siasi-Reel.mp4 | ئیقامەی سیاسی؟ 16a / Flüchtling / subsidiär / 25.3 / § 26 Abs. 3 – ohne Cover-Intro, neue Audio-Kette
 - fa | 2026-11-08 | Wegweiser-Siasi-Reel.mp4 | اقامت سیاسی؟ 16a / Flüchtling / subsidiär / 25.3 / § 26 Abs. 3 – ohne Cover-Intro, neue Audio-Kette
+- fa | 2026-11-10 | Wegweiser-Karte-Reel.mp4 | اقامت داری؟ روی کارتت چی نوشته (25.5, 25a, 25b, 26.3/4, 9a) + Web-App-Hinweis
