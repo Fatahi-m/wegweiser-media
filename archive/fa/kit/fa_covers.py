@@ -564,7 +564,41 @@ def c_dtz_b1_neu():
     place(c, pill(F("از ۱ نوامبر", "Black", 800, 76, WHITE, pad=4), RED, 50, 18), 540, y, sh=True, rot=-2)
     return c
 
+# ======================= 14. Fiktionsbescheinigung =======================
+def c_fiktion():
+    c = background([(540, 1050, 440, BLUE, 60), (860, 520, 300, GOLD, 45), (200, 1450, 300, RED, 45)])
+    frame(c, "فیکسیون")
+    y = 330
+    y = place(c, F("اقامتت تموم شده؟", "Black", 960, 130, WHITE), 540, y) - 8
+    y = place(c, F("قبل از سفر اینو ببین!", "Black", 960, 104, GOLD), 540, y, sh=True) + 50
+    CW, RH = 940, 200
+    LIGHT_R = (236, 64, 58); G_D = (24, 150, 96)
+    card = Image.new("RGBA", (CW, 240 + 2 * RH + 20), (0, 0, 0, 0)); d = ImageDraw.Draw(card)
+    d.rounded_rectangle((0, 0, CW - 1, card.height - 1), 44, fill=(248, 246, 240))
+    for i, col in enumerate([(20, 20, 20), (210, 30, 30), (240, 190, 40)]):
+        d.rectangle((44, 26 + i * 10, CW - 44, 26 + (i + 1) * 10), fill=col)
+    t = F("Fiktionsbescheinigung", "Black", CW - 220, 64, INK, latin=True, pad=0); card.alpha_composite(t, (CW - 50 - t.width, 82))
+    sb = T("§ 81 AufenthG", la("SemiBold", 40), (70, 86, 110), pad=0); card.alpha_composite(sb, (CW - 50 - sb.width, 82 + t.height + 14))
+    pl = emoji("✈️", 96); card.alpha_composite(pl, (50, 100))
+    d.line((40, 236, CW - 40, 236), fill=(210, 204, 190), width=4)
+    rows = [("Absatz 4", "رفت و برگشت: آره", G_D, "ok"), ("Absatz 3", "برگشت: ممنوع!", LIGHT_R, "x")]
+    for i, (de, fa_, col, ic) in enumerate(rows):
+        y0 = 246 + i * RH
+        if i: d.line((40, y0, CW - 40, y0), fill=(226, 220, 208), width=3)
+        inner = Image.new("RGBA", (64, 64), (0, 0, 0, 0)); xd = ImageDraw.Draw(inner)
+        if ic == "x":
+            xd.line((8, 8, 56, 56), fill=WHITE, width=13); xd.line((56, 8, 8, 56), fill=WHITE, width=13)
+        else:
+            xd.line((4, 34, 24, 54), fill=WHITE, width=13); xd.line((22, 54, 60, 10), fill=WHITE, width=13)
+        b = circle_badge(130, col, inner); card.alpha_composite(b, (CW - 44 - 130, y0 + (RH - 130) // 2))
+        m = T(de, la("Black", 78), INK, pad=2); card.alpha_composite(m, (CW - 200 - m.width, y0 + 22))
+        f2 = F(fa_, "Black", 640, 54, col, pad=2); card.alpha_composite(f2, (CW - 200 - f2.width, y0 + 112))
+    y = place(c, card, 540, y, sh=True, rot=-2) + 70
+    place(c, pill(F("یه اشتباه = گیر توی مرز!", "Black", 860, 72, WHITE, pad=4), RED, 46, 18), 540, y, sh=True, rot=-2)
+    return c
+
 JOBS = {
+    "Wegweiser-Fiktion": c_fiktion,
     "Wegweiser-DTZ-B1-neu": c_dtz_b1_neu,
     "Wegweiser-Chancenkarte": c_chancenkarte,
     "Wegweiser-Steuer2022": c_steuer2022,
