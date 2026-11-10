@@ -206,12 +206,123 @@ def c_5_yarmati():
     place(c, F("ژمارە ١ تەنانەت بێ Jobcenter یش هەیە!", "Bold", 940, 50, GREEN), 540, y)
     return c
 
+# ======================= 25.5 / 25a / 25b =======================
+def c_25_5ab():
+    c = background(); frame(c, "ئیقامە بێ پەنابەری")
+    y = 300
+    y = place(c, F("پەنابەرییەکەت ڕەفز کرا؟", "Black", 960, 100, INK), 540, y) + 6
+    st = pill(T("ABGELEHNT", la("Black", 70), RED, pad=0), (0, 0, 0, 0), 30, 12, r=18, outline=RED, ow=9)
+    y = place(c, st, 540, y, rot=-5) + 10
+    y = place(c, F("هێشتا ٣ ڕێگا هەیە!", "Black", 960, 128, GREEN), 540, y) + 60
+    cols = [(WHITE, "§ 25.5", "🚪", "گەڕانەوە مەحاڵە"), (GOLD, "§ 25a", "🎓", "گەنجان"), (GREEN, "§ 25b", "🤝", "ئینتیگراسیۆن")]
+    for i, (col, para, ic, sub) in enumerate(cols):
+        x = 200 + i * 340; tc = WHITE if col == GREEN else INK
+        t = Image.new("RGBA", (300, 470), (0, 0, 0, 0)); d = ImageDraw.Draw(t)
+        d.rounded_rectangle((0, 0, 299, 469), 46, fill=col, outline=(214, 208, 196) if col == WHITE else None, width=4)
+        n = circle_badge(84, RED, T(str(i + 1), la("Black", 54), WHITE, pad=0)); t.alpha_composite(n, (108, 28))
+        e = emoji(ic, 120); t.alpha_composite(e, ((300 - e.width) // 2, 138))
+        pp = F(para, "Black", 260, 74, tc, latin=True); t.alpha_composite(pp, ((300 - pp.width) // 2, 290))
+        s_ = F(sub, "Bold", 260, 40, tc); t.alpha_composite(s_, ((300 - s_.width) // 2, 385))
+        place(c, t, x, y + (0 if i == 1 else 30), sh=True, rot=(4 if i == 0 else -4 if i == 2 else 0))
+    y += 580
+    place(c, pill(F("ببینە کامیان بۆ تۆیە", "Black", 760, 54, WHITE, pad=4), INK, 38, 14), 540, y, sh=True)
+    return c
+
+# ======================= 25.5 =======================
+def c_25_5():
+    c = background(); frame(c, "ئیقامەی 25.5")
+    y = 300
+    y = place(c, F("لەسەر کارتەکەت 25.5 نووسراوە؟", "Black", 960, 88, INK), 540, y) + 4
+    y = place(c, F("لاوازترین ئیقامەی ئەڵمانیا!", "Black", 960, 92, RED), 540, y) + 26
+    y = place(c, rcard(700, "25 Abs. 5", highlight=(255, 120, 110)), 540, y, sh=True, rot=-3) + 36
+    def row(icon, txt, col):
+        r = Image.new("RGBA", (880, 116), (0, 0, 0, 0)); d = ImageDraw.Draw(r)
+        d.rounded_rectangle((0, 0, 879, 115), 34, fill=WHITE, outline=col, width=5)
+        b = circle_badge(80, col, emoji(icon, 46)); r.alpha_composite(b, (880 - 18 - 80, 18))
+        t = F(txt, "Black", 720, 54, INK); r.alpha_composite(t, (880 - 18 - 80 - 24 - t.width, (116 - t.height) // 2))
+        return r
+    for icon, txt, col in [("❌", "هێنانی خێزان قەدەغەیە", RED), ("❌", "پاسپۆرتی ڕاستەوخۆ نییە", RED), ("⚠️", "سەفەر بۆ وڵاتی خۆت = مەترسی", GOLD)]:
+        y = place(c, row(icon, txt, col), 540, y) + 16
+    y += 4
+    place(c, pill(hstack([F("بەڵام ڕێگای دەربازبوونی هەیە!", "Black", 700, 54, WHITE, pad=4), emoji("🔑", 54)], 14), GREEN, 38, 14), 540, y, sh=True)
+    return c
+
+# ======================= 25a =======================
+def c_25a():
+    c = background(); frame(c, "ئیقامەی گەنجان")
+    y = 300
+    y = place(c, F("گەنجیت و لە ئەڵمانیا", "Black", 960, 104, INK), 540, y) - 6
+    y = place(c, F("خوێندوویت؟", "Black", 960, 132, GREEN), 540, y) + 30
+    card = rcard(760, "25a")
+    place(c, card, 560, y + 20, sh=True, rot=3)
+    place(c, emoji("🎓", 190), 190, y - 30, sh=True)
+    place(c, emoji("🎒", 130), 150, y + 330, sh=True)
+    y += 560
+    y = place(c, pill(F("ئیقامە وەردەگریت!", "Black", 760, 92, WHITE, pad=4), GREEN, 52, 18), 540, y, sh=True, rot=-2) + 34
+    place(c, F("تەنانەت ئەگەر پەنابەرییەکەت ڕەفز کرابێت", "Bold", 940, 54, RED), 540, y)
+    return c
+
+# ======================= Beschäftigungsduldung =======================
+def c_beschaeft():
+    c = background(); frame(c, "Duldung")
+    y = 300
+    y = place(c, F("Duldung ت هەیە و کار دەکەیت؟", "Black", 960, 90, INK), 540, y) + 18
+    y = place(c, pill(T("Beschäftigungsduldung", la("Black", 62), INK, pad=0), GOLD, 36, 16), 540, y, sh=True, rot=-2) + 50
+    steps = [("💼", [T("Duldung", la("Black", 66), INK, pad=2), T("+", la("Black", 60), MUTED, pad=2), T("کار", fa("Black", 64), INK, rtl=True, pad=2)], WHITE),
+             ("⏳", [T("٣٠ مانگ", fa("Black", 70), INK, rtl=True, pad=2)], GOLD),
+             ("🪪", [T("§ 25b", la("Black", 70), GREEN, pad=2), T("ئیقامەی", fa("Black", 64), GREEN, rtl=True, pad=2)], GREEN)]
+    x_line = 250; gap = 210
+    ImageDraw.Draw(c).rounded_rectangle((x_line - 7, y + 70, x_line + 7, y + 70 + gap * 2), 7, fill=GREEN)
+    for i, (ic, parts, col) in enumerate(steps):
+        yy = y + i * gap
+        place(c, circle_badge(140, col, emoji(ic, 76), ring=GREEN), x_line, yy, sh=True)
+        lab = hstack(parts, 14); c.alpha_composite(lab, (x_line + 110, yy + 70 - lab.height // 2))
+    y += gap * 2 + 200
+    y = place(c, F("دوای ٣٠ مانگ ئیقامە!", "Black", 960, 100, RED), 540, y) + 20
+    place(c, pill(T("§ 60d AufenthG", la("Black", 48), WHITE, pad=2), INK, 34, 14), 540, y, sh=True)
+    return c
+
+# ======================= Spurwechsel =======================
+def c_spurwechsel():
+    c = background(); frame(c, "Spurwechsel")
+    y = 300
+    y = place(c, F("چەند ساڵە چاوەڕێی", "Black", 960, 104, INK), 540, y) - 6
+    y = place(c, F("BAMF دەکەیت؟", "Black", 960, 124, GREEN), 540, y) + 40
+    a = tile("⏳", "Asyl", RED, w=360, h=290)
+    b = tile("💼", "ئیقامەی کار", GREEN, w=360, h=290)
+    place(c, b, 260, y, sh=True, rot=4); place(c, a, 820, y, sh=True, rot=-4)
+    place(c, circle_badge(140, GOLD, emoji("🔀", 80), ring=WHITE), 540, y + 145, sh=True, anchor="mid")
+    y += 380
+    y = place(c, de_card("Spurwechsel", "ڕێگایەک بۆ ئیقامەی کار", fsize=84), 540, y, sh=True) + 40
+    place(c, pill(hstack([F("بەڵام زۆر ئاگاداربە!", "Black", 700, 66, WHITE, pad=4), emoji("⚠️", 60)], 14), RED, 44, 18), 540, y, sh=True, rot=-2)
+    return c
+
+# ======================= 16g =======================
+def c_16g():
+    c = background(); frame(c, "Ausbildung")
+    y = 300
+    y = place(c, F("Ausbildung دەکەیت؟", "Black", 960, 112, INK), 540, y) + 0
+    y = place(c, F("بەڵام Gestattung یان Duldung ت هەیە؟", "Black", 960, 70, MUTED), 540, y) + 40
+    place(c, rcard(780, "16g"), 540, y, sh=True, rot=-3)
+    place(c, pill(F("نوێ لە ٢٠٢٤ەوە", "Black", 400, 50, INK, pad=4), GOLD, 30, 12), 830, y - 30, sh=True, rot=8)
+    place(c, emoji("🛠️", 150), 150, y + 380, sh=True)
+    y += 560
+    y = place(c, F("ئیقامەیەکی نوێ:", "Black", 900, 100, GREEN), 540, y) + 10
+    place(c, pill(T("§ 16g AufenthG", la("Black", 80), WHITE, pad=2), RED, 46, 18), 540, y, sh=True, rot=-2)
+    return c
+
 JOBS = {
     "Kurdi-Widerruf": c_widerruf,
     "Kurdi-AsylG-3-4": c_asylg_3_4,
     "Kurdi-25-2-Subsidiaer": c_25_2,
     "Kurdi-Besuchsvisum": c_besuch,
     "Kurdi-5-Yarmati-Jobcenter": c_5_yarmati,
+    "Kurdi-Aufenthalt-25-5-a-b": c_25_5ab,
+    "Kurdi-25-5": c_25_5,
+    "Kurdi-25a": c_25a,
+    "Kurdi-Beschaeftigungsduldung": c_beschaeft,
+    "Kurdi-Spurwechsel": c_spurwechsel,
+    "Kurdi-16g": c_16g,
 }
 
 if __name__ == "__main__":
