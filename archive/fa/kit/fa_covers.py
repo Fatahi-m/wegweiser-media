@@ -597,7 +597,30 @@ def c_fiktion():
     place(c, pill(F("یه اشتباه = گیر توی مرز!", "Black", 860, 72, WHITE, pad=4), RED, 46, 18), 540, y, sh=True, rot=-2)
     return c
 
+# ======================= 25.5 (weakest permit) =======================
+def c_25_5():
+    c = background([(820, 820, 380, RED, 50), (240, 1400, 360, GREEN, 45)])
+    frame(c, "اقامت 25.5")
+    y = 300
+    y = place(c, F("روی کارتت 25.5 نوشته؟", "Black", 940, 96, WHITE), 540, y) + 4
+    y = place(c, F("ضعیف‌ترین اقامت آلمان!", "Black", 940, 92, GOLD), 540, y, sh=True) + 24
+    card = rcard(700, "25 Abs. 5", highlight=(255, 120, 110))
+    y = place(c, card, 540, y, sh=True, rot=-3) + 40
+    def row(icon, txt, col):
+        r = Image.new("RGBA", (860, 116), (0, 0, 0, 0)); d = ImageDraw.Draw(r)
+        d.rounded_rectangle((0, 0, 859, 115), 34, fill=(255, 255, 255, 24), outline=col, width=4)
+        b = circle_badge(80, col, emoji(icon, 46)); r.alpha_composite(b, (860 - 18 - 80, 18))
+        t = F(txt, "Black", 700, 56, WHITE); r.alpha_composite(t, (860 - 18 - 80 - 24 - t.width, (116 - t.height) // 2))
+        return r
+    for icon, txt, col in [("❌", "لم‌شمل ممنوع", RED), ("❌", "پاس مستقیم نه", RED), ("⚠️", "سفر به کشور خودت = خطر", GOLD)]:
+        y = place(c, row(icon, txt, col), 540, y) + 18
+    y += 6
+    esc = pill(hstack([F("ولی یه راه فرار داره!", "Black", 640, 60, INK, pad=4), emoji("🔑", 58)], 14), GREEN, 40, 16)
+    place(c, esc, 540, y, sh=True)
+    return c
+
 JOBS = {
+    "Wegweiser-25-5": c_25_5,
     "Wegweiser-Fiktion": c_fiktion,
     "Wegweiser-DTZ-B1-neu": c_dtz_b1_neu,
     "Wegweiser-Chancenkarte": c_chancenkarte,
