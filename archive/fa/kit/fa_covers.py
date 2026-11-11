@@ -619,7 +619,62 @@ def c_25_5():
     place(c, esc, 540, y, sh=True)
     return c
 
+# ======================= Umzug mit Duldung / Gestattung =======================
+def city_map(w, h):
+    k = 2; W2, H2 = w * k, h * k
+    m = Image.new("RGBA", (W2, H2), (0, 0, 0, 0)); d = ImageDraw.Draw(m)
+    d.rounded_rectangle((0, 0, W2 - 1, H2 - 1), 44 * k, fill=(234, 240, 234))
+    for x in range(0, W2, 90 * k): d.line((x, 0, x, H2), fill=(218, 226, 218), width=3 * k)
+    for y in range(0, H2, 90 * k): d.line((0, y, W2, y), fill=(218, 226, 218), width=3 * k)
+    d.polygon([(0, H2 * 0.62), (W2, H2 * 0.48), (W2, H2 * 0.56), (0, H2 * 0.70)], fill=(200, 214, 236))  # river
+    mk = Image.new("L", (W2, H2), 0); ImageDraw.Draw(mk).rounded_rectangle((0, 0, W2 - 1, H2 - 1), 44 * k, fill=255); m.putalpha(mk)
+    d = ImageDraw.Draw(m)
+    A = (int(W2 * 0.18), int(H2 * 0.62)); B = (int(W2 * 0.82), int(H2 * 0.30))
+    n = 14
+    for i in range(n):
+        if i % 2: continue
+        t0, t1 = i / n, (i + 1) / n
+        p0 = (A[0] + (B[0] - A[0]) * t0, A[1] + (B[1] - A[1]) * t0 - math.sin(t0 * math.pi) * H2 * 0.18)
+        p1 = (A[0] + (B[0] - A[0]) * t1, A[1] + (B[1] - A[1]) * t1 - math.sin(t1 * math.pi) * H2 * 0.18)
+        d.line((p0, p1), fill=(60, 72, 96), width=9 * k)
+    def pin(p, col, lab):
+        r = 46 * k; x, y = p
+        d.polygon([(x - r * 0.82, y - r * 1.3), (x + r * 0.82, y - r * 1.3), (x, y)], fill=col)
+        d.ellipse((x - r, y - r * 2.4, x + r, y - r * 0.4), fill=col)
+        d.ellipse((x - r * 0.4, y - r * 1.8, x + r * 0.4, y - r), fill=WHITE)
+        t = T(lab, la("Black", 44 * k), INK, pad=0); m.alpha_composite(t, (int(x - t.width / 2), int(y + 14 * k)))
+    pin(A, RED, "Stadt A"); pin(B, GREEN, "Stadt B")
+    # stop sign mid-route
+    cx, cy, R = W2 * 0.5, H2 * 0.40, 92 * k
+    pts = [(cx + R * math.cos(math.radians(22.5 + 45 * i)), cy + R * math.sin(math.radians(22.5 + 45 * i))) for i in range(8)]
+    d.polygon(pts, fill=WHITE)
+    pts2 = [(cx + R * 0.88 * math.cos(math.radians(22.5 + 45 * i)), cy + R * 0.88 * math.sin(math.radians(22.5 + 45 * i))) for i in range(8)]
+    d.polygon(pts2, fill=RED)
+    t = T("STOP", la("Black", 54 * k), WHITE, pad=0); m.alpha_composite(t, (int(cx - t.width / 2), int(cy - t.height / 2)))
+    return m.resize((w, h), Image.LANCZOS)
+
+def c_umzug_duldung():
+    c = background([(820, 820, 380, RED, 50), (240, 1400, 360, GREEN, 50), (300, 520, 300, BLUE, 50)])
+    frame(c, "عوض کردن شهر")
+    y = 300
+    y = place(c, F("Duldung یا Gestattung داری؟", "Black", 960, 84, WHITE), 540, y) + 4
+    y = place(c, F("می‌خوای بری یه شهر دیگه؟", "Black", 960, 96, GOLD), 540, y, sh=True) + 30
+    y = place(c, city_map(900, 400), 540, y, sh=True, rot=-2) + 30
+    money = pill(hstack([emoji("💸", 60), F("بدون اجازه = پولت قطع میشه!", "Black", 760, 64, WHITE, pad=4)], 14), RED, 40, 16)
+    y = place(c, money, 540, y, sh=True, rot=-1) + 34
+    y = place(c, F("ولی راه قانونی داره:", "Black", 900, 62, GREEN), 540, y) + 14
+    def tile(icon, txt):
+        t = Image.new("RGBA", (290, 220), (0, 0, 0, 0)); d = ImageDraw.Draw(t)
+        d.rounded_rectangle((0, 0, 289, 219), 36, fill=(255, 255, 255, 26), outline=GREEN, width=5)
+        ic = emoji(icon, 90); t.alpha_composite(ic, ((290 - ic.width) // 2, 26))
+        tx = F(txt, "Black", 260, 50, WHITE); t.alpha_composite(tx, ((290 - tx.width) // 2, 134)); return t
+    # RTL reading order: first item on the right
+    for x, (icon, txt) in zip([850, 540, 230], [("💼", "درآمد خودت"), ("🫂", "خانواده"), ("🏥", "بیماری")]):
+        place(c, tile(icon, txt), x, y)
+    return c
+
 JOBS = {
+    "Wegweiser-Umzug-Duldung": c_umzug_duldung,
     "Wegweiser-25-5": c_25_5,
     "Wegweiser-Fiktion": c_fiktion,
     "Wegweiser-DTZ-B1-neu": c_dtz_b1_neu,
