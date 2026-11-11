@@ -673,7 +673,27 @@ def c_umzug_duldung():
         place(c, tile(icon, txt), x, y)
     return c
 
+# ======================= § 16c SGB II (Selbstständigkeit) =======================
+def c_16c():
+    c = background([(540, 900, 420, GOLD, 65), (220, 1420, 320, GREEN, 45), (880, 520, 280, BLUE, 55)])
+    frame(c, "خوداشتغالی")
+    y = 320
+    y = place(c, F("می‌خوای کار خودت رو", "Black", 960, 104, WHITE), 540, y) - 8
+    y = place(c, F("راه بندازی؟", "Black", 960, 104, WHITE), 540, y) + 40
+    # illustration: shop/briefcase badge surrounded by coins
+    iy = y + 150
+    for (x, yy, r) in [(200, iy - 70, 70), (880, iy - 40, 80), (300, iy + 120, 52), (790, iy + 140, 56)]:
+        place(c, coin(r), x, yy, sh=True, anchor="mid")
+    place(c, circle_badge(300, WHITE, emoji("🏪", 190), ring=GOLD), 540, iy, sh=True, anchor="mid")
+    y = iy + 175
+    y = place(c, F("تا ۵۰۰۰ یورو", "Black", 960, 190, GOLD), 540, y, sh=True) + 10
+    y = place(c, F("کمک از جاب‌سنتر", "Black", 940, 86, WHITE), 540, y) + 30
+    y = place(c, pill(F("بدون پس دادن!", "Black", 800, 74, WHITE, pad=4), RED, 46, 18), 540, y, sh=True, rot=-2) + 40
+    place(c, pill(T("§ 16c SGB II", la("Black", 64), INK, pad=2), WHITE, 40, 14), 540, y, sh=True)
+    return c
+
 JOBS = {
+    "Wegweiser-16c-Selbststaendig": c_16c,
     "Wegweiser-Umzug-Duldung": c_umzug_duldung,
     "Wegweiser-25-5": c_25_5,
     "Wegweiser-Fiktion": c_fiktion,
