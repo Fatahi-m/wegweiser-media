@@ -722,7 +722,36 @@ def c_schwanger():
     y = place(c, pill(F("فقط قبل از تولد بچه!", "Black", 760, 72, WHITE, pad=4), RED, 46, 18), 540, y, sh=True, rot=-1) + 6
     return c
 
+# ======================= Untätigkeitsklage (§ 75 VwGO) =======================
+def c_untaetigkeit():
+    c = background([(540, 900, 420, GOLD, 60), (220, 1420, 320, GREEN, 45), (870, 520, 280, BLUE, 55)])
+    frame(c, "اداره جواب نمیده")
+    y = 300
+    y = place(c, F("ماه‌هاست منتظر", "Black", 960, 112, WHITE), 540, y) - 8
+    y = place(c, F("جواب اداره‌ای؟", "Black", 960, 112, GOLD), 540, y, sh=True) + 36
+    # illustration: hourglass in the middle, empty mailbox (right) and office (left)
+    iy = y + 140
+    place(c, circle_badge(150, WHITE, emoji("📭", 90), ring=GOLD), 870, iy + 30, sh=True, anchor="mid")
+    place(c, circle_badge(150, WHITE, emoji("🏛️", 90), ring=GOLD), 210, iy + 30, sh=True, anchor="mid")
+    place(c, circle_badge(270, GOLD, emoji("⏳", 170), ring=WHITE), 540, iy, sh=True, anchor="mid")
+    y = iy + 165
+    y = place(c, F("بعد از ۳ ماه حق داری:", "Black", 940, 80, WHITE), 540, y) + 26
+    # card with the legal term
+    cw, chh = 900, 250
+    card = Image.new("RGBA", (cw, chh), (0, 0, 0, 0)); d = ImageDraw.Draw(card)
+    d.rounded_rectangle((0, 0, cw - 1, chh - 1), 44, fill=(249, 246, 238))
+    for i, col in enumerate([(20, 20, 20), (210, 30, 30), (240, 190, 40)]):
+        d.rectangle((44, 26 + i * 10, cw - 44, 26 + (i + 1) * 10), fill=col)
+    t = F("Untätigkeitsklage", "Black", cw - 90, 104, INK, latin=True, pad=0)
+    card.alpha_composite(t, ((cw - t.width) // 2, 80))
+    sb = T("§ 75 VwGO", la("SemiBold", 44), (70, 86, 110), pad=0)
+    card.alpha_composite(sb, ((cw - sb.width) // 2, 80 + t.height + 18))
+    y = place(c, card, 540, y, sh=True, rot=-2) + 44
+    place(c, pill(F("اداره رو مجبور به جواب کن!", "Black", 840, 70, INK, pad=4), GREEN, 46, 18), 540, y, sh=True, rot=-1)
+    return c
+
 JOBS = {
+    "Wegweiser-Untaetigkeitsklage": c_untaetigkeit,
     "Wegweiser-Schwanger-Hilfe": c_schwanger,
     "Wegweiser-16c-Selbststaendig": c_16c,
     "Wegweiser-Umzug-Duldung": c_umzug_duldung,
