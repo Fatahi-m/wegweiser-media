@@ -692,7 +692,38 @@ def c_16c():
     place(c, pill(T("§ 16c SGB II", la("Black", 64), INK, pad=2), WHITE, 40, 14), 540, y, sh=True)
     return c
 
+# ======================= Schwangerschaft: Bundesstiftung Mutter und Kind =======================
+def c_schwanger():
+    c = background([(540, 860, 420, GOLD, 60), (220, 1380, 320, RED, 45), (870, 520, 280, BLUE, 55)])
+    frame(c, "کمک برای زن باردار")
+    y = 300
+    y = place(c, F("بارداری و پولت کمه؟", "Black", 960, 104, WHITE), 540, y) + 2
+    y = place(c, F("این کمک رو پس نمیدی!", "Black", 960, 96, GOLD), 540, y, sh=True) + 30
+    # illustration: pregnant woman + baby items
+    iy = y + 140
+    place(c, circle_badge(150, WHITE, emoji("🍼", 92), ring=GOLD), 210, iy + 30, sh=True, anchor="mid")
+    place(c, circle_badge(150, WHITE, emoji("👶", 92), ring=GOLD), 870, iy + 30, sh=True, anchor="mid")
+    place(c, circle_badge(270, GOLD, emoji("🤰", 180), ring=WHITE), 540, iy, sh=True, anchor="mid")
+    y = iy + 160
+    # card
+    cw, chh = 880, 430
+    card = Image.new("RGBA", (cw, chh), (0, 0, 0, 0)); d = ImageDraw.Draw(card)
+    d.rounded_rectangle((0, 0, cw - 1, chh - 1), 40, fill=(249, 246, 238))
+    d.rounded_rectangle((0, 0, cw - 1, 110), 40, fill=GOLD); d.rectangle((0, 60, cw - 1, 110), fill=GOLD)
+    t = F("Bundesstiftung Mutter und Kind", "Black", cw - 80, 50, INK, latin=True, pad=4)
+    card.alpha_composite(t, ((cw - t.width) // 2, 55 - t.height // 2))
+    yy = 140
+    for txt in ["Babykleidung", "Kinderwagen & Bett", "Umstandskleidung"]:
+        ck = circle_badge(64, GREEN, T("✓", la_t("Black", 40), WHITE, pad=0))
+        card.alpha_composite(ck, (60, yy))
+        tx = T(txt, la("Bold", 50), INK, pad=0); card.alpha_composite(tx, (150, yy + 32 - tx.height // 2))
+        yy += 92
+    y = place(c, card, 540, y, sh=True, rot=-2) + 26
+    y = place(c, pill(F("فقط قبل از تولد بچه!", "Black", 760, 72, WHITE, pad=4), RED, 46, 18), 540, y, sh=True, rot=-1) + 6
+    return c
+
 JOBS = {
+    "Wegweiser-Schwanger-Hilfe": c_schwanger,
     "Wegweiser-16c-Selbststaendig": c_16c,
     "Wegweiser-Umzug-Duldung": c_umzug_duldung,
     "Wegweiser-25-5": c_25_5,
