@@ -325,6 +325,225 @@ JOBS = {
     "Kurdi-16g": c_16g,
 }
 
+# ======================= helpers for batch 2 =======================
+def letter2(w, label, col=INK):
+    h = int(w * 0.72); s = Image.new("RGBA", (w, h), (0, 0, 0, 0)); d = ImageDraw.Draw(s)
+    d.rounded_rectangle((0, 0, w - 1, h - 1), 26, fill=WHITE, outline=(214, 208, 196), width=4)
+    d.polygon([(6, 8), (w / 2, h * 0.52), (w - 6, 8)], fill=(240, 236, 226), outline=(214, 208, 196))
+    t = F(label, "Black", int(w * 0.5), int(w * 0.16), col, latin=True); s.alpha_composite(t, (int(w * 0.07), int(h * 0.62)))
+    for i in range(2):
+        y = int(h * (0.68 + i * 0.1)); d.rounded_rectangle((int(w * 0.62), y, int(w * (0.92 - i * 0.1)), y + 12), 6, fill=(204, 210, 206))
+    return s
+
+def para_card(txt, sub, col, tc, w=430, h=330):
+    t = Image.new("RGBA", (w, h), (0, 0, 0, 0)); d = ImageDraw.Draw(t)
+    d.rounded_rectangle((0, 0, w - 1, h - 1), 44, fill=col, outline=(214, 208, 196) if col == WHITE else None, width=4)
+    p = F(txt, "Black", w - 50, 100, tc, latin=True); t.alpha_composite(p, ((w - p.width) // 2, 50))
+    s_ = F(sub, "Bold", w - 50, 48, tc); t.alpha_composite(s_, ((w - s_.width) // 2, 200))
+    return t
+
+def natpass(w):
+    h = int(w * 1.38); s = Image.new("RGBA", (w, h), (0, 0, 0, 0)); d = ImageDraw.Draw(s)
+    d.rounded_rectangle((0, 0, w - 1, h - 1), 30, fill=(28, 70, 56)); d.rounded_rectangle((0, 0, 30, h - 1), 18, fill=(18, 50, 40))
+    gold = (226, 182, 92)
+    t = T("PASSPORT", la("Black", int(w * 0.13)), gold, pad=0); s.alpha_composite(t, ((w - t.width) // 2 + 10, int(h * 0.12)))
+    cx, cy, r = w // 2 + 10, int(h * 0.5), int(w * 0.24)
+    d.ellipse((cx - r, cy - r, cx + r, cy + r), outline=gold, width=7)
+    d.ellipse((cx - r * 0.45, cy - r, cx + r * 0.45, cy + r), outline=gold, width=5)
+    d.line((cx - r, cy, cx + r, cy), fill=gold, width=5); d.line((cx, cy - r, cx, cy + r), fill=gold, width=5)
+    cw = int(w * 0.16); x0 = cx - cw // 2; y0 = int(h * 0.83)
+    d.rounded_rectangle((x0, y0, x0 + cw, y0 + int(cw * 0.6)), 6, outline=gold, width=4)
+    return s
+
+# ======================= Salakan (which years count) =======================
+def c_salakan():
+    c = background(); frame(c, "Einbürgerung")
+    y = 300
+    y = place(c, F("چەند ساڵە لە ئەڵمانیایت؟", "Black", 960, 96, INK), 540, y) + 10
+    y = place(c, F("کام ساڵەکانت حساب دەکرێن؟", "Black", 960, 96, GREEN), 540, y) + 50
+    items = [("Gestattung", "❓", GOLD, INK), ("Duldung", "❓", RED, WHITE), ("Aufenthalt", "✅", GREEN, WHITE)]
+    for i, (lab, ic, col, tc) in enumerate(items):
+        t = Image.new("RGBA", (310, 400), (0, 0, 0, 0)); d = ImageDraw.Draw(t)
+        d.rounded_rectangle((0, 0, 309, 399), 44, fill=col)
+        e = emoji("📅", 120); t.alpha_composite(e, ((310 - e.width) // 2, 40))
+        l = F(lab, "Black", 270, 56, tc, latin=True); t.alpha_composite(l, ((310 - l.width) // 2, 200))
+        b = emoji(ic, 80); t.alpha_composite(b, ((310 - b.width) // 2, 290))
+        place(c, t, 870 - i * 330, y + (0 if i == 1 else 30), sh=True, rot=(-4 if i == 0 else 4 if i == 2 else 0))
+    y += 520
+    y = place(c, pill(F("ئیقامەی هەمیشەیی و پاسپۆرت", "Black", 860, 64, WHITE, pad=4), GREEN, 44, 18), 540, y, sh=True, rot=-2) + 30
+    return c
+
+# ======================= Niederlassung =======================
+def c_niederlassung():
+    c = background(); frame(c, "Niederlassung")
+    y = 300
+    y = place(c, F("ئیقامەی هەمیشەیی", "Black", 960, 130, GREEN), 540, y) - 6
+    y = place(c, F("کەی و بە چ مەرجێک؟", "Black", 960, 104, INK), 540, y) + 40
+    place(c, rcard(840, "unbefristet", highlight=(150, 220, 170)), 560, y + 30, sh=True, rot=-3)
+    place(c, emoji("🏠", 170), 150, y - 50, sh=True)
+    y += 620
+    y = place(c, pill(T("Niederlassungserlaubnis", la("Black", 58), INK, pad=0), GOLD, 36, 16), 540, y, sh=True, rot=-2) + 40
+    place(c, pill(F("ببینە تۆ لە کام بەشیت", "Black", 760, 60, WHITE, pad=4), RED, 40, 16), 540, y, sh=True)
+    return c
+
+# ======================= 25.1 =======================
+def c_25_1():
+    c = background(); frame(c, "ئیقامەی 25.1")
+    y = 300
+    y = place(c, F("لەسەر کارتەکەت 25.1 نووسراوە؟", "Black", 960, 88, INK), 540, y) + 4
+    y = place(c, F("باشترین جۆری پەنابەرییە!", "Black", 960, 96, GREEN), 540, y) + 30
+    y = place(c, rcard(780, "25 Abs. 1", highlight=(150, 220, 170)), 540, y, sh=True, rot=3) + 50
+    place(c, tile("🏠", "ئیقامەی هەمیشەیی", GREEN), 770, y, sh=True)
+    place(c, tile("🇩🇪", "پاسپۆرت", GOLD), 310, y, sh=True)
+    place(c, circle_badge(120, RED, T("?", la("Black", 100), WHITE, pad=0), ring=WHITE), 540, y + 150, sh=True, anchor="mid")
+    y += 330
+    place(c, F("کەی وەریدەگریت؟", "Black", 900, 100, RED), 540, y)
+    return c
+
+# ======================= 31 Jiabunawa =======================
+def c_31():
+    c = background(); frame(c, "§ 31 AufenthG")
+    y = 300
+    y = place(c, F("جیا ببیتەوە،", "Black", 960, 120, INK), 540, y) - 6
+    y = place(c, F("ئیقامەکەت دەڕوات؟", "Black", 960, 120, RED), 540, y) + 30
+    place(c, emoji("💍", 170), 300, y + 20, sh=True, rot=12)
+    place(c, emoji("💔", 230), 560, y - 10, sh=True)
+    place(c, emoji("💍", 170), 820, y + 20, sh=True, rot=-12)
+    y += 300
+    y = place(c, pill(F("نا، ئەگەر ئەمە بزانیت!", "Black", 800, 90, WHITE, pad=4), GREEN, 52, 18), 540, y, sh=True, rot=-2) + 50
+    place(c, de_card("§ 31 AufenthG", "مافی ئیقامەی سەربەخۆی هاوسەر", fsize=80), 540, y, sh=True)
+    return c
+
+# ======================= Rente =======================
+def c_rente():
+    c = background(); frame(c, "Rente")
+    y = 300
+    y = place(c, F("دوای ساڵانێک کار لە ئەڵمانیا", "Black", 960, 84, INK), 540, y) + 6
+    y = place(c, F("چەند خانەنشینی وەردەگریت؟", "Black", 960, 96, GREEN), 540, y) + 40
+    for (x, yy, r) in [(180, y + 60, 70), (900, y + 30, 80), (120, y + 330, 50), (960, y + 320, 56)]:
+        place(c, coin(r), x, yy, sh=True)
+    place(c, hstack([emoji("👵", 190), emoji("👴", 190)], 10), 540, y, sh=True)
+    y += 230
+    y = place(c, circle_badge(240, RED, T("€ ?", la("Black", 100), WHITE, pad=0), ring=WHITE), 540, y, sh=True) + 50
+    place(c, pill(F("ژمارەکە سەرت سووڕ دەمێنێت!", "Black", 860, 66, WHITE, pad=4), INK, 44, 18), 540, y, sh=True, rot=-2)
+    return c
+
+# ======================= Chancenkarte =======================
+def c_chancenkarte():
+    c = background(); frame(c, "Chancenkarte")
+    y = 300
+    y = place(c, F("بێ پێشنیاری کار", "Black", 960, 120, INK), 540, y) - 6
+    y = place(c, F("وەرە ئەڵمانیا!", "Black", 960, 130, GREEN), 540, y) + 20
+    y = place(c, pill(T("Chancenkarte", la("Black", 70), INK, pad=0), GOLD, 40, 16), 540, y, sh=True, rot=-2) + 40
+    tiles = [("🎓", "بڕوانامە", GREEN), ("🗣️", "A1 / B2", GOLD), ("⭐", "٦ خاڵ", GOLD), ("💶", "١٠٩١ €", GREEN)]
+    for i, (ic, tx, col) in enumerate(tiles):
+        x = 770 if i % 2 == 0 else 310; yy = y + (i // 2) * 320
+        place(c, tile(ic, tx, col, w=400, h=290), x, yy, sh=True)
+    return c
+
+# ======================= DTZ B1 neu =======================
+def c_dtz():
+    c = background(); frame(c, "DTZ B1")
+    y = 300
+    y = place(c, F("لە 1ی نۆڤەمبەرەوە", "Black", 960, 110, INK), 540, y) + 0
+    y = place(c, F("تاقیکردنەوەی B1", "Black", 960, 120, GREEN), 540, y) - 4
+    y = place(c, F("قورستر دەبێت!", "Black", 960, 130, RED), 540, y) + 40
+    place(c, emoji("📝", 200), 250, y + 10, sh=True, rot=8)
+    place(c, circle_badge(300, GREEN, T("B1", la("Black", 150), WHITE, pad=0), ring=WHITE), 600, y, sh=True)
+    place(c, emoji("⚠️", 120), 900, y + 220, sh=True)
+    y += 360
+    y = place(c, pill(T("01.11.2026", la("Black", 72), INK, pad=0), GOLD, 44, 16), 540, y, sh=True, rot=-2) + 40
+    place(c, pill(F("چی گۆڕاوە؟", "Black", 600, 70, WHITE, pad=4), INK, 44, 16), 540, y, sh=True)
+    return c
+
+# ======================= Jobcenter letter =======================
+def c_jobcenter():
+    c = background(); frame(c, "Jobcenter")
+    y = 300
+    y = place(c, F("نامەت لە Jobcenter ەوە", "Black", 960, 104, INK), 540, y) - 6
+    y = place(c, F("بۆ هاتووە؟", "Black", 960, 130, GREEN), 540, y) + 40
+    place(c, letter2(640, "Jobcenter", GREEN), 520, y, sh=True, rot=-5)
+    place(c, emoji("📩", 140), 900, y - 30, sh=True)
+    y += 560
+    y = place(c, pill(F("پێش وەڵامدانەوە", "Black", 800, 84, WHITE, pad=4), RED, 50, 18), 540, y, sh=True, rot=-2) + 34
+    nums = [circle_badge(110, GREEN, T(n, la("Black", 64), WHITE, pad=0), ring=WHITE) for n in ("3", "2", "1")]
+    place(c, hstack(nums + [F("ئەم هەنگاوانە ببینە", "Black", 560, 60, INK)], 18), 540, y, sh=True)
+    return c
+
+# ======================= BAMF letter =======================
+def c_bamf():
+    c = background(); frame(c, "BAMF")
+    y = 300
+    y = place(c, F("نامەت لە BAMF ەوە", "Black", 960, 112, INK), 540, y) - 6
+    y = place(c, F("بۆ هاتووە؟", "Black", 960, 130, GREEN), 540, y) + 40
+    place(c, letter2(660, "BAMF", INK), 540, y, sh=True, rot=4)
+    place(c, emoji("✉️", 130), 170, y - 20, sh=True)
+    place(c, emoji("⚠️", 120), 920, y + 360, sh=True)
+    y += 580
+    y = place(c, F("ئەمە بزانە", "Black", 900, 110, RED), 540, y) + 10
+    place(c, pill(F("پێش ئەوەی هەر کارێک بکەیت", "Black", 860, 60, WHITE, pad=4), GREEN, 40, 16), 540, y, sh=True)
+    return c
+
+# ======================= Duldung Arten =======================
+def c_duldung_arten():
+    c = background(); frame(c, "Duldung")
+    y = 300
+    y = place(c, F("هەموو Duldung ێک", "Black", 960, 120, INK), 540, y) - 6
+    y = place(c, F("وەک یەک نییە!", "Black", 960, 130, RED), 540, y) + 40
+    cards = [("§ 60a", "Duldung", WHITE, INK), ("§ 60b", "Identität", RED, WHITE), ("§ 60c", "Ausbildung", GOLD, INK), ("§ 60d", "Beschäftigung", GREEN, WHITE)]
+    for i, (p, s_, col, tc) in enumerate(cards):
+        x = 770 if i % 2 == 0 else 310; yy = y + (i // 2) * 300
+        t = Image.new("RGBA", (420, 270), (0, 0, 0, 0)); d = ImageDraw.Draw(t)
+        d.rounded_rectangle((0, 0, 419, 269), 44, fill=col, outline=(214, 208, 196) if col == WHITE else None, width=4)
+        pp = T(p, la("Black", 100), tc, pad=0); t.alpha_composite(pp, ((420 - pp.width) // 2, 40))
+        ss = F(s_, "Bold", 370, 46, tc, latin=True); t.alpha_composite(ss, ((420 - ss.width) // 2, 180))
+        place(c, t, x, yy, sh=True, rot=(3 if i in (0, 3) else -3))
+    y += 640
+    place(c, pill(F("ببینە کارتەکەی تۆ چی دەڵێت", "Black", 860, 60, WHITE, pad=4), INK, 40, 16), 540, y, sh=True)
+    return c
+
+# ======================= Umzug Duldung =======================
+def c_umzug():
+    c = background(); frame(c, "Wohnsitzauflage")
+    y = 300
+    y = place(c, F("Duldung یان Gestattung ت هەیە؟", "Black", 960, 80, INK), 540, y) + 10
+    y = place(c, F("دەتەوێت بچیتە شارێکی تر؟", "Black", 960, 96, GREEN), 540, y) + 50
+    place(c, tile("🏙️", "A", GREEN, w=300, h=290), 820, y, sh=True, rot=-3)
+    place(c, tile("🏘️", "B", GOLD, w=300, h=290), 260, y, sh=True, rot=3)
+    place(c, emoji("🚚", 150), 540, y + 70, sh=True)
+    y += 360
+    y = place(c, pill(F("بێ مۆڵەت = پارەکەت دەبڕن!", "Black", 860, 70, WHITE, pad=4), RED, 44, 18), 540, y, sh=True, rot=-2) + 40
+    place(c, pill(hstack([F("بەڵام ڕێگای یاسایی هەیە", "Black", 720, 58, WHITE, pad=4), emoji("✅", 54)], 14), GREEN, 38, 14), 540, y, sh=True)
+    return c
+
+# ======================= Pass Jawab =======================
+def c_pass_jawab():
+    c = background(); frame(c, "پاسپۆرت")
+    y = 300
+    y = place(c, F("وەرگرتنی پاسپۆرتی وڵاتەکەت", "Black", 960, 90, INK), 540, y) + 0
+    y = place(c, F("مەترسیدارە؟", "Black", 960, 150, RED), 540, y) + 30
+    place(c, natpass(300), 400, y, sh=True, rot=8)
+    place(c, circle_badge(170, RED, T("?", la("Black", 140), WHITE, pad=0), ring=WHITE), 720, y + 120, sh=True)
+    place(c, emoji("⚠️", 120), 820, y + 330, sh=True)
+    y += 470
+    y = place(c, pill(F("بۆ هەموو ئیقامەیەک وەک یەک نییە!", "Black", 880, 62, WHITE, pad=4), GREEN, 40, 18), 540, y, sh=True, rot=-2) + 30
+    return c
+
+JOBS.update({
+    "Kurdi-Salakan": c_salakan,
+    "Kurdi-Niederlassung": c_niederlassung,
+    "Kurdi-25-1": c_25_1,
+    "Kurdi-31-Jiabunawa": c_31,
+    "Kurdi-Rente": c_rente,
+    "Kurdi-Chancenkarte": c_chancenkarte,
+    "Kurdi-DTZ-B1-neu": c_dtz,
+    "Kurdi-Jobcenter": c_jobcenter,
+    "Kurdi-BAMF": c_bamf,
+    "Kurdi-Duldung-Arten": c_duldung_arten,
+    "Kurdi-Umzug-Duldung": c_umzug,
+    "Kurdi-Pass-Jawab": c_pass_jawab,
+})
+
 if __name__ == "__main__":
     only = sys.argv[1:]
     for n, f in JOBS.items():
