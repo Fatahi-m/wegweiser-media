@@ -1,0 +1,306 @@
+<title>30-Tage-Contentplan</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;600;800&family=Vazirmatn:wght@400;600;800&family=JetBrains+Mono:wght@500&display=swap">
+<style>
+/* Layout: one column; header + channel tabs, then week groups of day rows (date | format chip | topic + hook) */
+:root{
+  --bg:#f3f5f9; --surface:#ffffff; --fg:#14213a; --muted:#5d6b82; --line:#dde3ec;
+  --de:#c98a0c; --de-soft:#fbf1da; --fa:#c8251b; --fa-soft:#fde6e3; --reel:#1f5fbf; --reel-soft:#e3edfb; --car:#1f8a5b; --car-soft:#e0f4ea;
+  --display:"Archivo",system-ui,sans-serif; --body:"Archivo",system-ui,sans-serif; --fa-font:"Vazirmatn",Tahoma,sans-serif; --mono:"JetBrains Mono",ui-monospace,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0c1424; --surface:#14203a; --fg:#e8edf5; --muted:#9aa8bf; --line:#24324f;
+  --de:#f2b632; --de-soft:#2e2510; --fa:#ff6b5e; --fa-soft:#3a1a18; --reel:#7fb0ff; --reel-soft:#18294a; --car:#5fd29b; --car-soft:#123326; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0c1424; --surface:#14203a; --fg:#e8edf5; --muted:#9aa8bf; --line:#24324f;
+  --de:#f2b632; --de-soft:#2e2510; --fa:#ff6b5e; --fa-soft:#3a1a18; --reel:#7fb0ff; --reel-soft:#18294a; --car:#5fd29b; --car-soft:#123326; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--body);font-size:15px;line-height:1.5}
+.wrap{max-width:1000px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 60px;display:grid;gap:22px}
+h1{font:800 clamp(26px,4.5vw,38px)/1.1 var(--display);margin:0;text-wrap:balance}
+.lead{color:var(--muted);margin:6px 0 0;max-width:70ch}
+.fa{font-family:var(--fa-font);direction:rtl;text-align:right}
+.tabs{display:flex;flex-wrap:wrap;gap:8px}
+.tabs button{font:600 14px var(--body);border:1px solid var(--line);background:var(--surface);color:var(--fg);padding:9px 14px;border-radius:999px;cursor:pointer}
+.tabs button[aria-pressed="true"]{background:var(--fg);color:var(--bg);border-color:var(--fg)}
+.tabs button:focus-visible,.row input:focus-visible{outline:2px solid var(--reel);outline-offset:2px}
+.legend{display:flex;flex-wrap:wrap;gap:14px;color:var(--muted);font-size:13px;align-items:center}
+.chip{display:inline-block;font:600 11px/1 var(--mono);letter-spacing:.06em;text-transform:uppercase;padding:5px 8px;border-radius:6px;white-space:nowrap}
+.c-short{background:var(--de-soft);color:var(--de)} .c-reel{background:var(--reel-soft);color:var(--reel)} .c-car{background:var(--car-soft);color:var(--car)}
+.c-quick{background:var(--fa-soft);color:var(--fa)}
+.c-wab{background:var(--fa-soft);color:var(--fa)}
+.notes{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}
+.note{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;min-width:0}
+.note h3{margin:0 0 6px;font:800 15px var(--display)}
+.note ul{margin:0;padding-inline-start:18px;color:var(--muted)} .note li{margin:3px 0}
+.note.fa ul{padding-inline-start:0;padding-inline-end:18px}
+.week{display:grid;gap:8px}
+.week h2{font:800 13px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--muted);margin:10px 0 2px}
+.row{display:grid;grid-template-columns:76px 1fr auto;gap:14px;align-items:start;background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:12px 14px;border-inline-start:4px solid var(--line)}
+.row.de{border-inline-start-color:var(--de)} .row.fa-ch{border-inline-start-color:var(--fa)}
+.row.done{opacity:.55}
+.date{font:500 13px var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.date b{display:block;font:800 18px var(--display);color:var(--fg)}
+.main{min-width:0;display:grid;gap:4px}
+.meta{display:flex;gap:6px;flex-wrap:wrap;align-items:center}
+.topic{font-weight:800;font-size:16px;text-wrap:balance}
+.hook{color:var(--muted)}
+.hook::before{content:"Hook: ";font:600 11px var(--mono);letter-spacing:.06em;text-transform:uppercase}
+.fa .hook::before{content:"هوک: ";font:600 12px var(--fa-font)}
+.fa.main{font-family:var(--fa-font)}
+.check{display:flex;align-items:center;gap:6px;color:var(--muted);font-size:12px;cursor:pointer;user-select:none}
+.check input{width:18px;height:18px;accent-color:var(--car)}
+.foot{color:var(--muted);font-size:13px}
+.lib{display:grid;gap:12px}
+.libh{font:800 20px var(--fa-font);direction:rtl;text-align:right;margin:8px 0 0}
+.libgrid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:12px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:14px 16px;font-family:var(--fa-font);direction:rtl;text-align:right;min-width:0;display:grid;gap:8px;align-content:start}
+.card h3{margin:0;font:800 16px var(--fa-font)}
+.card .de-term{font:600 12px var(--mono);color:var(--muted);direction:ltr;text-align:right}
+.card ul{margin:0;padding:0 18px 0 0;display:grid;gap:4px}
+.card li{line-height:1.6}
+.card .src{font-size:12px;color:var(--muted)} .card .src a{color:var(--reel)}
+
+@media (max-width:560px){.row{grid-template-columns:1fr auto}.date{grid-column:1/-1;display:flex;gap:8px;align-items:baseline}.date b{display:inline}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+  <header>
+    <h1>30-Tage-Contentplan</h1>
+    <p class="lead">15. Oktober bis 13. November 2026 · <b>Geld ohne Filter</b> (YouTube Shorts, Deutsch) und <b>Wegweiser Deutschland</b> (Instagram/TikTok, Persisch). Geld ohne Filter: 1 Short pro Tag. Wegweiser Deutschland: 2–3 Posts pro Tag (Haupt-Reel oder Karussell + „Wort des Tages“ + aktuelle News bei Bedarf).</p>
+  </header>
+
+  <div class="tabs" role="group" aria-label="Kanal filtern">
+    <button id="t-all" aria-pressed="true" data-f="all">Beide Kanäle</button>
+    <button id="t-de" aria-pressed="false" data-f="de">Geld ohne Filter</button>
+    <button id="t-fa" aria-pressed="false" data-f="fa">Wegweiser Deutschland</button>
+  </div>
+
+  <div class="legend">
+    <span><span class="chip c-short">Short</span> YouTube Short</span>
+    <span><span class="chip c-reel">Reel</span> Instagram/TikTok-Video</span>
+    <span><span class="chip c-car">Karussell</span> Slide-Post (nur Instagram)</span>
+    <span><span class="chip c-quick">Quick-Reel</span> Kurzes Wort-/News-Reel, direkt fertig als MP4</span>
+  </div>
+
+  <div class="notes">
+    <div class="note">
+      <h3>Geld ohne Filter: Regeln</h3>
+      <ul>
+        <li>1 Short pro Tag, 17–19 Uhr. Netti als Figur in jedem Video.</li>
+        <li>Jedes Short endet mit einem Teaser auf das nächste Thema, ohne Pause am Ende.</li>
+        <li>Zahlen (Beiträge, Grenzen, Beträge) vor jeder Produktion frisch prüfen.</li>
+        <li>Nach Woche 2: die 3 besten Themen mit Teil 2 fortsetzen.</li>
+      </ul>
+    </div>
+    <div class="note fa">
+      <h3>قوانین Wegweiser Deutschland</h3>
+      <ul>
+        <li>هر روز ۲ تا ۳ پست: ظهر «کلمه‌ی روز» (حدود ساعت ۱۲ تا ۱۳)، عصر ریل اصلی یا اسلاید (ساعت ۱۸ تا ۲۰). خبرهای داغ هم هر وقت پیش بیاد اضافه می‌شن.</li>
+        <li>کلمه‌های آلمانی با تلفظ آلمانی و کارت روی صفحه.</li>
+        <li>اسلایدها فقط در اینستاگرام. در تیک‌تاک می‌شه به‌صورت Photo-Mode پست کرد.</li>
+        <li>فعلاً هیچ اشاره‌ای به آکادمی نمی‌شه، تا وقتی خودت بگی.</li>
+      </ul>
+    </div>
+  </div>
+
+
+  <section class="lib" aria-labelledby="lib-h">
+    <h2 id="lib-h" class="libh">کتابخانه‌ی موضوعات: اطلاعات به‌روز</h2>
+    <p class="lead fa">نکته‌های اصلی هر موضوع برای ساختن ویدیو، با وضعیت امروز (۱۴ اکتبر ۲۰۲۶). موضوع‌های پناهندگی و اقامت فقط اطلاعات عمومی هستن. آخر این ویدیوها همیشه می‌گیم برای پرونده‌ی شخصی با مشاوره‌ی رایگان پناهندگی یا وکیل صحبت کنید.</p>
+    <div id="lib" class="libgrid"></div>
+    <p class="foot fa">🟢 قانون اجرا شده · 🟡 پیش‌نویس، هنوز قانون نشده · 🔵 قبل از ساختن ویدیو دوباره چک بشه</p>
+  </section>
+
+  <main id="list" aria-live="polite"></main>
+
+  <p class="foot">Häkchen werden nur in diesem Browser gespeichert. Beträge wie Mindestlohn 2027 (14,60 €) und der Start der neuen Grundsicherung (1. Juli 2026) sind recherchiert; alle anderen Zahlen werden direkt vor der Produktion geprüft.</p>
+</div>
+
+<script>
+const DE=[
+ ["Wie viel Rente bekommst du wirklich?","Du zahlst 40 Jahre ein – und dann DAS?"],
+ ["Krankenkasse wird 2027 teurer: Sonderkündigungsrecht","Dein Netto sinkt im Januar – außer du machst das."],
+ ["Wohngeld: Geld vom Staat, von dem du nichts weißt","Du verdienst Vollzeit und hast trotzdem Anspruch?"],
+ ["Brutto vs. Netto: Wo gehen 40 % deines Gehalts hin?","Von 3.000 € brutto bleibt dir nur …"],
+ ["Mindestlohn 2027: 14,60 € – was bleibt netto mehr?","Mehr Lohn – aber wie viel landet wirklich auf dem Konto?"],
+ ["Steuerklassen in 50 Sekunden","Falsche Steuerklasse = jeden Monat Geld verschenkt."],
+ ["Was kostet ein Kind wirklich pro Monat?","Kindergeld deckt nicht mal die Hälfte."],
+ ["100 € ETF-Sparplan: was nach 30 Jahren?","Aus 36.000 € eingezahlt werden …"],
+ ["Wie viel Miete kannst du dir leisten?","Die 30-%-Regel – und warum sie in München nicht klappt."],
+ ["5 Geldfehler mit 20–30","Fehler Nr. 3 kostet dich ein ganzes Auto."],
+ ["Weihnachtsgeld: Wer hat Anspruch?","Kein Weihnachtsgeld im Vertrag? Vielleicht trotzdem."],
+ ["Notgroschen: Wie viel solltest du haben?","Waschmaschine kaputt – und dann?"],
+ ["Teilzeit vs. Vollzeit: Lohnt sich die Mehrarbeit?","10 Stunden mehr arbeiten, aber kaum mehr Netto?"],
+ ["Gehaltsverhandlung: 3 Sätze, die mehr Geld bringen","Sag nie diesen einen Satz im Gespräch."],
+ ["Auto vs. Deutschlandticket: echte Kosten","Dein Auto kostet nicht 100 €, sondern …"],
+ ["Grundsicherung statt Bürgergeld: Was ist neu?","Seit Juli gelten härtere Regeln."],
+ ["Minijob 2027: die neue Verdienstgrenze","Ein Euro zu viel – und alles wird anders."],
+ ["5 Berufe, 5 Gehälter im Vergleich","Wer verdient mehr: Pflegekraft oder Elektriker?"],
+ ["Inflation: Warum dein Sparbuch dich ärmer macht","Deine 10.000 € sind jedes Jahr weniger wert."],
+ ["Dispo, Ratenkredit, Klarna: die Schuldenfalle","0 % Zinsen – der Trick dahinter."],
+ ["Schufa-Score verbessern","Diese Kleinigkeit drückt deinen Score."],
+ ["Riester, Betriebsrente oder ETF?","Was lohnt sich für die Rente wirklich?"],
+ ["Black Friday: So tricksen Händler","-50 %? Der Preis war vorher gar nicht höher."],
+ ["Steuererklärung: 5 Dinge, die fast jeder vergisst","Punkt 4 bringt oft über 300 €."],
+ ["Abo-Falle: Wie viel verlierst du monatlich?","Rechne mal deine Abos zusammen."],
+ ["Kaufen oder mieten: Was ist günstiger?","Die Antwort überrascht viele."],
+ ["Elterngeld: So viel bekommst du","Bis zu 1.800 € – aber nur, wenn …"],
+ ["Was ändert sich 2027 beim Geld? Top 5","Ab Januar ändert sich dein Gehaltszettel."],
+ ["Mit 1.000 € anfangen: 3 Wege","Was würde Netti mit 1.000 € machen?"],
+ ["Durchschnittsvermögen: Wo stehst du?","Der Median-Deutsche hat …"]
+];
+// [type, topic, hook, wab?]
+const FA=[
+ ["reel","نامه از جاب‌سنتر اومده؟ (آماده‌ست)","قبل از جواب دادن، اینو ببین!",0],
+ ["car","۷ کلمه‌ی آلمانی که توی هر نامه‌ی اداری هست","Frist، Bescheid، Widerspruch… معنیش چیه؟",0],
+ ["reel","Wohngeld: شاید حق داری و خبر نداری","کار می‌کنی ولی کرایه‌خونه کمرت رو شکسته؟",0],
+ ["reel","Kindergeld: چطور درخواست بدی","هر ماه برای هر بچه پول می‌گیری، ولی خیلی‌ها دیر درخواست می‌دن.",0],
+ ["car","۵ اشتباه بزرگ تازه‌واردها در آلمان","اشتباه شماره‌ی ۳ رو تقریباً همه می‌کنن.",0],
+ ["reel","حقوق تو به‌عنوان کارمند (قول ویدیوی مالیات)","رئیست حق نداره اینو ازت بخواد!",0],
+ ["reel","AVGS: کوچینگ رایگان با جاب‌سنتر","جاب‌سنتر می‌تونه هزینه‌ی مربی شغلی‌ت رو بده.",0],
+ ["car","Krankmeldung قدم‌به‌قدم: وقتی مریض می‌شی","از روز چندم باید گواهی دکتر بیاری؟",0],
+ ["reel","Schufa چیه و چرا انقدر مهمه؟","بدون Schufa خوب، خونه هم بهت نمی‌دن.",0],
+ ["reel","Anmeldung: بدون این هیچ کاری نمی‌شه","اولین کاری که باید در آلمان بکنی.",0],
+ ["car","Krankenkasse گرون‌تر می‌شه؟ حق فسخ داری","اگه بیمه‌ت گرون شد، می‌تونی عوضش کنی.",0],
+ ["reel","Weiterbildung یا Umschulung؟ کدوم برای تو بهتره","با Umschulung ماهی ۱۵۰ یورو اضافه هم می‌گیری!",0],
+ ["reel","Minijob: قوانین و سقف درآمد","یه یورو بیشتر بگیری، همه‌چیز عوض می‌شه.",0],
+ ["car","Kündigung: قرارداد رو چطور فسخ کنی","موبایل، باشگاه، خونه: نمونه‌نامه‌ی آماده.",0],
+ ["reel","Widerspruch: وقتی با تصمیم اداره موافق نیستی","فقط یه ماه وقت داری!",0],
+ ["reel","Grundsicherung به‌جای Bürgergeld: چی عوض شد؟","از جولای قوانین سخت‌تر شده.",0],
+ ["car","قانون‌های جدید نوامبر در آلمان و برلین","از اول ماه این‌ها عوض می‌شه.",0],
+ ["reel","Anerkennung: مدرکت رو در آلمان به رسمیت بشناسون","مدرکت از ایران یا افغانستان اینجا ارزش داره؟",0],
+ ["reel","پناهندگی‌ت رد شد؟ اول این کارها رو بکن","گاهی فقط یک هفته وقت داری!",0],
+ ["car","Bewerbung: ۵ قانون رزومه‌ی آلمانی","عکس بذاری یا نه؟ چند صفحه؟",0],
+ ["reel","Mietvertrag: قبل از امضا این‌ها رو چک کن","Kaution بیشتر از ۳ ماه کرایه؟ غیرقانونیه!",0],
+ ["reel","Elterngeld: چقدر می‌گیری و کی درخواست بدی","تا ۱۸۰۰ یورو در ماه برای پدر و مادر.",0],
+ ["car","اقامت دائم (Niederlassungserlaubnis): کی بهت می‌دن؟","با Blue Card حتی بعد از ۲۱ ماه!",0],
+ ["reel","Einbürgerung: شرایط جدید شهروندی","شهروندی ۳ ساله دیگه وجود نداره. حالا چی؟",0],
+ ["reel","Mahnung و Inkasso: نترس، این کارو بکن","نامه‌ی قرمز اومده؟ اول اینو چک کن.",0],
+ ["car","Integrationskurs: کی رایگان یا ارزون می‌گیره؟","ساعتی فقط چند یورو، یا حتی رایگان.",0],
+ ["reel","Ausbildung: هم یاد بگیر، هم حقوق بگیر","سن مهم نیست، حتی با ۳۵ سال.",0],
+ ["reel","BAföG: به کی تعلق می‌گیره؟","با Duldung هم بعد از ۱۵ ماه ممکنه!",0],
+ ["car","قوانین جدید پناهندگی اروپا (GEAS) به زبان ساده","از ژوئن ۲۰۲۶ خیلی چیزها عوض شده.",0],
+ ["reel","جواب به سؤال‌های شما (از کامنت‌ها)","پرتکرارترین سؤال‌هاتون رو جواب دادم.",0]
+];
+const WORDS=[
+ ["der Termin","وقت ملاقات"],["die Frist","مهلت"],["der Bescheid","نامه‌ی تصمیم اداره"],["der Widerspruch","اعتراض رسمی"],
+ ["die Anmeldung","ثبت آدرس"],["die Kündigung","فسخ قرارداد"],["die Kaution","ودیعه‌ی خونه"],["die Nebenkosten","هزینه‌های جانبی خونه"],
+ ["der Feierabend","پایان وقت کاری"],["die Krankmeldung","اعلام بیماری به کارفرما"],["die Lohnabrechnung","فیش حقوقی"],["die Überstunden","اضافه‌کاری"],
+ ["die Probezeit","دوره‌ی آزمایشی کار"],["die Mahnung","اخطار پرداخت"],["die Ausländerbehörde","اداره‌ی اتباع"],["die Steuer-ID","شماره‌ی مالیاتی"],
+ ["das Bürgeramt","اداره‌ی امور شهروندی"],["die Hausverwaltung","مدیریت ساختمان"],["die Mülltrennung","تفکیک زباله"],["das Pfand","پول ضمانت بطری"],
+ ["die Ruhezeit","ساعت سکوت"],["der Vertrag","قرارداد"],["die Rechnung","صورت‌حساب"],["die Lastschrift","برداشت خودکار از حساب"],
+ ["die Überweisung","انتقال پول"],["der Ausweis","کارت شناسایی"],["die Bewerbung","درخواست کار"],["der Lebenslauf","رزومه"],
+ ["die Versicherung","بیمه"],["der Antrag","درخواست‌نامه"]
+];
+const start=new Date(2026,9,15);
+const wd=["So","Mo","Di","Mi","Do","Fr","Sa"];
+const items=[];
+for(let i=0;i<30;i++){
+  const d=new Date(start);d.setDate(start.getDate()+i);
+  items.push({i,d,ch:"de",type:"short",topic:DE[i][0],hook:DE[i][1],wab:0});
+  items.push({i,d,ch:"fa",type:FA[i][0],topic:FA[i][1],hook:FA[i][2],wab:FA[i][3]});
+  items.push({i,d,ch:"fa",type:"quick",topic:"کلمه‌ی روز: "+WORDS[i][0],hook:WORDS[i][1]+" · با تلفظ آلمانی، ۸ تا ۱۵ ثانیه",wab:0,id2:"w"});
+}
+let filter="all",done={};
+try{done=JSON.parse(localStorage.getItem("cp-done")||"{}")}catch(e){done={}}
+function save(){try{localStorage.setItem("cp-done",JSON.stringify(done))}catch(e){}}
+const fmt=d=>String(d.getDate()).padStart(2,"0")+"."+String(d.getMonth()+1).padStart(2,"0")+".";
+const esc=s=>s.replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+function render(){
+  const L=document.getElementById("list");let html="";
+  for(let w=0;w<5;w++){
+    const rows=items.filter(x=>Math.floor(x.i/7)===w&&(filter==="all"||x.ch===filter));
+    if(!rows.length)continue;
+    const a=rows[0].d,b=rows[rows.length-1].d;
+    html+=`<section class="week"><h2>Woche ${w+1} · ${fmt(a)} – ${fmt(b)}</h2>`;
+    for(const x of rows){
+      const id=x.ch+(x.id2||"")+x.i,isFa=x.ch==="fa";
+      const chip=x.type==="short"?'<span class="chip c-short">Short</span>':x.type==="reel"?'<span class="chip c-reel">Reel</span>':x.type==="quick"?'<span class="chip c-quick">Quick-Reel</span>':'<span class="chip c-car">Karussell</span>';
+      const chan=isFa?"Wegweiser Deutschland":"Geld ohne Filter";
+      html+=`<div class="row ${isFa?"fa-ch":"de"}${done[id]?" done":""}">
+        <div class="date"><b>${fmt(x.d)}</b>${wd[x.d.getDay()]}</div>
+        <div class="main${isFa?" fa":""}">
+          <div class="meta" dir="ltr" style="justify-content:${isFa?"flex-end":"flex-start"}">${x.wab?'<span class="chip c-wab">WAB</span>':""}${chip}<span class="chip" style="color:var(--muted);padding-inline:0">${chan}</span></div>
+          <div class="topic">${esc(x.topic)}</div>
+          <div class="hook">${esc(x.hook)}</div>
+        </div>
+        <label class="check"><input type="checkbox" id="cb-${id}" data-id="${id}" ${done[id]?"checked":""}>fertig</label>
+      </div>`;
+    }
+    html+="</section>";
+  }
+  L.innerHTML=html;
+}
+document.addEventListener("change",e=>{const id=e.target.dataset&&e.target.dataset.id;if(!id)return;done[id]=e.target.checked;if(!done[id])delete done[id];save();e.target.closest(".row").classList.toggle("done",!!done[id])});
+document.querySelectorAll(".tabs button").forEach(b=>b.addEventListener("click",()=>{filter=b.dataset.f;document.querySelectorAll(".tabs button").forEach(x=>x.setAttribute("aria-pressed",x===b));render()}));
+render();
+
+const LIB=[
+ {t:"قوانین جدید پناهندگی اروپا (GEAS)",de:"GEAS-Reform · seit 12.06.2026",f:[
+  "🟢 از ۱۲ ژوئن ۲۰۲۶ در آلمان اجرا می‌شه.",
+  "🟢 Screening اجباری: لب مرز حداکثر ۷ روز، داخل کشور ۳ روز (شناسایی، اثر انگشت، چک سلامت و امنیت).",
+  "🟢 روند سریع برای کسایی که از «کشورهای امن» میان یا کشوری که نرخ پذیرشش زیر ۲۰٪ هست: تصمیم تا ۳ ماه، مهلت شکایت فقط ۷ روز.",
+  "🟢 لیست کشورهای امن اروپا: مصر، بنگلادش، هند، کلمبیا، کوزوو، مراکش، تونس و کشورهای نامزد عضویت در اتحادیه‌ی اروپا (به‌جز اوکراین)، یعنی ترکیه هم جزوشه.",
+  "🟢 ایالت‌ها می‌تونن «مرکز مهاجرت ثانویه» بسازن. اجبار به زندگی در اونجا حداکثر ۲۴ ماهه."],
+  src:[["PRO ASYL FAQ","https://www.proasyl.de/wp-content/uploads/FAQ-GEAS-Reform_Update-2026_final-10.6.2026.pdf"]]},
+ {t:"پناهندگی رد شد: چه کار کنم؟",de:"Ablehnung · Klage · Duldung",f:[
+  "🟢 رد «ساده» (unbegründet): ۲ هفته وقت شکایت داری و تا آخر دادگاه می‌تونی بمونی.",
+  "🟢 رد «آشکارا بی‌اساس» (offensichtlich unbegründet) یا «غیرقابل‌قبول» (unzulässig/Dublin): فقط ۱ هفته وقت داری و باید هم‌زمان درخواست فوری (Eilantrag) بدی.",
+  "🟢 مهلت از روزی حساب می‌شه که نامه به دستت رسیده، نه از تاریخ روی نامه.",
+  "🟢 Duldung اجازه‌ی اقامت نیست، فقط اخراج رو عقب می‌ندازه.",
+  "🟢 راه‌های ماندن: Ausbildungsduldung، Beschäftigungsduldung (ورود قبل از ۲۰۲۳، ۱۲ ماه کار، حداقل ۲۰ ساعت در هفته، زبان A2)، §25a برای جوان‌ها (۳ سال، درخواست قبل از ۲۷ سالگی)، §25b (۶ سال، یا ۴ سال با بچه)، کمیسیون موارد خاص (Härtefallkommission).",
+  "🟢 درخواست دوباره (Folgeantrag) فقط با دلیل جدید ممکنه."],
+  src:[["Hessischer Flüchtlingsrat 03/2026","https://fr-hessen.de/wp-content/uploads/2026/03/2026-03-11-hfr-Online-Abgelehnt-was-nun.pdf"]]},
+ {t:"پیوستن خانواده برای حمایت تکمیلی",de:"Familiennachzug · subsidiärer Schutz",f:[
+  "🟢 برای کسایی که حمایت تکمیلی (subsidiärer Schutz) دارن، پیوستن خانواده از ۲۴ ژوئیه‌ی ۲۰۲۵ تا ۲۳ ژوئیه‌ی ۲۰۲۷ متوقفه.",
+  "🟢 فقط در موارد خیلی خاص انسانی (§22) ممکنه، که خیلی سخت قبول می‌شه.",
+  "🔵 بعد از ژوئیه‌ی ۲۰۲۷ دولت تصمیم می‌گیره این توقف تموم بشه یا ادامه پیدا کنه."],
+  src:[["migrando.de","https://migrando.de/news/allgemein/neues-gesetz-tritt-in-kraft-familiennachzug-fuer-subsidiaer-schutzberechtigte-ausgesetzt-das-muessen-betroffene-wissen/"]]},
+ {t:"اقامت دائم",de:"Niederlassungserlaubnis",f:[
+  "🟢 متخصص (Fachkraft): ۳ سال اجازه‌ی اقامت، ۳۶ ماه پرداخت بیمه‌ی بازنشستگی، زبان B1.",
+  "🟢 بلوکارت (Blue Card): ۲۷ ماه با زبان A1، یا فقط ۲۱ ماه با B1.",
+  "🟢 فارغ‌التحصیل دانشگاه یا Ausbildung در آلمان: ۲ سال اقامت، ۲۴ ماه بیمه‌ی بازنشستگی، B1.",
+  "🔵 حالت عمومی (§9): ۵ سال اقامت، ۶۰ ماه بیمه‌ی بازنشستگی، B1. برای پناهنده‌ها قوانین جدا داره (§26)."],
+  src:[["Make it in Germany","https://www.make-it-in-germany.com/de/visum-aufenthalt/dauerhaft-in-deutschland/niederlassungserlaubnis"]]},
+ {t:"شهروندی آلمان",de:"Einbürgerung",f:[
+  "🟢 ۵ سال اقامت قانونی. شهروندی ۳ ساله از ۳۰ اکتبر ۲۰۲۵ حذف شده.",
+  "🟢 زبان B1 و قبولی در تست «Leben in Deutschland» یا Einbürgerungstest.",
+  "🟢 باید خرج زندگی‌ت رو خودت بدی. گرفتن Bürgergeld یا Grundsicherung معمولاً مانعه. استثنا: ۲۰ ماه کار تمام‌وقت در ۲ سال آخر.",
+  "🟢 داشتن دو تابعیت مجازه، لازم نیست پاسپورت قبلی‌ت رو پس بدی.",
+  "🟢 محکومیت بیشتر از ۹۰ روز جریمه یا ۳ ماه زندان مانع شهروندیه.",
+  "🟢 همسر شهروند آلمانی: بعد از ۳ سال اقامت، اگه حداقل ۲ سال ازدواج کرده باشن."],
+  src:[["migrando.de","https://migrando.de/news/einbuergerung/aus-fuer-turbo-einbuergerung-gesetz-offiziell-in-kraft-getreten/"],["Landratsamt Freising, Stand 01.01.2026","https://www.kreis-freising.de/fileadmin/user_upload/Aemter/Personenstand_und_Staatsangehoerigkeit/Voraussetzungen_f%C3%BCr_die_Einb%C3%BCrgerung__Stand_01.01.2026_.pdf"]]},
+ {t:"Weiterbildung یا Umschulung؟",de:"Bildungsgutschein · Weiterbildungsgeld",f:[
+  "🟢 Weiterbildung یعنی مهارتت رو توی همون شغل بیشتر کنی، معمولاً دوره‌ی کوتاه‌تر.",
+  "🟢 Umschulung یعنی یه شغل جدید با مدرک رسمی (امتحان IHK یا HWK) یاد بگیری، معمولاً حدود ۲ سال.",
+  "🟢 هزینه‌ش رو Arbeitsagentur یا Jobcenter با Bildungsgutschein می‌ده.",
+  "🟢 توی Umschulung علاوه بر ALG I یا Grundsicherung: ماهی ۱۵۰ € (Weiterbildungsgeld)، ۱۰۰۰ € بعد از امتحان میان‌دوره و ۱۵۰۰ € بعد از امتحان پایانی.",
+  "🔵 کدوم بهتره؟ اگه مدرک و تجربه داری و شغلت هنوز بازار داره، Weiterbildung. اگه شغلت دیگه بازار نداره یا مدرکت اینجا قبول نیست، Umschulung."],
+  src:[["Bundesagentur für Arbeit","https://www.arbeitsagentur.de/karriere-und-weiterbildung/bildungsgutschein"],["skill-sprinters (Anbieter)","https://skill-sprinters.de/blog/foerderung/weiterbildungsgeld-150-euro-2026-wer-bekommt-es/"]]},
+ {t:"Ausbildung چیه؟",de:"Duale Ausbildung",f:[
+  "🟢 آموزش حرفه‌ای دوگانه: بخشی توی مدرسه‌ی فنی، بخشی توی شرکت، معمولاً ۲ تا ۳٫۵ سال، با حقوق ماهانه.",
+  "🟢 برای کسایی که Duldung دارن: Ausbildungsduldung (§60c) یا اجازه‌ی اقامت برای Ausbildung (§16g). بعد از اتمام، ۲ سال اقامت برای کار (§19d).",
+  "🔵 حداقل حقوق کارآموزی (Mindestausbildungsvergütung) ۲۰۲۶ و ۲۰۲۷ قبل از ساختن ویدیو چک بشه."],
+  src:[["Hessischer Flüchtlingsrat 03/2026","https://fr-hessen.de/wp-content/uploads/2026/03/2026-03-11-hfr-Online-Abgelehnt-was-nun.pdf"]]},
+ {t:"BAföG به کی تعلق می‌گیره؟",de:"BAföG · § 8",f:[
+  "🟢 خارجی‌هایی که بدون صبر کردن حق دارن: کسایی که Niederlassungserlaubnis دارن، پناهنده‌ی رسمی، و کسایی با اقامت §25 بند ۱ و ۲، §25a، §25b و §22 و §23.",
+  "🟢 بعد از ۱۵ ماه اقامت: کسایی با اقامت §25 بند ۳ (ممنوعیت اخراج)، §25 بند ۵، اقامت خانوادگی، و حتی کسایی که Duldung دارن.",
+  "🟡 اصلاحیه‌ی جدید هنوز پیش‌نویسه: کمک‌هزینه‌ی مسکن از ترم تابستان ۲۰۲۷ از ۳۸۰ به ۴۴۰ € می‌رسه، و مبلغ پایه از ترم زمستان ۲۰۲۷/۲۸ به ۵۰۳ €. هنوز قانون نشده!"],
+  src:[["§ 8 BAföG","https://gesetze.legal/bund/bafoeg/8"],["Bundestag hib 08.10.2026","https://www.bundestag.de/presse/hib/kurzmeldungen-1223398"]]},
+ {t:"Elterngeld چیه و به کی می‌رسه؟",de:"Elterngeld · ElterngeldPlus",f:[
+  "🟢 بعد از تولد بچه: ۶۵ تا ۱۰۰ درصد درآمد قبلی، حداقل ۳۰۰ € و حداکثر ۱۸۰۰ € در ماه، حتی بدون درآمد قبلی.",
+  "🟢 ۱۲ ماه، یا ۱۴ ماه اگه پدر و مادر هر دو استفاده کنن. هر ماه پایه می‌تونه به ۲ ماه ElterngeldPlus تبدیل بشه.",
+  "🟢 سقف درآمد مشمول مالیات خانواده: ۱۷۵٬۰۰۰ €.",
+  "🟢 فقط تا ۳ ماه عقب‌تر پرداخت می‌شه، پس سریع درخواست بده!",
+  "🔵 برای خارجی‌ها به نوع اقامت بستگی داره. قبل از ساختن ویدیو چک بشه."],
+  src:[["kita.de","https://www.kita.de/wissen/elterngeld-2026-was-sich-fuer-eltern-aendert-und-wie-du-das-elterngeld-optimal-beantragst/"]]},
+ {t:"قانون‌های جدید هر ماه (سری ماهانه)",de:"Was ändert sich im …?",f:[
+  "🟢 حداقل دستمزد از ۱ ژانویه‌ی ۲۰۲۷ می‌شه ۱۴٫۶۰ € در ساعت.",
+  "🟢 از ۱ ژوئیه‌ی ۲۰۲۶، Grundsicherung جای Bürgergeld رو گرفته، با قوانین سخت‌تر.",
+  "🔵 حق بیمه‌ی درمانی ۲۰۲۷ اواسط اکتبر اعلام می‌شه.",
+  "🔵 هر ماه حدود روز ۲۵، تغییرات ماه بعد برای کل آلمان و برلین چک می‌شه و از روش یک اسلاید و یک ریل ساخته می‌شه."],
+  src:[["finanz.de – Mindestlohn 2027","https://www.finanz.de/news/mindestlohn-erhoehung-tabelle-2027-10875/"],["Tagesspiegel – Grundsicherung","https://www.tagesspiegel.de/politik/ab-1-juli-mehr-druck-mehr-sanktionen-burgergeld-wird-grundsicherung-15775864.html"]]}
+];
+document.getElementById("lib").innerHTML=LIB.map(c=>`<article class="card"><h3>${esc(c.t)}</h3><div class="de-term">${esc(c.de)}</div><ul>${c.f.map(x=>`<li>${esc(x)}</li>`).join("")}</ul><div class="src">منبع: ${c.src.map(([n,u])=>`<a href="${u}" target="_blank" rel="noopener">${esc(n)}</a>`).join(" · ")}</div></article>`).join("");
+</script>

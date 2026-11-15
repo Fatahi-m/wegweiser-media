@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2560" height="1440">
+  <defs><pattern id="g" width="64" height="64" patternUnits="userSpaceOnUse"><path d="M64 0H0V64" fill="none" stroke="#1C2D49" stroke-width="2"/></pattern></defs><rect width="2560" height="1440" fill="#0F1A2B"/><rect width="2560" height="1440" fill="url(#g)"/>
+  <rect x="0" y="1360" width="2560" height="80" fill="#F2B632"/>
+  <rect x="0" y="0" width="2560" height="80" fill="#F2B632"/>
+  <text x="560" y="600" fill="#F2B632" font-family="DejaVu Sans Mono, monospace" font-weight="bold" font-size="34" letter-spacing="6">BRUTTO → NETTO → DEIN LEBEN</text>
+  <text x="552" y="735" fill="#EEF1F4" font-family="Inter Display Black, Inter, DejaVu Sans, sans-serif" font-weight="900" font-size="112" letter-spacing="-1">GELD OHNE FILTER</text>
+  <rect x="560" y="808" width="424" height="22" rx="4" fill="#E2685A"/><rect x="992" y="808" width="376" height="22" rx="4" fill="#5AA9E2"/><rect x="1376" y="808" width="136" height="22" rx="4" fill="#6CC79A"/>
+  <text x="560" y="895" fill="#93A3B8" font-family="Inter, DejaVu Sans, sans-serif" font-weight="600" font-size="40">Gehalt · Steuern · Rente – ehrlich erklärt. Jede Woche neu.</text>
+  <circle cx="1870" cy="720" r="175" fill="#17263D"/>
+  <g transform="translate(1870 742) scale(0.95)">
+      <circle cx="0" cy="0" r="135" fill="#E8C4A0"/>
+      <path d="M-140 -20 C-140 -150 140 -150 140 -20 L140 -50 C140 -185 -140 -185 -140 -50Z" fill="#F2B632"/>
+      <rect x="-142" y="-52" width="284" height="40" rx="14" fill="#D99A1C"/>
+      <circle cx="0" cy="-168" r="24" fill="#D99A1C"/>
+      <circle cx="-48" cy="20" r="34" fill="none" stroke="#0F1A2B" stroke-width="8"/>
+      <circle cx="48" cy="20" r="34" fill="none" stroke="#0F1A2B" stroke-width="8"/>
+      <line x1="-14" y1="20" x2="14" y2="20" stroke="#0F1A2B" stroke-width="8"/>
+      <circle cx="-48" cy="24" r="8" fill="#0F1A2B"/><circle cx="48" cy="24" r="8" fill="#0F1A2B"/>
+      <path d="M-34 78 Q0 104 34 78" fill="none" stroke="#0F1A2B" stroke-width="9" stroke-linecap="round"/>
+    </g>
+</svg>

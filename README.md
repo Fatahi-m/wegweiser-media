@@ -1,5 +1,7 @@
 # Wegweiser media
 
+**All agents: read PLAYBOOK.md first** (rules, workflow, verified facts, original renderer code in studio/).
+
 Public video hosting for publishing Reels to Instagram @wegweiser.deutschland via vidIQ.
 
 ## Posting queue (`queue.json`)
