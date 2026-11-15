@@ -13,13 +13,14 @@ mkdir -p /home/claude/wegweiser/out
 Render outputs from /home/claude/wegweiser/out back into the repo (reels/, reels-ku/, archive/*/v2/ covers, stories/).
 Save every new script also in `studio/v7/<name>.txt` and every new spec in `studio/batch2/` and commit them, so the next run can reuse them.
 
-## UPDATES AFTER 23.10.2026 (these override the original handoff below)
+## UPDATES AFTER 23.10.2026 (these override the original handoff below; where they differ from the newer section "UPDATES 23.10.–15.11.2026", the newer section wins)
+- **Two versions of every video (since 12.11):** Instagram version (logo + handle + website) and TikTok version (no logo, no URL, no website screenshot; content visible from frame 0). The Instagram version goes into the posting queue; the TikTok version is sent to the user.
 - **Names/handles (15.11.2026):** Persian page = "Wegweiser Farsi", @wegweiser_farsi (Instagram + TikTok, formerly @wegweiser.deutschland). Kurdish page = "Wegweiser Kurdi", @wegweiser_kurdi (Instagram + TikTok, formerly @wegweiser_kurdi.de). Never show the old handles in new videos, covers or stories. In the code, replace any hard-coded old handle.
 - **Logo:** Wegweiser compass logo (based on the old TikTok sun-compass), one shape in two colourways: Persian navy/gold (`brand/logo-farsi-navy.png`), Kurdish Kurdistan sun with red/white/green ring (`brand/logo-kurdi-green.png`, `brand/logo-kurdi-main.png`). Replaces the older signpost logos in studio/aof and studio/brand_k.
 - **Style:** the classic info-reel style of these renderers. No stock footage/photos in the background. No yellow highlight boxes on text (the user finds them ugly). Names on illustrated ID/residence cards must be clearly fake (MUSTERMANN etc.) — TikTok restricts videos that look like real cards.
 - **Opening (28.10.2026):** every video starts with the cover image as frame 0 (slow zoom), not with a blank/animated screen — TikTok drop-off at second 0–1 was the problem.
 - **Calls to action (28.10.2026):** no mid-video follow/like ask any more; keep the follow/like/comment request at the END only (plus the hook at the start). Ask a specific comment question at the end.
-- **Length (28.10.2026):** keep videos around/under 60 seconds (the old rule "at least 1 minute" was for Creator Rewards; follow the newer rule unless the user says otherwise).
+- **Length:** normal reels around 60 s; the series "one residence, one video" must NOT be under 1 minute (user, Nov 2026, see section below).
 - **Covers:** paragraph (e.g. § 26 Abs. 3) written BIG so viewers see at a glance which paragraph it is about. v2 cover kits: `archive/fa/kit/fa_covers.py`, `archive/ku/kit/ku_covers.py` (see README.md).
 - **Posting:** Instagram posts at 14:00 and 18:00 (2 per page per day) from `queue.json` (Persian) / `queue-ku.json` (Kurdish) by the posting tasks. TikTok and Facebook: the user posts himself.
 - **Audio:** the user makes the voice in Google AI Studio (Gemini TTS) and emails the WAV to himself with subject fa-1 / fa-2 / ku-1 / ku-2; the video agent picks it up. Use his audio as is.
