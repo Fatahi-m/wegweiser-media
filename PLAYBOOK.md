@@ -27,6 +27,19 @@ Save every new script also in `studio/v7/<name>.txt` and every new spec in `stud
 - **Shared files in this repo:** `drafts/<date>/` (scripts from the topic agent), `comments/topic-requests.md` + `comments/handled.json` (comment agent), `reports/insights.md` (weekly report lessons), `laws/updates-*.md` (law watch), `stories/<date>/`.
 - **Knowledge base:** `studio/kb/wissen.html` holds the verified facts (cards). Agents read it before answering/writing; when a new fact is verified, update the matching card (keep the date and source).
 
+## More lessons from the WEGWEISER chat (the user's main working chat, Oct–Nov 2026)
+- **Cover intro (how it was done, 26.10):** render the reel, then overlay the cover for the first sentence (~8 s) with a gentle zoom and fade out:
+  `ffmpeg -y -i reel.mp4 -loop 1 -t 8.2 -i cover.jpg -filter_complex "[1]scale=1080:1920,zoompan=z='1+0.00018*on':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1080x1920:fps=30,format=yuva420p,fade=t=out:st=7.9:d=0.3:alpha=1[cv];[0][cv]overlay=0:0:enable='lte(t,8.2)'[v]" -map "[v]" -map 0:a -c:v libx264 -crf 20 -preset medium -c:a aac -b:a 192k out.mp4`
+  (set -t / st to the end of the first sentence). Keep the zoom gentle (0.00018 per frame).
+- **Reply-to-comment videos:** start with «پرسیاری ئێوە لە کۆمێنت: …» / «سؤال شما توی کامنت: …» and show the comment in a bubble (bubble() in batch2/ks_253.py / ks_255.py) WITHOUT the commenter's name.
+- **On-screen text:** never add text the user did not approve; if he changed the wording when recording the audio, put HIS wording on screen.
+- **Sync:** timing comes only from silences (no speech-to-text). Always check test frames; tell the user once "please check the sync" when something was unusual.
+- **Captions:** hook line, short explanation (✅ points allowed), source line, short "general info" note, save/share ask, hashtags (Kurdish e.g. #کوردانی_ئەڵمانیا #wegweiser_kurdi; Persian e.g. #ایرانیان_آلمان #wegweiser_farsi).
+- **Reposts:** the user does not want other pages to repost his videos; if a page wants to share, only Instagram Collab (logo kept, tagged, no edits).
+- **Re-uploading a fixed video:** wait 2–3 days so TikTok does not treat it as a duplicate, and use a new caption.
+- **What performs best (Oct):** "money you are entitled to but don't know about" (Kinderzuschlag, Einstiegsgeld, 5 kinds of Jobcenter help) and residence types one by one. Kurdish page grows faster and asks many residence-law questions. Word-of-the-day / 5-Kalame series are weak (max once a week).
+- **Delivery to his PC (when the computer is linked):** Kurdish outputs to Videos\Kurdi\, covers to Videos\Covers\; verify with a directory listing after writing.
+
 ## Original handoff (status 23.10.2026) — still valid unless the update section above says otherwise
 
 ---
