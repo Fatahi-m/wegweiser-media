@@ -65,7 +65,14 @@ def background():
     d.polygon(grn + [(W, H), (0, H)], fill=GREEN)
     return c
 
+MAIN_LOGO = os.path.normpath(S + "/../../../brand/logo-kurdi-main.png")
+
 def logo(size):
+    if os.path.exists(MAIN_LOGO):
+        return Image.open(MAIN_LOGO).convert("RGBA").resize((size, size), Image.LANCZOS)
+    return logo_old(size)
+
+def logo_old(size):
     s = size * 3; im = Image.new("RGBA", (s, s), (0, 0, 0, 0)); d = ImageDraw.Draw(im)
     d.ellipse((0, 0, s - 1, s - 1), fill=GREEN); d.ellipse((s * .06, s * .06, s * .94, s * .94), fill=RED)
     d.ellipse((s * .11, s * .11, s * .89, s * .89), fill=(252, 248, 238))
