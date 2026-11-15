@@ -1,0 +1,186 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:V;src:url(Vazirmatn-Black.ttf);font-weight:900}
+@font-face{font-family:V;src:url(Vazirmatn-Bold.ttf);font-weight:700}
+@font-face{font-family:V;src:url(Vazirmatn-Medium.ttf);font-weight:500}
+@font-face{font-family:I;src:url(Inter-Black.otf);font-weight:900}
+@font-face{font-family:I;src:url(Inter-Bold.otf);font-weight:700}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#040b1f}
+:root{--c1:#1d3f93;--c2:#0b1d4f;--c3:#040b1f;--acc:#163a6b;--gold:#ffc23a;--gold2:#ffdf7e}
+body.ku{--c1:#167a50;--c2:#0a4430;--c3:#03170f;--acc:#0f6b45;background:#03170f}
+#st{position:relative;width:1080px;height:1920px;overflow:hidden;font-family:V,I,sans-serif;color:#fff;direction:rtl}
+#bg{position:absolute;inset:0;background:radial-gradient(1200px 1300px at 50% 36%,var(--c1) 0%,var(--c2) 45%,var(--c3) 100%)}
+#rays{position:absolute;left:50%;top:36%;width:3400px;height:3400px;margin:-1700px 0 0 -1700px;opacity:.16;
+ background:repeating-conic-gradient(from 0deg,rgba(255,200,80,.55) 0deg 2.2deg,transparent 2.2deg 9deg);
+ -webkit-mask:radial-gradient(circle,#000 0%,rgba(0,0,0,.6) 25%,transparent 55%);mask:radial-gradient(circle,#000 0%,rgba(0,0,0,.6) 25%,transparent 55%)}
+#floor{position:absolute;left:-600px;right:-600px;bottom:-40px;height:620px;transform-origin:50% 100%;transform:perspective(700px) rotateX(64deg);
+ background-image:linear-gradient(rgba(255,205,90,.38) 2px,transparent 2px),linear-gradient(90deg,rgba(255,205,90,.38) 2px,transparent 2px);background-size:110px 110px;
+ -webkit-mask:linear-gradient(to top,#000 0%,transparent 95%);mask:linear-gradient(to top,#000 0%,transparent 95%)}
+#glow{position:absolute;left:0;right:0;bottom:0;height:700px;background:radial-gradient(900px 420px at 50% 100%,rgba(255,190,60,.30),transparent 70%)}
+#stars{position:absolute;inset:0}
+#stars i{position:absolute;width:6px;height:6px;border-radius:50%;background:#ffd36b;box-shadow:0 0 12px 3px rgba(255,200,80,.7)}
+#vig{position:absolute;inset:0;background:radial-gradient(1400px 1700px at 50% 45%,transparent 55%,rgba(0,0,0,.55) 100%)}
+.sc{position:absolute;inset:0;opacity:0;will-change:opacity,transform,filter}
+.hl{position:absolute;left:60px;right:60px;text-align:center;font:900 92px/1.32 V,I}
+.hl .w{display:inline-block;margin:0 .13em;will-change:transform,opacity,filter}
+.g{background:linear-gradient(180deg,var(--gold2),var(--gold) 55%,#e39a12);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 4px 18px rgba(255,170,30,.35))}
+.lt{font-family:I,V;direction:ltr;unicode-bidi:isolate}
+.sub{position:absolute;left:0;right:0;text-align:center;font:700 34px I;letter-spacing:6px;color:rgba(255,255,255,.55);direction:ltr}
+.pw{position:absolute;perspective:1800px}
+.ph{position:relative;border-radius:78px;background:linear-gradient(145deg,#2a2f3a,#0c0f16 40%,#1d222c);padding:18px;box-shadow:0 60px 120px rgba(0,0,0,.6),0 0 0 3px rgba(255,255,255,.14) inset,0 0 60px rgba(255,190,60,.12);transform-style:preserve-3d}
+.ph .scr{position:relative;width:100%;height:100%;border-radius:62px;overflow:hidden;background:#fff}
+.ph .scr img{position:absolute;left:0;top:0;width:100%}
+.ph .isl{position:absolute;top:36px;left:50%;width:150px;height:42px;margin-left:-75px;border-radius:24px;background:#000;z-index:3}
+.ph .shine{position:absolute;inset:18px;border-radius:62px;background:linear-gradient(120deg,rgba(255,255,255,.18),transparent 30%,transparent 70%,rgba(255,255,255,.06));pointer-events:none;z-index:4}
+.badge{position:absolute;z-index:8;padding:26px 46px;border-radius:36px;background:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,.05));border:2px solid rgba(255,215,120,.55);backdrop-filter:blur(14px);box-shadow:0 30px 70px rgba(0,0,0,.45),0 0 50px rgba(255,190,60,.25);text-align:center}
+.badge small{display:block;font:700 34px V,I;color:rgba(255,255,255,.8);margin-bottom:4px}
+.badge b{display:block;font:900 120px/1.05 I,V}
+.chip{position:absolute;z-index:8;padding:16px 34px;border-radius:60px;background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.28);backdrop-filter:blur(10px);font:700 40px I,V;direction:ltr;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.pill{position:absolute;z-index:9;left:50%;padding:18px 48px;border-radius:70px;background:linear-gradient(180deg,var(--gold2),var(--gold));color:#1a1405;font:900 50px V,I;white-space:nowrap;box-shadow:0 20px 50px rgba(0,0,0,.4),0 0 40px rgba(255,190,60,.45)}
+.qc{position:absolute;left:60px;right:60px;display:flex;align-items:center;gap:30px;padding:34px 40px;border-radius:38px;background:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,.04));border:2px solid rgba(255,255,255,.22);backdrop-filter:blur(12px);box-shadow:0 30px 60px rgba(0,0,0,.4);font:900 52px/1.35 V,I;white-space:nowrap}
+.qc .ic{flex:none;width:110px;height:110px;border-radius:30px;background:linear-gradient(160deg,var(--gold2),var(--gold));display:grid;place-items:center;box-shadow:0 0 40px rgba(255,190,60,.4)}
+.qc .ic svg{width:62px;height:62px;stroke:#2a1d00;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.logo{position:absolute;left:0;right:0;text-align:center;direction:ltr}
+.logo img{width:300px;height:300px;border-radius:70px;box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 90px rgba(255,190,60,.35)}
+.logo .wm{font:900 150px/1 I;letter-spacing:2px;margin-top:40px}
+.logo .wm span{color:var(--gold)}
+.logo .ln{height:8px;margin:22px auto 0;width:820px;border-radius:4px;background:linear-gradient(90deg,var(--gold) 40%,#fff 40%)}
+.logo .nw{font:700 54px I;letter-spacing:22px;margin-top:30px;padding-left:22px;color:rgba(255,255,255,.85)}
+.url{position:absolute;left:90px;right:90px;height:150px;border-radius:80px;background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font:900 76px I;direction:ltr}
+.url i{display:inline-block;width:5px;height:84px;background:var(--gold);margin-left:6px}
+.tap{position:absolute;width:130px;height:130px;margin:-65px 0 0 -65px;border-radius:50%;border:6px solid var(--gold);box-shadow:0 0 30px rgba(255,190,60,.8);z-index:6}
+.bub{position:absolute;left:110px;right:110px;padding:40px 54px;border-radius:44px 44px 44px 10px;background:#fff;color:#111;box-shadow:0 30px 70px rgba(0,0,0,.45)}
+.bub small{display:block;font:700 34px V;color:#7a8296}
+.bub b{font:900 96px V}
+.flash{position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(255,220,140,.9),transparent 60%);opacity:0;pointer-events:none}
+
+.pp{position:absolute;width:400px;height:560px;border-radius:22px 34px 34px 22px;box-shadow:0 50px 90px rgba(0,0,0,.55),inset 0 0 0 3px rgba(255,255,255,.08),inset 14px 0 18px rgba(0,0,0,.25);transform-style:preserve-3d;overflow:hidden}
+.pp:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.035) 0 3px,transparent 3px 7px)}
+.pp:after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.22),transparent 35%,transparent 70%,rgba(255,255,255,.08))}
+.pp .t{position:absolute;top:58px;left:0;right:0;text-align:center;font:700 30px I;letter-spacing:5px;color:rgba(255,224,150,.95);direction:ltr}
+.pp .em{position:absolute;top:150px;left:50%;width:170px;height:170px;margin-left:-85px;border-radius:50%;border:5px solid rgba(255,224,150,.9);display:grid;place-items:center}
+.pp .em svg{width:96px;height:96px;fill:none;stroke:rgba(255,224,150,.95);stroke-width:1.6}
+.pp .b{position:absolute;bottom:60px;left:20px;right:20px;text-align:center;font:700 27px/1.35 I;letter-spacing:2px;color:rgba(255,224,150,.95);direction:ltr}
+.pp .chipi{position:absolute;bottom:170px;left:50%;width:70px;height:50px;margin-left:-35px;border-radius:8px;border:3px solid rgba(255,224,150,.8)}
+.pp.blue{background:linear-gradient(150deg,#2f6fd6,#1546a8 55%,#0d3384)}
+.pp.grey{background:linear-gradient(150deg,#8d949e,#666d78 55%,#4d535d)}
+.pp.home{background:linear-gradient(150deg,#8f2632,#6a1620 55%,#4e0f17)}
+.pp.sl{background:linear-gradient(150deg,#3b4a5e,#273446 55%,#1a2433)}
+.num{position:absolute;top:70px;left:50%;margin-left:-75px;width:150px;height:150px;border-radius:50%;background:linear-gradient(160deg,var(--gold2),var(--gold));color:#1a1405;display:grid;place-items:center;font:900 92px V;box-shadow:0 0 50px rgba(255,190,60,.5);z-index:9}
+.lab{position:absolute;left:60px;right:60px;text-align:center;font:900 60px I;direction:ltr;color:#fff}
+.lab small{display:block;font:700 34px V;color:rgba(255,255,255,.75);margin-top:10px;direction:rtl}
+.warn{position:absolute;left:70px;right:70px;padding:30px 40px;border-radius:34px;background:linear-gradient(160deg,#d8303c,#9e1622);box-shadow:0 30px 70px rgba(0,0,0,.45),0 0 50px rgba(230,50,60,.45);font:900 54px/1.35 V;text-align:center;z-index:9}
+.ok{position:absolute;padding:20px 34px;border-radius:30px;background:linear-gradient(160deg,rgba(255,255,255,.18),rgba(255,255,255,.06));border:2px solid rgba(255,255,255,.3);font:900 46px V;box-shadow:0 20px 50px rgba(0,0,0,.35);white-space:nowrap;z-index:8}
+.ok .lt{font-family:I}
+.x{position:absolute;width:300px;height:300px;z-index:10}
+.x:before,.x:after{content:"";position:absolute;left:50%;top:50%;width:360px;height:34px;margin:-17px 0 0 -180px;border-radius:17px;background:#e3262f;box-shadow:0 0 30px rgba(230,40,50,.7)}
+.x:before{transform:rotate(45deg)}.x:after{transform:rotate(-45deg)}
+.emb{position:absolute;left:50%;width:520px;margin-left:-260px}
+.emb svg{width:100%;fill:none;stroke:#fff;stroke-width:1.2;stroke-linejoin:round}
+.card{position:absolute;width:760px;height:480px;border-radius:34px;background:linear-gradient(135deg,#e9eef5,#c9d4e2 45%,#dfe7f0);box-shadow:0 50px 100px rgba(0,0,0,.55),inset 0 0 0 3px rgba(255,255,255,.6);overflow:hidden;direction:ltr;color:#1b2a44;font-family:I}
+.card:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(60deg,rgba(29,63,147,.05) 0 4px,transparent 4px 11px)}
+.card:after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.55),transparent 35%,transparent 70%,rgba(255,255,255,.25))}
+.card .top{position:absolute;left:34px;right:34px;top:26px;display:flex;align-items:center;gap:20px}
+.card .d{width:62px;height:62px;border-radius:12px;background:#1d3f93;color:#ffc23a;display:grid;place-items:center;font:900 40px I}
+.card .tt{font:900 34px I;letter-spacing:2px}.card .tt small{display:block;font:700 18px I;letter-spacing:3px;opacity:.6}
+.card .chp{margin-left:auto;width:80px;height:60px;border-radius:12px;background:linear-gradient(135deg,#f3d27a,#c9972f)}
+.card .ph2{position:absolute;left:34px;top:122px;width:190px;height:240px;border-radius:14px;background:#b7c3d4;overflow:hidden}
+.card .ph2 svg{width:100%;height:100%;fill:#8d9bb1}
+.card .f{position:absolute;left:260px;font:700 18px I;letter-spacing:2px;opacity:.6}
+.card .v{position:absolute;left:260px;font:900 31px I;letter-spacing:1px}
+.card .pz{position:absolute;left:260px;top:300px;font:900 92px I;color:#1d3f93}
+.card .ms{position:absolute;right:30px;bottom:24px;font:900 40px I;letter-spacing:8px;color:rgba(200,30,40,.55);transform:rotate(-8deg)}
+.pzb{position:absolute;left:0;right:0;text-align:center;font:900 150px/1 I;direction:ltr}
+.pzb small{font-size:80px;color:rgba(255,255,255,.85)}
+.de{position:absolute;left:60px;right:60px;text-align:center;font:700 54px I;direction:ltr;color:rgba(255,255,255,.8)}
+.big{position:absolute;left:60px;right:60px;text-align:center;font:900 96px/1.3 V}
+.tile{position:absolute;width:440px;padding:40px 30px;border-radius:40px;text-align:center;background:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,.04));border:2px solid rgba(255,215,120,.45);box-shadow:0 30px 70px rgba(0,0,0,.4);backdrop-filter:blur(12px)}
+.tile b{display:flex;align-items:center;justify-content:center;height:170px;font:900 66px/1.25 V}.tile small{display:block;font:700 38px I;direction:ltr;color:rgba(255,255,255,.7);margin-top:12px}
+.row{position:absolute;left:70px;right:70px;display:flex;align-items:center;gap:34px;padding:30px 40px;border-radius:36px;background:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,.04));border:2px solid rgba(255,255,255,.22);box-shadow:0 30px 60px rgba(0,0,0,.4)}
+.row .k{flex:none;min-width:250px;padding:14px 22px;border-radius:24px;background:linear-gradient(160deg,var(--gold2),var(--gold));color:#1a1405;font:900 46px I;direction:ltr;text-align:center}
+.row .k.red{background:linear-gradient(160deg,#ff6b74,#e3262f);color:#fff}
+.row .tx{font:900 52px/1.3 V}.row .tx small{display:block;font:700 34px I;direction:ltr;text-align:right;color:rgba(255,255,255,.65)}
+.mini{display:inline-block;margin:10px;padding:14px 26px;border-radius:24px;background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.3);font:900 44px I;direction:ltr}
+</style></head><body class="tt"><div id="st">
+<div id="bg"></div><div id="rays"></div><div id="glow"></div><div id="floor"></div><div id="stars"></div><div id="scenes">
+<div class="sc" id="s1">
+ <div class="hl" style="top:270px;font-size:104px"><span class="w">اقامتت</span> <span class="w g lt">§ 25</span> <span class="w">هست؟</span></div>
+ <div class="card" id="cd" style="left:160px;top:590px"><div class="top"><span class="d">D</span><span class="tt">AUFENTHALTSTITEL<small>RESIDENCE PERMIT</small></span><span class="chp"></span></div><div class="ph2"><svg viewBox="0 0 60 76"><circle cx="30" cy="27" r="13"/><path d="M6 76c0-15 11-25 24-25s24 10 24 25z"/></svg></div><div class="f" style="top:130px">NAME</div><div class="v" style="top:156px">MUSTERMANN</div><div class="f" style="top:220px">ART DES TITELS</div><div class="v" style="top:246px">AUFENTHALTSERLAUBNIS</div><div class="pz">§ 25 <span id="q1" style="color:#e3262f">?</span></div><div class="ms">MUSTER</div></div>
+ <div class="hl" id="h1b" style="top:1180px;font-size:118px"><span class="w">ولی</span> <span class="w g">کدوم</span> <span class="w g">۲۵؟</span></div>
+ <div id="mn" style="position:absolute;left:60px;right:60px;top:1450px;text-align:center"><span class="mini">Abs. 1</span><span class="mini">Abs. 2</span><span class="mini">Abs. 3</span><span class="mini">Abs. 4</span><span class="mini">Abs. 5</span><span class="mini">25a</span><span class="mini">25b</span></div>
+</div>
+<div class="sc" id="s2"><div class="num" style="top:330px">۱</div><div class="pzb" style="top:590px">§ 25 <small>Abs. 1</small></div><div class="big" style="top:900px"><span class="g">پناهندگی سیاسی</span></div><div class="de" id="d2" style="top:1080px">Asyl · Art. 16a GG</div></div>
+<div class="sc" id="s3"><div class="num" style="top:330px">۲</div><div class="pzb" style="top:590px">§ 25 <small>Abs. 2</small></div>
+ <div class="tile" id="t3a" style="right:70px;top:880px"><b>پناهنده‌ی<br>ژنو</b><small>Flüchtling · § 3 AsylG</small></div>
+ <div class="tile" id="t3b" style="left:70px;top:880px"><b>سوبسیدیر</b><small>subsidiär · § 4 AsylG</small></div>
+ <div class="hl" id="vs" style="top:980px;font-size:70px"><span class="w g lt">VS</span></div>
+ <div class="warn" id="w3" style="top:1440px;background:linear-gradient(160deg,#e59a12,#b06e00)">فرق بزرگ: آوردن خانواده</div></div>
+<div class="sc" id="s4"><div class="num" style="top:330px">۳</div><div class="pzb" style="top:590px">§ 25 <small>Abs. 3</small></div><div class="big" style="top:900px"><span class="g">ممنوعیت دیپورت</span></div><div class="de" id="d4" style="top:1080px">Abschiebungsverbot</div></div>
+<div class="sc" id="s5"><div class="num" style="top:330px">۴</div><div class="pzb" style="top:590px">§ 25 <small>Abs. 4</small></div><div class="big" style="top:900px"><span class="g">اقامت موقت</span></div><div class="de" id="d5" style="top:1080px">für einen bestimmten Zweck</div></div>
+<div class="sc" id="s6"><div class="num" style="top:330px">۵</div><div class="pzb" style="top:590px">§ 25 <small>Abs. 5</small></div><div class="big" style="top:900px"><span class="g">برگشت ممکن نیست</span></div><div class="de" id="d6" style="top:1080px">Ausreise unmöglich</div></div>
+<div class="sc" id="s7"><div class="hl" style="top:490px;font-size:90px"><span class="w">و</span> <span class="w">بعد</span> <span class="w">هم…</span></div>
+ <div class="tile" id="t7a" style="right:70px;top:760px"><b class="lt g" style="font:900 110px I">25a</b><small style="font:900 50px V;direction:rtl;color:#fff">جوون‌ها</small></div>
+ <div class="tile" id="t7b" style="left:70px;top:760px"><b class="lt g" style="font:900 110px I">25b</b><small style="font:900 50px V;direction:rtl;color:#fff">خوب جاافتاده‌ها</small></div></div>
+<div class="sc" id="s8"><div class="hl" style="top:450px;font-size:86px"><span class="w">همه</span> <span class="w g lt">§ 25</span> <span class="w">ندارن!</span></div>
+ <div class="row" id="r8a" style="top:840px"><span class="k" style="font-size:36px">Gestattung</span><span class="tx">پرونده هنوز بازه<small>Aufenthaltsgestattung</small></span></div>
+ <div class="row" id="r8b" style="top:1120px"><span class="k red">Duldung</span><span class="tx">اصلاً اقامت نیست!<small>§ 60a AufenthG</small></span></div></div>
+<div class="sc" id="s9"><div class="hl" style="top:450px;font-size:86px"><span class="w">برنامه‌ی</span> <span class="w g">پذیرش</span></div>
+ <div class="row" id="r9a" style="top:760px"><span class="k">§ 22</span><span class="tx">پذیرش از خارج</span></div>
+ <div class="row" id="r9b" style="top:990px"><span class="k">§ 23</span><span class="tx">برنامه‌های پذیرش</span></div>
+ <div class="row" id="r9c" style="top:1220px"><span class="k">§ 24</span><span class="tx">اوکراینی‌ها</span></div></div>
+<div class="sc" id="s10">
+ <div class="hl" style="top:150px;font-size:78px"><span class="w">هر</span> <span class="w">کدوم،</span> <span class="w g">کامل</span> <span class="w g">و</span> <span class="w g">جامع</span></div>
+ <div class="pw" id="p10"><div class="ph" style="width:600px;height:1220px"><div class="scr"><img src="s-karte.png"></div><div class="isl"></div><div class="shine"></div></div></div>
+ <div id="sum" style="position:absolute;left:60px;right:60px;top:430px;text-align:center"><span class="mini">§ 25 Abs. 1</span><span class="mini">§ 25 Abs. 2</span><span class="mini">§ 25 Abs. 3</span><span class="mini">§ 25 Abs. 4</span><span class="mini">§ 25 Abs. 5</span><span class="mini">§ 25a</span><span class="mini">§ 25b</span><span class="mini">Gestattung</span><span class="mini">Duldung</span><span class="mini">§ 22</span><span class="mini">§ 23</span><span class="mini">§ 24</span></div>
+ <div class="pill" id="pl10" style="top:1720px">لینک توی بیو پیجه</div></div>
+<div class="sc" id="s11">
+ <div class="card" id="cd2" style="left:160px;top:300px"><div class="top"><span class="d">D</span><span class="tt">AUFENTHALTSTITEL<small>RESIDENCE PERMIT</small></span><span class="chp"></span></div><div class="ph2"><svg viewBox="0 0 60 76"><circle cx="30" cy="27" r="13"/><path d="M6 76c0-15 11-25 24-25s24 10 24 25z"/></svg></div><div class="f" style="top:130px">NAME</div><div class="v" style="top:156px">MUSTERMANN</div><div class="f" style="top:220px">ART DES TITELS</div><div class="v" style="top:246px">AUFENTHALTSERLAUBNIS</div><div class="pz">§ <span style="color:#e3262f">??</span></div><div class="ms">MUSTER</div></div>
+ <div class="hl" style="top:880px;font-size:100px"><span class="w">نوع</span> <span class="w">اقامت</span> <span class="w g">تو</span> <span class="w g">چیه؟</span></div>
+ <div class="bub" id="bub" style="top:1200px"><small>کامنت کن:</small><b class="lt" style="font:900 80px I">§ 25 Abs. …</b></div>
+ <div class="logo" style="top:1660px" id="lg11"><div class="wm" style="font-size:58px;margin:0">WEG<span style="color:#fff">WEISER</span> <span style="font:700 30px I;letter-spacing:8px;color:rgba(255,255,255,.7)">NEWS</span></div></div>
+</div>
+</div><div id="vig"></div><div class="flash" id="flash"></div></div>
+<script>
+const $=(q,e=document)=>e.querySelector(q);
+const cl=x=>x<0?0:x>1?1:x; const eo=x=>{x=cl(x);return 1-Math.pow(1-x,3)}; const eio=x=>{x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2};
+const back=x=>{x=cl(x);const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+let seed=7; const rnd=()=>{seed=(seed*16807)%2147483647; return seed/2147483647;}; const ST=[];
+for(let i=0;i<70;i++){ const e=document.createElement('i'); e.style.left=rnd()*1080+'px'; e.style.top=rnd()*1500+'px'; $('#stars').appendChild(e); ST.push({e,s:0.4+rnd()*1.1,ph:rnd()*6.28,sp:0.6+rnd()*1.6}); }
+function words(root,t,start,step){ root.querySelectorAll('.w').forEach((w,k)=>{ const q=eo((t-start-k*step)/0.45); w.style.opacity=q; w.style.transform=`translateY(${(1-q)*40}px)`; w.style.filter=`blur(${(1-q)*14}px)`; }); }
+function pop(el,q,base=''){ el.style.opacity=cl(q*1.5); el.style.transform=`${base} scale(${0.6+0.4*back(q)})`; }
+function rise(el,q){ el.style.opacity=q; el.style.transform=`translateY(${(1-q)*60}px)`; el.style.filter=`blur(${(1-q)*10}px)`; }
+const TT=document.body.classList.contains('tt');
+window.SC=[[0,7.0],[7.0,11.35],[11.35,19.0],[19.0,22.2],[22.2,26.6],[26.6,30.5],[30.5,36.8],[36.8,46.45],[46.45,53.1],[53.1,59.6],[59.6,64.0]];
+const BEAT={1:[1.71,3.36],3:[13.2,15.46],7:[31.4,33.8],8:[39.7,43.46],9:[47.6,49.3,51.27],10:[58.35]};
+const N=11;
+window.render=function(T0){
+  $('#rays').style.transform=`rotate(${T0*2.2}deg)`; $('#floor').style.backgroundPosition=`0 ${(T0*40)%110}px`;
+  ST.forEach(s=>{ s.e.style.opacity=0.35+0.65*(0.5+0.5*Math.sin(T0*s.sp+s.ph)); s.e.style.transform=`translateY(${-(T0*6*s.s)%40}px) scale(${s.s})`; });
+  let fl=0;
+  for(let i=0;i<N;i++){ const s=$('#s'+(i+1)); const [a,b]=SC[i]; const t=T0-a; const d=b-a;
+    if(T0<a-0.001||(T0>b+0.35&&i<N-1)){ s.style.opacity=0; continue; }
+    const fin=i===0?1:eo(t/0.4), fout=i===N-1?1:1-eio((T0-(b-0.05))/0.4);
+    s.style.opacity=Math.min(fin,fout); s.style.transform=`scale(${1+(1-fout)*0.08-(i===0?0:(1-fin)*0.06)})`; s.style.filter=fout<1?`blur(${(1-fout)*10}px)`:'none';
+    if(i>0&&t<0.3) fl=Math.max(fl,(1-t/0.3)*0.18);
+    const bt=(BEAT[i+1]||[]).map(x=>x-a);
+    const hl=s.querySelector('.hl'); if(hl) words(hl,t,i===0?-0.6:0.05,0.12);
+    const n=s.querySelector('.num'); if(n) pop(n,(t-0.05)/0.5,'');
+    const pz=s.querySelector('.pzb'); if(pz){ const q=back((t-0.15)/0.6); pz.style.opacity=cl((t-0.15)/0.3); pz.style.transform=`scale(${0.5+0.5*q})`; }
+    const bg=s.querySelector('.big'); if(bg) rise(bg,eo((t-0.5)/0.5));
+    const de=s.querySelector('.de'); if(de) rise(de,eo((t-1.0)/0.5)*0.9);
+    if(i===0){ const c=$('#cd'); const q=eo((t+0.4)/0.8); c.style.opacity=q; c.style.transform=`perspective(1600px) rotateY(${-18+Math.sin(T0*0.9)*8}deg) rotateX(${8+Math.sin(T0*0.7)*3}deg) translateY(${(1-q)*150+Math.sin(T0*1.2)*10}px)`;
+      const qq=$('#q1'); const p=(t-bt[0])>0? 1+0.25*Math.abs(Math.sin((t-bt[0])*5)):1; qq.style.display='inline-block'; qq.style.transform=`scale(${p})`;
+      words($('#h1b'),t,bt[0]-0.05,0.12); $('#mn').querySelectorAll('.mini').forEach((m,k)=>pop(m,(t-bt[1]-k*0.12)/0.4));
+      if(t>bt[0]&&t<bt[0]+0.3) fl=Math.max(fl,0.22*(1-(t-bt[0])/0.3)); }
+    if(i===2){ pop($('#t3a'),(t-0.6)/0.5); pop($('#t3b'),(t-bt[0]+0.4)/0.5); pop($('#w3'),(t-bt[1])/0.5); if(t>bt[1]&&t<bt[1]+0.3) fl=Math.max(fl,0.2*(1-(t-bt[1])/0.3)); }
+    if(i===6){ pop($('#t7a'),(t-bt[0])/0.5); pop($('#t7b'),(t-bt[0]-0.6)/0.5); }
+    if(i===7){ pop($('#r8a'),(t-bt[0])/0.5); pop($('#r8b'),(t-bt[1])/0.5); if(t>bt[1]&&t<bt[1]+0.3) fl=Math.max(fl,0.25*(1-(t-bt[1])/0.3)); }
+    if(i===8){ pop($('#r9a'),(t-bt[0])/0.5); pop($('#r9b'),(t-bt[1])/0.5); pop($('#r9c'),(t-bt[2])/0.5); }
+    if(i===9){ if(TT){ $('#p10').style.display='none'; $('#sum').querySelectorAll('.mini').forEach((m,k)=>{ m.style.fontSize='54px'; m.style.margin='16px'; pop(m,(t-0.4-k*0.15)/0.4); }); $('#sum').style.top='520px'; $('#pl10').style.display='none'; }
+      else { $('#sum').style.display='none'; const p=$('#p10'); const q=eo(t/0.8); p.style.left='240px'; p.style.top=(400+(1-q)*600)+'px'; $('.ph',p).style.transform=`rotateY(${-12+Math.sin(T0*0.8)*6}deg) rotateX(5deg)`; $('img',p).style.top=-(eio((t-1)/(d-1.5))*1800)+'px'; pop($('#pl10'),(t-bt[0])/0.5,'translateX(-50%)'); } }
+    if(i===10){ const c=$('#cd2'); const q=back(t/0.6); c.style.opacity=cl(t/0.3); c.style.transform=`perspective(1600px) rotateY(${-14+Math.sin(T0*0.9)*8}deg) rotateX(8deg) scale(${0.7+0.3*q})`; pop($('#bub'),(t-0.9)/0.6); $('#lg11').style.opacity=TT?0:eo((t-1.3)/0.5); }
+  }
+  $('#flash').style.opacity=fl;
+};
+render(0);
+</script></body></html>

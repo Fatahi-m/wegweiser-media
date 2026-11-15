@@ -1,0 +1,26 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:V;src:url(Vazirmatn-Black.ttf);font-weight:900}
+@font-face{font-family:V;src:url(Vazirmatn-Bold.ttf);font-weight:700}
+@font-face{font-family:I;src:url(Inter-Black.otf);font-weight:900}
+@font-face{font-family:I;src:url(Inter-Bold.otf);font-weight:700}
+html,body{margin:0}
+#c{position:relative;width:1640px;height:624px;overflow:hidden;background:radial-gradient(ellipse 70% 90% at 50% 40%,#1b8a5a 0%,#0f5c3b 45%,#072e1e 100%);color:#fff}
+#c:before{content:"";position:absolute;inset:-50%;background:repeating-conic-gradient(from 0deg at 50% 50%,rgba(255,255,255,.05) 0 4deg,transparent 4deg 12deg)}
+#c:after{content:"";position:absolute;left:0;right:0;bottom:0;height:180px;background:linear-gradient(transparent,rgba(255,190,60,.18))}
+.dot{position:absolute;border-radius:50%;background:#ffc23a;box-shadow:0 0 12px #ffc23a}
+.wm{position:absolute;left:0;right:0;top:92px;text-align:center;font:900 92px I;letter-spacing:6px;color:#ffc23a;text-shadow:0 8px 30px rgba(0,0,0,.35);z-index:2}
+.wm span{color:#fff}
+.tg{position:absolute;left:0;right:0;top:220px;text-align:center;font:900 54px V;direction:rtl;z-index:2}
+.chips{position:absolute;left:0;right:0;top:322px;text-align:center;direction:rtl;z-index:2}
+.chips span{display:inline-block;margin:0 9px;padding:10px 26px;border-radius:30px;background:rgba(255,255,255,.13);border:2px solid rgba(255,215,120,.5);font:700 30px V}
+.url{position:absolute;right:230px;bottom:44px;font:700 30px I;color:rgba(255,255,255,.85);z-index:2}
+.flag{position:absolute;left:230px;bottom:44px;font:700 28px V;direction:rtl;color:rgba(255,255,255,.85);z-index:2}
+</style></head><body><div id="c">
+<div class="wm">WEGWEISER <span>KURDÎ</span></div>
+<div class="tg">ڕێنمایی ژیان لە ئەڵمانیا، بە کوردی</div>
+<div class="chips"><span>ئیقامە</span><span>جۆب‌سەنتەر</span><span>یاسا نوێیەکان</span><span>نامەی فەرمانگەکان</span><span>هەواڵ</span></div>
+<div class="url">wegweiser-news.de</div>
+<div class="flag">هەموو ڕۆژێک زانیاریی نوێ 🇩🇪</div>
+</div>
+<script>let s=3;const r=()=>{s=(s*16807)%2147483647;return s/2147483647};for(let i=0;i<60;i++){const d=document.createElement('i');d.className='dot';const z=2+r()*4;d.style.cssText=`left:${r()*1640}px;top:${r()*624}px;width:${z}px;height:${z}px;opacity:${.3+r()*.6}`;document.getElementById('c').appendChild(d)}</script>
+</body></html>

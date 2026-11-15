@@ -1,0 +1,97 @@
+<!doctype html><html dir="rtl"><head><meta charset="utf-8"><style>@font-face{font-family:V;src:url(Vazirmatn-Regular.ttf);font-weight:400}
+@font-face{font-family:V;src:url(Vazirmatn-Medium.ttf);font-weight:500}
+@font-face{font-family:V;src:url(Vazirmatn-Bold.ttf);font-weight:700}
+@font-face{font-family:V;src:url(Vazirmatn-Black.ttf);font-weight:900}
+@font-face{font-family:I;src:url(Inter-Bold.otf);font-weight:700}
+@font-face{font-family:I;src:url(Inter-Black.otf);font-weight:900}
+:root{--g:#0f6b45;--g2:#149a4a;--r:#c8102e;--gold:#f6b400;--ink:#13261c;--cream:#fbf6ea}
+body{margin:0;background:#666}
+.s{position:relative;width:1080px;height:1350px;overflow:hidden;background:var(--cream);color:var(--ink);font-family:V;margin-bottom:20px}
+.rays{position:absolute;left:50%;top:-500px;width:1600px;height:1600px;margin-left:-800px;background:repeating-conic-gradient(rgba(246,180,0,.07) 0 5deg,transparent 5deg 15deg);border-radius:50%;-webkit-mask:radial-gradient(circle,#000 0,#000 40%,transparent 70%)}
+.top{position:absolute;top:50px;left:70px;right:70px;display:flex;align-items:center;gap:20px;direction:ltr}
+.top img{width:74px;height:74px}
+.top b{font:900 34px I;letter-spacing:2px;color:var(--g)}.top b span{color:var(--r)}
+.top .pg{margin-left:auto;font:700 30px V;color:rgba(19,38,28,.45)}
+.bar{position:absolute;left:0;right:0;bottom:0;height:22px;background:linear-gradient(90deg,var(--r) 0 33.3%,#fff 33.3% 66.6%,var(--g2) 66.6%)}
+.body{position:absolute;left:80px;right:80px;top:190px;bottom:80px;display:flex;flex-direction:column;justify-content:center;gap:30px}
+.lt{direction:ltr;unicode-bidi:isolate;font-family:I}
+h1{font:900 150px/1.12 V;margin:0;color:var(--g)}
+.kick{display:inline-block;align-self:flex-start;padding:12px 30px;border-radius:40px;background:var(--r);color:#fff;font:700 38px V}
+.h1sub{font:900 74px/1.35 V}.g{color:var(--r)}
+.swipe{margin-top:40px;font:700 36px V;color:rgba(19,38,28,.55)}
+h2{font:900 72px/1.25 V;margin:0 0 6px;color:var(--g);position:relative;padding-bottom:22px}
+h2:after{content:"";position:absolute;right:0;bottom:0;width:140px;height:8px;border-radius:4px;background:var(--gold)}
+p{font:500 42px/1.62 V;margin:0}
+p b,.card b{font-weight:900;color:var(--g)}
+p.strong{font:900 46px/1.5 V;color:var(--r)}
+.card{background:#fff;border-radius:34px;padding:34px 40px;box-shadow:0 18px 40px rgba(19,38,28,.10);border-right:14px solid var(--g);font:700 44px/1.55 V;display:flex;gap:30px;align-items:center}
+.card.red{border-right-color:var(--r)}.card.red b{color:var(--r)}
+.card.green{background:var(--g);color:#fff;border-right-color:var(--gold)}.card.green b{color:var(--gold)}
+.card .big{flex:none;font:900 110px I;color:var(--r);direction:ltr}
+.card .q{font:900 50px/1.5 V}
+.card.quote{font:900 52px/1.5 V;color:var(--r);border-right-color:var(--r);display:block}
+.stat{display:flex;align-items:center;gap:34px;background:var(--g);color:#fff;border-radius:34px;padding:30px 40px;font:700 42px/1.5 V}
+.stat .n{flex:none;font:900 96px V;color:var(--gold)}
+.chips{display:flex;flex-wrap:wrap;gap:14px;justify-content:flex-end}
+.chips span{padding:10px 24px;border-radius:30px;background:#e6efe9;color:var(--g);font:700 32px I}
+.chips.dim span{background:transparent;border:2px solid rgba(15,107,69,.35)}
+.end .body{align-items:center;text-align:center;justify-content:center}
+.end h2:after{right:50%;margin-right:-70px}
+.biglogo{width:260px;height:260px}
+.handle{font:900 76px I;color:var(--r)}
+p.c{text-align:center}
+.thanks{font:900 50px V;color:var(--g);margin-top:10px}
+.url{font:700 34px I;color:rgba(19,38,28,.55)}
+.cover .body{justify-content:center;gap:40px}
+
+.card.link{font:700 38px/1.5 V;border-right-color:var(--gold)}.card .u{display:block;margin-top:10px;font:900 40px I;color:var(--r);text-align:left}
+
+.s{height:1920px}
+.top{top:150px}
+.body{top:290px;bottom:400px;gap:30px}
+p{font-size:43px}
+h2{font-size:76px}
+.card{font-size:44px}
+.card.quote{font-size:52px}
+.card.link{font-size:38px}
+.foot{position:absolute;left:70px;right:70px;bottom:100px;display:flex;flex-direction:column;align-items:center;gap:18px}
+.foot .h{font:900 52px I;color:var(--r);direction:ltr}
+.foot .w{display:flex;align-items:center;gap:16px;padding:18px 40px;border-radius:60px;background:var(--g);color:#fff;font:700 40px I;direction:ltr;box-shadow:0 14px 30px rgba(15,107,69,.3)}
+.foot .w svg{width:40px;height:40px;fill:none;stroke:var(--gold);stroke-width:2}
+.bar{height:26px}
+.rays{top:-300px}
+</style></head><body><section class="s" id="s1"><div class="rays"></div><div class="top"><img src="logo-ku.svg"><b class="lt">WEGWEISER <span>KURDÎ</span></b><span class="pg">١/٦</span></div><div class="body">
+<h2>کێ یارمەتیی کێ دەدات؟</h2>
+<p>کەسێک پەیجی ڕێنمایی و هەواڵی پەنابەران دادەنێت، کەچی خۆی لە کاروباری ڕۆژانەی خۆیدا ماوەتەوە و <b>ناتوانێت نامەیەکی خۆی بخوێنێتەوە</b>.</p>
+<div class="card quote">ئەگەر ناتوانیت کێشەی خۆت چارەسەر بکەیت، چۆن دەتوانیت یارمەتیی کەسێکی تر بدەیت؟</div>
+<p>پرسیارەکانی پەنابەری، ئیقامە و جۆب‌سەنتەر یاری نین. <b>یەک زانیاریی هەڵە</b> دەتوانێت ژیانی کەسێک تووشی کێشە بکات.</p>
+</div><div class="foot"><div class="h">@wegweiser_kurdi</div><div class="w"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>wegweiser-news.de</div></div><div class="bar"></div></section><section class="s" id="s2"><div class="rays"></div><div class="top"><img src="logo-ku.svg"><b class="lt">WEGWEISER <span>KURDÎ</span></b><span class="pg">٢/٦</span></div><div class="body">
+<h2>بۆچی ئەم پەیجەم دانا؟</h2>
+<p>ئەم پەیجەم لەبەر ئەوە دانەناوە کە پێویستم بە سەرنجی خەڵک بێت، یان بمەوێت ناسراو بم.</p>
+<div class="card green"><div>دامنا چونکە تا ئێستا <b>هیچ سەرچاوەیەکی کوردیی متمانەپێکراو</b> نەبووە.</div></div>
+<p>زۆربەی ئەوەی بڵاو دەکرێتەوە هەواڵی ساختە و کۆپییە، بێ سەرچاوە و بێ هیچ زانیارییەکی دروست. کوردەکانی ئەڵمانیا شایەنی زانیاریی ڕاستن.</p>
+</div><div class="foot"><div class="h">@wegweiser_kurdi</div><div class="w"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>wegweiser-news.de</div></div><div class="bar"></div></section><section class="s" id="s3"><div class="rays"></div><div class="top"><img src="logo-ku.svg"><b class="lt">WEGWEISER <span>KURDÎ</span></b><span class="pg">٣/٦</span></div><div class="body">
+<h2>ئەوەی لە پشت هەر پۆستێکە</h2>
+<div class="stat"><div class="n">٨ ساڵ</div><div>ئەزموونی کار لەناو سیستەمی ئیداریی ئەڵمانیا</div></div>
+<div class="chips lt"><span>Jobcenter</span><span>Agentur für Arbeit</span><span>Ausländerbehörde</span><span>Jugendamt</span></div>
+<p><b>سەدان کەسم</b> لەم ڕێگایەدا هاوەڵی کردووە: پەنابەری، دۆزینەوەی کار، ڕاوێژکاری، دامەزراندنی بیزنس و خوێندن.</p>
+<p>ئەم ڕێگایە بە هەموو قۆناغەکانییەوە دەناسم.</p>
+<div class="card link"><div>دەتانەوێت بزانن من کێم؟ بیۆگرافی و ئەزموونی تەواوم لە ماڵپەڕەکەدا بخوێننەوە:<div class="lt u">wegweiser-news.de/ku/about</div></div></div>
+</div><div class="foot"><div class="h">@wegweiser_kurdi</div><div class="w"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>wegweiser-news.de</div></div><div class="bar"></div></section><section class="s" id="s4"><div class="rays"></div><div class="top"><img src="logo-ku.svg"><b class="lt">WEGWEISER <span>KURDÎ</span></b><span class="pg">٤/٦</span></div><div class="body">
+<h2>ئەمە پیشەی منە</h2>
+<p>ئەوەی بڵاوی دەکەمەوە کار و پیشەی منە، ئەزموونی منە. لە پشت هەر پۆستێک <b>زانیاری و ئاگاداریی تەواو</b> هەیە.</p>
+<div class="card"><div>سەرچاوە فەرمییەکان، واتە یاسا و بڕگەکان، لەسەر هەر ڤیدیۆیەک دەنووسین، بۆ ئەوەی خۆتان بتوانن پشتڕاستی بکەنەوە.</div></div>
+<p class="strong">بەرپرسیاریەتیی هەموو ئەم بابەتانە دەگرینە ئەستۆ.</p>
+<p>ئەگەر زانیارییەک هەڵە بێت، خۆمان ڕاستی دەکەینەوە و بە ئاشکرا پێتان دەڵێین.</p>
+</div><div class="foot"><div class="h">@wegweiser_kurdi</div><div class="w"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>wegweiser-news.de</div></div><div class="bar"></div></section><section class="s" id="s5"><div class="rays"></div><div class="top"><img src="logo-ku.svg"><b class="lt">WEGWEISER <span>KURDÎ</span></b><span class="pg">٥/٦</span></div><div class="body">
+<h2>داوایەک لە ئێوە</h2>
+<p>ئاگادار بن پرسیارەکانتان لە کێ دەکەن، بۆ کوێ دەچن و کام پەیج فۆڵۆو دەکەن.</p>
+<div class="card red"><div>واز لە پشتگیریکردنی ئەو کەسانە بهێنن کە <b>سوود لە نەزانینی خەڵک وەردەگرن</b>. ئەوان لە نەزانینی ئێوە پارە پەیدا دەکەن.</div></div>
+<p>کاتێک پشتگیریی کەسێکی ناشایستە دەکەن، گەورەی دەکەن، و ئەویش زانیاریی هەڵەی زیاتر بڵاو دەکاتەوە.</p>
+<p>سەیر بکەن، خۆتان تێدەگەن: چەند کەس هەن ڕۆژانە سەدان پۆست و لایڤ دادەنێن بێ ئەوەی هیچ زانیارییەکیان هەبێت.</p>
+</div><div class="foot"><div class="h">@wegweiser_kurdi</div><div class="w"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>wegweiser-news.de</div></div><div class="bar"></div></section><section class="s" id="s6"><div class="rays"></div><div class="top"><img src="logo-ku.svg"><b class="lt">WEGWEISER <span>KURDÎ</span></b><span class="pg">٦/٦</span></div><div class="body">
+<h2>هەموو پیشەیەک جێی ڕێزە</h2>
+<p>مەبەستم سووکایەتی بە هیچ کەس و هیچ پیشەیەک نییە. سەرتاش، شۆفێر، دۆنەرفرۆش، کرێکاری بیناسازی… <b>هەموویان کاری باش و جێی ڕێزن.</b></p>
+<p>بەڵام کاتێک دەبینیت هەمان کەس لەپڕ پەیجی کردووەتەوە و یاسای <span class="lt">BAMF</span> ڕوون دەکاتەوە، هەواڵی ڤیزای خوێندن و ڤیزای کار دەدات… ئەمە چ کارێکە؟</p>
+<div class="card green"><div>تۆش لە <b>بواری خۆتدا</b> پەیج دابنێ. هەم سەرکەوتووتر دەبیت، هەم زانیاریی ڕاستەقینەت هەیە، و دڵنیابە بینەرت بۆ دێت.</div></div>
+</div><div class="foot"><div class="h">@wegweiser_kurdi</div><div class="w"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.5 3 14.5 0 18M12 3c-3 3.5-3 14.5 0 18"/></svg>wegweiser-news.de</div></div><div class="bar"></div></section></body></html>

@@ -40,6 +40,80 @@ Save every new script also in `studio/v7/<name>.txt` and every new spec in `stud
 - **What performs best (Oct):** "money you are entitled to but don't know about" (Kinderzuschlag, Einstiegsgeld, 5 kinds of Jobcenter help) and residence types one by one. Kurdish page grows faster and asks many residence-law questions. Word-of-the-day / 5-Kalame series are weak (max once a week).
 - **Delivery to his PC (when the computer is linked):** Kurdish outputs to Videos\Kurdi\, covers to Videos\Covers\; verify with a directory listing after writing.
 
+## UPDATES 23.10.–15.11.2026 from the main chat (website + videos + brand)
+Source: the user's main working chat (Claude session 01EyyHQKB5GXYHEq3Txdddrp). Older parts of that chat were only available as summaries, so for 23.10–10.11 the lists below are reconstructed from the delivered files and the website git log. No follower names, DMs or private cases are recorded here (public repo).
+
+### Brand / accounts (status 15.11.2026)
+- **Logo (decided 15.11):** compass logo, same shape in two colourways. Vector files: `brand/wegweiser-logo-farsi.svg` (navy/gold compass rose, red/white needle) and `brand/wegweiser-logo-kurdi.svg` (Kurdistan sun with 21 rays, red/green needle, red-white-green ring). Generator + PNG/icon export: `studio/logo/` (`r.js` profile pictures 1080², `icons.js` app icons). The user chose "one shape, two colours" over one neutral logo.
+- **Handles (15.11):** Wegweiser Farsi @wegweiser_farsi, Wegweiser Kurdi @wegweiser_kurdi (Instagram + TikTok). Old handles are dead links.
+- **Facebook page "Wegweiser Kurdî"** created 14.11 (category News & media website; cover = `studio/web-stages/fbcover-ku.html` → 1640×624, text kept in the centre, bottom-centre free for the profile picture). It is connected to vidIQ (platformAccountId 1413479338521331, canPublish). The user prefers **Instagram auto-share to Facebook** (Accounts Center → Kontoübergreifendes Teilen) instead of posting via vidIQ, because vidIQ needs a public video URL.
+- **Website:** www.wegweiser-news.de (repo Fatahi-m/wegweiser-news, Next.js 15, Vercel; DNS at INWX). Contact e-mail kontakt@wegweiser-news.de works (verified 14.11 – it received the Meta verification code).
+- **Impressum/stores:** a paid business-address service is used for Impressum, App Store/Play Store and social media (address is in the site's Impressum). Gewerbe registration uses a different address – never put the private address anywhere.
+
+### Website (Fatahi-m/wegweiser-news) – what exists now
+- Locales `fa` (navy) and `ku` (green) + a German info page `/de`. Content: `content/{fa,ku}/*.md` (frontmatter: title, summary, date, image `/img/topic/<topic>.jpg`, category news|guide|deport, kb, lead, badge, kicker, sources). Article URL `/{l}/article/{slug}`.
+- Tools: Wohngeld + Kinderzuschlag calculators (`/{l}/rechner/wohngeld|kinderzuschlag`), Fristenrechner (Widerspruch/Klage, holidays of all Länder, .ics reminder), Zahltermine (payment dates), **"Was steht auf deiner Karte?"** (`/{l}/karte`, 45 entries, eAT card design, infos on duration/work/travel/family/NE/Einbürgerung), interactive forms with PDF download (pdf-lib, in the browser: Anmeldung Berlin, Jobcenter Anlagen KDU/VM/MEB/EK, Veränderungsmitteilung, KG45, Unterhaltsvorschuss, Kita-Gutschein, Integrationskurs …), "Voraussetzungen & Unterlagen" guides, "Eure Fragen" (Q&A), Arbeit & Ausbildung page, Städte (counselling by city), quiz, Über uns (bio of the author – link to it from posts: `wegweiser-news.de/ku/about`, `/fa/about`).
+- PWA with install popup; push (OneSignal) is **hidden for now** (to be repaired). Vercel Web Analytics (cookieless).
+- 15.11: header/footer/app icons switched to the compass logo (`public/brand/logo-{fa,ku}.svg`, `public/icons/*`), social links switched to the new handles (`lib/i18n.js`).
+- Writing rules for site content: Persian colloquial ("umgangssprachlich"); Kurdish «ئیقامەی دائیمی», Gregorian month names (جانیوەری, فێبریوەری …); planned laws get «⚠️ هنوز قانون نشده» / «⚠️ هێشتا نەبووە بە یاسا»; every news item with sources.
+- **Open:** Google Search Console (waiting for the meta-tag code), Google Play via PWABuilder (package `de.wegweisernews.app`, needs assetlinks.json in `public/.well-known`), business/events directory (promised in the ad, not built yet – see below).
+
+### Videos made 23.10.–15.11.2026 (do not suggest again)
+- 23.10: § 31 Trennung (fa) / Jiabunawa (ku); Salha (fa)
+- 24.10: § 25 Abs. 1 (fa+ku), § 25a (ku), Rente (fa+ku), Karte (ku), Mehrbedarf (fa)
+- 25.10: Widerruf (fa+ku), Safar/travel (fa+ku), § 26 Abs. 4 (ku)
+- 26.10: § 26 Abs. 3 (fa+ku, v2 with cover intro), Einladung/Verpflichtungserklärung (fa+ku)
+- 29.10: § 26 Abs. 4 (fa), Fiktionsbescheinigung (ku)
+- 01.11: Krankenkasse (fa+ku)
+- 05.–06.11: Schwarzarbeit (ku), § 25b types (ku)
+- 09.–12.11: website promo (fa+ku), "5 types of residence" part 1+2 (fa+ku), app promo cinematic (fa+ku, also with music), "Ap" classic reel (fa+ku), **passport colours** (fa+ku)
+- 13.11: **BAMF letter after a trip home** (fa+ku), **weekly news 13.11** (fa; hook = AfD motion on citizenship, Drucksache 21/9077 – only a motion, not law)
+- 14.11: **"کدوم ۲۵؟ / کام ٢٥؟"** – overview of § 25 Abs. 1–5, 25a/25b, Gestattung, Duldung, §§ 22/23/24 (fa+ku), script `studio/v7/p25-arten.txt`, `k25-arten.txt`; **business/event listing ad** (fa+ku, cinematic; first **50** listings free, send to kontakt@wegweiser-news.de)
+- 15.11: **series part 2 "ژنو یا سوبسیدیر؟ / جنێڤ یان سوبسیدیێر؟"** (§ 25 Abs. 2, ~1:55, fa+ku), scripts `studio/v7/p252-genf-subsidiaer.txt`, `k252-genf-subsidiaer.txt`
+- Other channels in the same period: Geld ohne Filter "Krankenkasse"; @durchgerechnet_de episode 1.
+- Every video since 12.11 comes in two versions: Instagram (logo + website) and **TikTok** (no logo, no URL, no website screenshot; content visible from frame 0).
+
+### Series "one residence, one video" (continues)
+Part 1 = § 25 overview (done), part 2 = Genf vs subsidiär (done). Next: 3 = § 25 Abs. 3 + Abs. 5 (Abschiebungsverbot / Ausreise unmöglich), 4 = 25a + 25b, 5 = Gestattung vs Duldung (60a–60d), 6 = §§ 22/23/24, 7 = from § 25 to NE and passport (26/9/9a), 8 = Fiktionsbescheinigung (§ 81). Each ends with "details in the web app (link in bio)" + a comment question ("which type are you?"). The user wants these **not under 1 minute**.
+
+### New verified facts / laws (status 13.–15.11.2026)
+- **How to tell Flüchtling vs subsidiär:** card Anmerkungen "§ 25 Abs. 2 S. 1 **1. Alt.**" = Flüchtling (GFK), "**2. Alt.**" = subsidiär; BAMF Bescheid "Flüchtlingseigenschaft wird zuerkannt" vs "subsidiärer Schutzstatus wird zuerkannt". Card duration no longer tells them apart (both 3 years since 27.02.2024).
+- Flüchtling: blue Reiseausweis (all countries except the home country); privileged Familiennachzug if applied within 3 months (no income/housing requirement); NE after 3 years + C1, or 5 years + A2 + mostly self-supporting. Subsidiär: usually must use the national passport, grey Reiseausweis für Ausländer only if a passport is unobtainable; Familiennachzug suspended until 23.07.2027 except hardship; NE after 5 years with the normal § 9 conditions (B1, work …). Both: work fully allowed, Wohnsitzauflage § 12a for the first 3 years, asylum-procedure time counts for Einbürgerung.
+- **From 01.01.2027:** Mindestlohn 14.60 €, Minijob cap 633 €; Kindergeld without application (law passed; 2nd+ child from March 2027, 1st child at the earliest Nov 2027; only if a parent works in Germany and the IBAN is known); Krankengeld only 60 % net (67 % with children) if the job ends during sick leave (GKV-Beitragssatzstabilisierungsgesetz); Deutschlandticket 66.80 €; average Zusatzbeitrag 2.9 %.
+- ⚠️ **Planned, not law (13.11):** Wohngeld cut from 01.01.2027 (heating component halved, ~381,000 households could lose it); per the bill, an application that **arrives by 31.12.2026** keeps the December amount. Grundsicherungsgeld 2027 likely a Nullrunde (563 €), not decided. Kindergeld 267 € (2027) only a draft.
+- Integrationskurs budget for 2027 roughly halved (enrol now if entitled). Jobcenter money for January arrives around 30.12; December money end of November.
+- **"Buy now, pay later" (Klarna/PayPal):** EU Consumer Credit Directive 2023/2225 applies from **20.11.2026** – many BNPL purchases count as credit, creditworthiness check, clear pre-contract info, 14-day withdrawal, duty to offer help when instalments can't be paid. German implementing law not yet verified.
+- Police warning: WhatsApp account theft via fake "vote for my friend" links – never share the WhatsApp code.
+
+### Trend research (vidIQ, week 06.–13.11.2026)
+Top performers around our niche: "what changes from 2027" lists (German: Minijob, tax-free employer benefits 2M views, Steuerbescheid digital, Mütterrente), "BNPL becomes credit on 20.11" (1.1M), Rundfunkbeitrag data matching (1.5M), Arabic "biggest mistake in Germany – frying oil in the sink" (3.4M) and Pfand (981k), Persian migrant-life comedy skits (1.3M). Simple text-on-screen lists and direct-to-camera explainers win. No strong Kurdish competitor found → gap for us. Idea list given to the user: BNPL 20.11 (most urgent), 2027 changes (already made), Rundfunkbeitrag letter, "3 everyday mistakes that cost a fine", a skit with his own face (best fix for TikTok "non-original" flags).
+
+### Social / platform lessons (Nov 2026)
+- **TikTok restriction "Nicht originale Inhalte … QR-Code-Inhalte" at 00:00:** likely logo/URL/screenshot + AI voice. Use the TikTok variant, label "KI-generierter Inhalt", don't set video language to Deutsch (Persian page: Persian/English; Kurdish: Arabic was chosen), turn auto-captions off, consider his own face for the first 2–3 s, don't re-upload identical files (wait 2–3 days, new caption). Work with Artists: apply; skip like-based contests.
+- **Reposting/theft:** several Facebook pages re-upload our videos and cover logo/handle with stickers (one profile had 30+ videos). Reporting path that works: on the Facebook reel "…" → Find support or report → **Report as unlawful → Intellectual property → Copyright → Continue → Germany, Yes (rights owner)** → form on help.meta.com (up to 30 URLs separated by spaces, original = TikTok/Instagram profile links, e-mail verified by code). Report filed 14.11 (11 URLs). One form for all URLs. Take screenshots first.
+- Answer to the reposting: a Kurdish carousel (10 slides, 1080×1350) + 6 stories (1080×1920) "they take our videos – but who answers your questions?" – respectful, names no page, no profession insulted, links the bio page. Code: `studio/carousel/` (`build.py` slides, `story.html`, `shot*.js`).
+- Facebook page posting: post 1–2 videos per day, not all at once.
+
+### Business / events directory (promised in the 14.11 ad)
+- Free listing for the **first 50** businesses or event organisers (later: basic entry free forever, paid extras such as featured spot, more photos, promotion in reels/stories – charge only under a registered Gewerbe with invoices).
+- Data to send: name + type, city/address (events: date/time), phone/site/Instagram, photo/logo/poster, a few lines. Publish only what the sender sent; add a sentence to the Datenschutz page.
+- **Not built yet** on the website: section "کسب‌وکارها و برنامه‌ها" with city + category filter and auto-expiry of past events.
+
+### Code added to this repo (15.11.2026)
+- `studio/web-stages/` – cinematic HTML/Playwright renderer, all stage/cover files of Nov 2026, audio chain (see its README).
+- `studio/carousel/` – carousel/story generator (Kurdish "who answers your questions" post).
+- `studio/logo/` + `brand/wegweiser-logo-{farsi,kurdi}.svg` – the compass logo.
+- `studio/v7/`: `p25-arten.txt`, `k25-arten.txt`, `p252-genf-subsidiaer.txt`, `k252-genf-subsidiaer.txt`, `kbiz-ad.txt`, `pbiz-ad-post.txt`, `klarna-bnpl-teaser.txt`, `k-news-1311-teaser.txt`, `p2027-aenderungen.txt`.
+
+### Open (status 15.11.2026)
+1. Series part 3 (§ 25 Abs. 3 + 5) script fa + ku.
+2. BNPL 20.11 video (scripts ready, no audio) + website article (verify the German implementing law first).
+3. Business/events directory on the website.
+4. Search Console meta tag, Google Play listing (texts fa/ku/de, feature graphic 1024×500, screenshots).
+5. Einbürgerung YouTube video: audio for blocks 17–74 missing.
+6. Step-by-step online-application walkthroughs (Einbürgerung/NE/Verpflichtungserklärung) with MUSTER data – planned, never submit anything.
+7. "About us" carousel (two designs rejected; waiting for references) – the 15.11 carousel partly covers it.
+
 ## Original handoff (status 23.10.2026) — still valid unless the update section above says otherwise
 
 ---

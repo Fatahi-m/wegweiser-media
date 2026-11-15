@@ -1,0 +1,186 @@
+<!doctype html><html><head><meta charset="utf-8"><style>
+@font-face{font-family:V;src:url(Vazirmatn-Black.ttf);font-weight:900}
+@font-face{font-family:V;src:url(Vazirmatn-Bold.ttf);font-weight:700}
+@font-face{font-family:V;src:url(Vazirmatn-Medium.ttf);font-weight:500}
+@font-face{font-family:I;src:url(Inter-Black.otf);font-weight:900}
+@font-face{font-family:I;src:url(Inter-Bold.otf);font-weight:700}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{width:1080px;height:1920px;overflow:hidden;background:#040b1f}
+:root{--c1:#1d3f93;--c2:#0b1d4f;--c3:#040b1f;--acc:#163a6b;--gold:#ffc23a;--gold2:#ffdf7e}
+body.ku{--c1:#167a50;--c2:#0a4430;--c3:#03170f;--acc:#0f6b45;background:#03170f}
+#st{position:relative;width:1080px;height:1920px;overflow:hidden;font-family:V,I,sans-serif;color:#fff;direction:rtl}
+#bg{position:absolute;inset:0;background:radial-gradient(1200px 1300px at 50% 36%,var(--c1) 0%,var(--c2) 45%,var(--c3) 100%)}
+#rays{position:absolute;left:50%;top:36%;width:3400px;height:3400px;margin:-1700px 0 0 -1700px;opacity:.16;
+ background:repeating-conic-gradient(from 0deg,rgba(255,200,80,.55) 0deg 2.2deg,transparent 2.2deg 9deg);
+ -webkit-mask:radial-gradient(circle,#000 0%,rgba(0,0,0,.6) 25%,transparent 55%);mask:radial-gradient(circle,#000 0%,rgba(0,0,0,.6) 25%,transparent 55%)}
+#floor{position:absolute;left:-600px;right:-600px;bottom:-40px;height:620px;transform-origin:50% 100%;transform:perspective(700px) rotateX(64deg);
+ background-image:linear-gradient(rgba(255,205,90,.38) 2px,transparent 2px),linear-gradient(90deg,rgba(255,205,90,.38) 2px,transparent 2px);background-size:110px 110px;
+ -webkit-mask:linear-gradient(to top,#000 0%,transparent 95%);mask:linear-gradient(to top,#000 0%,transparent 95%)}
+#glow{position:absolute;left:0;right:0;bottom:0;height:700px;background:radial-gradient(900px 420px at 50% 100%,rgba(255,190,60,.30),transparent 70%)}
+#stars{position:absolute;inset:0}
+#stars i{position:absolute;width:6px;height:6px;border-radius:50%;background:#ffd36b;box-shadow:0 0 12px 3px rgba(255,200,80,.7)}
+#vig{position:absolute;inset:0;background:radial-gradient(1400px 1700px at 50% 45%,transparent 55%,rgba(0,0,0,.55) 100%)}
+.sc{position:absolute;inset:0;opacity:0;will-change:opacity,transform,filter}
+.hl{position:absolute;left:60px;right:60px;text-align:center;font:900 92px/1.32 V,I}
+.hl .w{display:inline-block;margin:0 .13em;will-change:transform,opacity,filter}
+.g{background:linear-gradient(180deg,var(--gold2),var(--gold) 55%,#e39a12);-webkit-background-clip:text;background-clip:text;color:transparent;filter:drop-shadow(0 4px 18px rgba(255,170,30,.35))}
+.lt{font-family:I,V;direction:ltr;unicode-bidi:isolate}
+.sub{position:absolute;left:0;right:0;text-align:center;font:700 34px I;letter-spacing:6px;color:rgba(255,255,255,.55);direction:ltr}
+.pw{position:absolute;perspective:1800px}
+.ph{position:relative;border-radius:78px;background:linear-gradient(145deg,#2a2f3a,#0c0f16 40%,#1d222c);padding:18px;box-shadow:0 60px 120px rgba(0,0,0,.6),0 0 0 3px rgba(255,255,255,.14) inset,0 0 60px rgba(255,190,60,.12);transform-style:preserve-3d}
+.ph .scr{position:relative;width:100%;height:100%;border-radius:62px;overflow:hidden;background:#fff}
+.ph .scr img{position:absolute;left:0;top:0;width:100%}
+.ph .isl{position:absolute;top:36px;left:50%;width:150px;height:42px;margin-left:-75px;border-radius:24px;background:#000;z-index:3}
+.ph .shine{position:absolute;inset:18px;border-radius:62px;background:linear-gradient(120deg,rgba(255,255,255,.18),transparent 30%,transparent 70%,rgba(255,255,255,.06));pointer-events:none;z-index:4}
+.badge{position:absolute;z-index:8;padding:26px 46px;border-radius:36px;background:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,.05));border:2px solid rgba(255,215,120,.55);backdrop-filter:blur(14px);box-shadow:0 30px 70px rgba(0,0,0,.45),0 0 50px rgba(255,190,60,.25);text-align:center}
+.badge small{display:block;font:700 34px V,I;color:rgba(255,255,255,.8);margin-bottom:4px}
+.badge b{display:block;font:900 120px/1.05 I,V}
+.chip{position:absolute;z-index:8;padding:16px 34px;border-radius:60px;background:rgba(255,255,255,.12);border:2px solid rgba(255,255,255,.28);backdrop-filter:blur(10px);font:700 40px I,V;direction:ltr;box-shadow:0 18px 40px rgba(0,0,0,.35)}
+.pill{position:absolute;z-index:9;left:50%;padding:18px 48px;border-radius:70px;background:linear-gradient(180deg,var(--gold2),var(--gold));color:#1a1405;font:900 50px V,I;white-space:nowrap;box-shadow:0 20px 50px rgba(0,0,0,.4),0 0 40px rgba(255,190,60,.45)}
+.qc{position:absolute;left:60px;right:60px;display:flex;align-items:center;gap:30px;padding:34px 40px;border-radius:38px;background:linear-gradient(160deg,rgba(255,255,255,.16),rgba(255,255,255,.04));border:2px solid rgba(255,255,255,.22);backdrop-filter:blur(12px);box-shadow:0 30px 60px rgba(0,0,0,.4);font:900 52px/1.35 V,I;white-space:nowrap}
+.qc .ic{flex:none;width:110px;height:110px;border-radius:30px;background:linear-gradient(160deg,var(--gold2),var(--gold));display:grid;place-items:center;box-shadow:0 0 40px rgba(255,190,60,.4)}
+.qc .ic svg{width:62px;height:62px;stroke:#2a1d00;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.logo{position:absolute;left:0;right:0;text-align:center;direction:ltr}
+.logo img{width:300px;height:300px;border-radius:70px;box-shadow:0 30px 80px rgba(0,0,0,.5),0 0 90px rgba(255,190,60,.35)}
+.logo .wm{font:900 150px/1 I;letter-spacing:2px;margin-top:40px}
+.logo .wm span{color:var(--gold)}
+.logo .ln{height:8px;margin:22px auto 0;width:820px;border-radius:4px;background:linear-gradient(90deg,var(--gold) 40%,#fff 40%)}
+.logo .nw{font:700 54px I;letter-spacing:22px;margin-top:30px;padding-left:22px;color:rgba(255,255,255,.85)}
+.url{position:absolute;left:90px;right:90px;height:150px;border-radius:80px;background:rgba(255,255,255,.1);border:2px solid rgba(255,255,255,.25);display:flex;align-items:center;justify-content:center;font:900 76px I;direction:ltr}
+.url i{display:inline-block;width:5px;height:84px;background:var(--gold);margin-left:6px}
+.tap{position:absolute;width:130px;height:130px;margin:-65px 0 0 -65px;border-radius:50%;border:6px solid var(--gold);box-shadow:0 0 30px rgba(255,190,60,.8);z-index:6}
+.bub{position:absolute;left:110px;right:110px;padding:40px 54px;border-radius:44px 44px 44px 10px;background:#fff;color:#111;box-shadow:0 30px 70px rgba(0,0,0,.45)}
+.bub small{display:block;font:700 34px V;color:#7a8296}
+.bub b{font:900 96px V}
+.flash{position:absolute;inset:0;background:radial-gradient(circle at 50% 40%,rgba(255,220,140,.9),transparent 60%);opacity:0;pointer-events:none}
+
+.pp{position:absolute;width:400px;height:560px;border-radius:22px 34px 34px 22px;box-shadow:0 50px 90px rgba(0,0,0,.55),inset 0 0 0 3px rgba(255,255,255,.08),inset 14px 0 18px rgba(0,0,0,.25);transform-style:preserve-3d;overflow:hidden}
+.pp:before{content:"";position:absolute;inset:0;background:repeating-linear-gradient(45deg,rgba(255,255,255,.035) 0 3px,transparent 3px 7px)}
+.pp:after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,rgba(255,255,255,.22),transparent 35%,transparent 70%,rgba(255,255,255,.08))}
+.pp .t{position:absolute;top:58px;left:0;right:0;text-align:center;font:700 30px I;letter-spacing:5px;color:rgba(255,224,150,.95);direction:ltr}
+.pp .em{position:absolute;top:150px;left:50%;width:170px;height:170px;margin-left:-85px;border-radius:50%;border:5px solid rgba(255,224,150,.9);display:grid;place-items:center}
+.pp .em svg{width:96px;height:96px;fill:none;stroke:rgba(255,224,150,.95);stroke-width:1.6}
+.pp .b{position:absolute;bottom:60px;left:20px;right:20px;text-align:center;font:700 27px/1.35 I;letter-spacing:2px;color:rgba(255,224,150,.95);direction:ltr}
+.pp .chipi{position:absolute;bottom:170px;left:50%;width:70px;height:50px;margin-left:-35px;border-radius:8px;border:3px solid rgba(255,224,150,.8)}
+.pp.blue{background:linear-gradient(150deg,#2f6fd6,#1546a8 55%,#0d3384)}
+.pp.grey{background:linear-gradient(150deg,#8d949e,#666d78 55%,#4d535d)}
+.pp.home{background:linear-gradient(150deg,#8f2632,#6a1620 55%,#4e0f17)}
+.pp.sl{background:linear-gradient(150deg,#3b4a5e,#273446 55%,#1a2433)}
+.num{position:absolute;top:70px;left:50%;margin-left:-75px;width:150px;height:150px;border-radius:50%;background:linear-gradient(160deg,var(--gold2),var(--gold));color:#1a1405;display:grid;place-items:center;font:900 92px V;box-shadow:0 0 50px rgba(255,190,60,.5);z-index:9}
+.lab{position:absolute;left:60px;right:60px;text-align:center;font:900 60px I;direction:ltr;color:#fff}
+.lab small{display:block;font:700 34px V;color:rgba(255,255,255,.75);margin-top:10px;direction:rtl}
+.warn{position:absolute;left:70px;right:70px;padding:30px 40px;border-radius:34px;background:linear-gradient(160deg,#d8303c,#9e1622);box-shadow:0 30px 70px rgba(0,0,0,.45),0 0 50px rgba(230,50,60,.45);font:900 54px/1.35 V;text-align:center;z-index:9}
+.ok{position:absolute;padding:20px 34px;border-radius:30px;background:linear-gradient(160deg,rgba(255,255,255,.18),rgba(255,255,255,.06));border:2px solid rgba(255,255,255,.3);font:900 46px V;box-shadow:0 20px 50px rgba(0,0,0,.35);white-space:nowrap;z-index:8}
+.ok .lt{font-family:I}
+.x{position:absolute;width:300px;height:300px;z-index:10}
+.x:before,.x:after{content:"";position:absolute;left:50%;top:50%;width:360px;height:34px;margin:-17px 0 0 -180px;border-radius:17px;background:#e3262f;box-shadow:0 0 30px rgba(230,40,50,.7)}
+.x:before{transform:rotate(45deg)}.x:after{transform:rotate(-45deg)}
+.emb{position:absolute;left:50%;width:520px;margin-left:-260px}
+.emb svg{width:100%;fill:none;stroke:#fff;stroke-width:1.2;stroke-linejoin:round}
+</style></head><body><div id="st">
+<div id="bg"></div><div id="rays"></div><div id="glow"></div><div id="floor"></div><div id="stars"></div><div id="scenes">
+<div class="sc" id="s1">
+ <div class="hl" style="top:170px;font-size:104px"><span class="w">پاس</span> <span class="w">تو</span> <span class="w g">چه</span> <span class="w g">رنگیه؟</span></div>
+ <div class="pp home" id="h1c" style="left:620px;top:560px"><div class="t">PASSPORT</div><div class="em"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></div><div class="chipi"></div><div class="b">PASSPORT</div></div><div class="pp grey" id="h1b" style="left:340px;top:520px"><div class="t">REISEAUSWEIS</div><div class="em"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></div><div class="chipi"></div><div class="b">REISEAUSWEIS</div></div><div class="pp blue" id="h1a" style="left:60px;top:560px"><div class="t">REISEAUSWEIS</div><div class="em"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></div><div class="chipi"></div><div class="b">REISEAUSWEIS</div></div>
+ <div class="warn" id="w1" style="top:1300px">یه اشتباه می‌تونه<br>پناهندگیت رو بسوزونه!</div>
+</div>
+<div class="sc" id="s2">
+ <div class="hl" style="top:620px;font-size:110px"><span class="w">فالو</span> <span class="w">و</span> <span class="w g">لایک</span> <span class="w">کن</span></div>
+ <div class="ok" id="f1" style="left:200px;top:960px;font-size:60px">♥ لایک</div><div class="ok" id="f2" style="right:200px;top:960px;font-size:60px">+ فالو</div>
+ <div class="ct2" style="position:absolute;left:0;right:0;top:1170px;text-align:center;font:700 54px V;color:rgba(255,255,255,.8)" id="f3">تا به همه برسه</div>
+</div>
+<div class="sc" id="s3"><div class="num">۱</div>
+ <div class="hl" style="top:250px"><span class="w">پاس</span> <span class="w g">آبی</span></div>
+ <div class="pp blue" id="p3" style="left:340px;top:450px"><div class="t">REISEAUSWEIS</div><div class="em"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></div><div class="chipi"></div><div class="b">REISEAUSWEIS<br>(1951)</div></div>
+ <div class="lab" id="l3" style="top:1070px">Reiseausweis für Flüchtlinge<small>برای سیاسی‌ها و پناهنده‌ها</small></div>
+ <div class="ok" id="o3a" style="left:90px;top:1330px">۹۰ روز <span class="lt">Schengen</span></div><div class="ok" id="o3b" style="right:90px;top:1330px">+ کارت اقامت</div>
+ <div class="warn" id="w3" style="top:1530px">ممنوع: سفر به کشور خودت</div>
+</div>
+<div class="sc" id="s4"><div class="num">۲</div>
+ <div class="hl" style="top:250px"><span class="w">پاس</span> <span class="w g">خاکستری</span></div>
+ <div class="pp grey" id="p4" style="left:340px;top:450px"><div class="t">REISEAUSWEIS</div><div class="em"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></div><div class="chipi"></div><div class="b">REISEAUSWEIS</div></div>
+ <div class="lab" id="l4" style="top:1070px">Reiseausweis für Ausländer<small>وقتی پاس کشورت رو نمی‌تونی بگیری</small></div>
+ <div class="ok" id="o4a" style="left:60px;top:1330px"><span class="lt">subsidiär</span></div><div class="ok" id="o4b" style="right:60px;top:1330px"><span class="lt">Abschiebungsverbot</span></div>
+ <div class="warn" id="w4" style="top:1530px;background:linear-gradient(160deg,#e59a12,#b06e00)">بعضی کشورها قبولش نمی‌کنن<br>قبل از سفر چک کن</div>
+</div>
+<div class="sc" id="s5"><div class="num">۳</div>
+ <div class="hl" style="top:250px"><span class="w">پاس</span> <span class="w g">کشور</span> <span class="w g">خودت</span></div>
+ <div class="pp home" id="p5" style="left:340px;top:450px"><div class="t">PASSPORT</div><div class="em"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></div><div class="chipi"></div><div class="b">PASSPORT</div></div>
+ <div class="lab" id="l5" style="top:1070px"><small style="font-size:44px;color:#fff">معمولاً برای این اقامت‌ها:</small></div>
+ <div class="ok" id="o5a" style="right:90px;top:1250px">اقامت کاری</div><div class="ok" id="o5b" style="left:90px;top:1250px">اقامت خانوادگی</div><div class="ok" id="o5c" style="left:50%;margin-left:-110px;top:1420px"><span class="lt">§ 25b</span></div>
+</div>
+<div class="sc" id="s6">
+ <div class="hl" style="top:330px;font-size:84px"><span class="w">شماره‌ی</span> <span class="w g">۴</span> <span class="w">و</span> <span class="w g">۵</span></div>
+ <div class="ok" id="o6a" style="left:50%;transform:translateX(-50%);top:640px;font-size:52px">۴ — برای کسایی که کشوری ندارن</div>
+ <div class="warn" id="w6" style="top:820px">۵ — بزرگ‌ترین اشتباه!</div>
+ <div class="hl" id="sv" style="top:1250px;font-size:100px"><span class="w g">سیو</span> <span class="w">کن</span></div>
+ <div id="bm" style="position:absolute;left:50%;top:1420px;margin-left:-70px;width:140px;height:180px"><svg viewBox="0 0 24 30" style="width:140px;height:180px;fill:var(--gold);filter:drop-shadow(0 0 30px rgba(255,190,60,.6))"><path d="M3 2h18v26l-9-6-9 6z"/></svg></div>
+</div>
+<div class="sc" id="s7"><div class="num">۴</div>
+ <div class="hl" style="top:250px"><span class="w">پاس</span> <span class="w g">بی‌تابعیت‌ها</span></div>
+ <div class="pp sl" id="p7" style="left:340px;top:450px"><div class="t">REISEAUSWEIS</div><div class="em"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></div><div class="chipi"></div><div class="b">REISEAUSWEIS<br>(1954)</div></div>
+ <div class="lab" id="l7" style="top:1070px">Reiseausweis für Staatenlose<small>برای کسایی که هیچ تابعیتی ندارن</small></div>
+ <div class="ok" id="o7" style="left:50%;transform:translateX(-50%);top:1340px">مثلاً بعضی از کوردهای سوریه</div>
+</div>
+<div class="sc" id="s8"><div class="num" style="background:linear-gradient(160deg,#ff6b74,#e3262f);color:#fff">۵</div>
+ <div class="hl" style="top:250px"><span class="w">بزرگ‌ترین</span> <span class="w" style="color:#ff5a63">اشتباه!</span></div>
+ <div class="emb" id="emb" style="top:500px"><svg viewBox="0 0 48 30"><path d="M4 28h40M6 28V14h36v14M4 14 24 3l20 11"/><path d="M11 17v9M17 17v9M23 17v9M29 17v9M35 17v9"/></svg><div style="text-align:center;font:900 48px V;margin-top:-10px">سفارت کشورت</div></div>
+ <div class="x" id="x8" style="left:390px;top:540px"></div>
+ <div class="pp home" id="p8" style="left:390px;top:880px;width:300px;height:420px"><div class="t">PASSPORT</div><div class="em"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></div><div class="chipi"></div><div class="b">PASSPORT</div></div>
+ <div class="warn" id="w8" style="top:1390px">پاس کشورت رو نگیر و تمدید نکن<br><span style="font-size:44px;opacity:.9">ممکنه پناهندگیت باطل بشه</span></div>
+ <div class="sub" id="lg8" style="top:1700px;font-size:30px;letter-spacing:2px">§ 72 AsylG</div>
+</div>
+<div class="sc" id="s9">
+ <div class="hl" style="top:150px;font-size:80px"><span class="w">همه‌ی</span> <span class="w">جزئیات،</span> <span class="w g">مجانی</span></div>
+ <div class="pw" id="p9"><div class="ph" style="width:600px;height:1220px"><div class="scr"><img src="s-home.png"></div><div class="isl"></div><div class="shine"></div></div></div>
+ <div class="pill" id="pl9" style="top:1720px">لینک توی بیو پیجه</div>
+</div>
+<div class="sc" id="s10">
+ <div class="pp blue" id="e1" style="left:70px;top:330px;width:300px;height:420px"><div class="t">REISEAUSWEIS</div><div class="em"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></div><div class="chipi"></div><div class="b">REISEAUSWEIS</div></div><div class="pp grey" id="e2" style="left:390px;top:300px;width:300px;height:420px"><div class="t">REISEAUSWEIS</div><div class="em"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></div><div class="chipi"></div><div class="b">REISEAUSWEIS</div></div><div class="pp home" id="e3" style="left:710px;top:330px;width:300px;height:420px"><div class="t">PASSPORT</div><div class="em"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c3 3.2 3 14.8 0 18M12 3c-3 3.2-3 14.8 0 18"/></svg></div><div class="chipi"></div><div class="b">PASSPORT</div></div>
+ <div class="hl" style="top:880px;font-size:104px"><span class="w">پاس</span> <span class="w">تو</span> <span class="w g">چه</span> <span class="w g">رنگیه؟</span></div>
+ <div class="bub" id="bub" style="top:1180px"><small>کامنت کن:</small><b>آبی / خاکستری / ...</b></div>
+ <div class="logo" style="top:1660px" id="lg10"><div class="wm" style="font-size:58px;margin:0">WEG<span style="color:#fff">WEISER</span> <span style="font:700 30px I;letter-spacing:8px;color:rgba(255,255,255,.7)">NEWS</span></div></div>
+</div>
+</div><div id="vig"></div><div class="flash" id="flash"></div></div>
+<script>
+const $=(q,e=document)=>e.querySelector(q);
+const cl=x=>x<0?0:x>1?1:x; const eo=x=>{x=cl(x);return 1-Math.pow(1-x,3)}; const eio=x=>{x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2};
+const back=x=>{x=cl(x);const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+let seed=7; const rnd=()=>{seed=(seed*16807)%2147483647; return seed/2147483647;}; const ST=[];
+for(let i=0;i<70;i++){ const e=document.createElement('i'); e.style.left=rnd()*1080+'px'; e.style.top=rnd()*1500+'px'; $('#stars').appendChild(e); ST.push({e,s:0.4+rnd()*1.1,ph:rnd()*6.28,sp:0.6+rnd()*1.6}); }
+function words(root,t,start,step){ root.querySelectorAll('.w').forEach((w,k)=>{ const q=eo((t-start-k*step)/0.45); w.style.opacity=q; w.style.transform=`translateY(${(1-q)*40}px)`; w.style.filter=`blur(${(1-q)*14}px)`; }); }
+function pop(el,q,base=''){ el.style.opacity=cl(q*1.5); el.style.transform=`${base} scale(${0.6+0.4*back(q)})`; }
+window.SC=[[0,10.18],[10.18,12.31],[12.31,27.38],[27.38,42.64],[42.64,50.15],[50.15,56.8],[56.8,66.82],[66.82,79.2],[79.2,85.6],[85.6,89.13]];
+const BEAT={1:[4.94],3:[19.14,25.2],4:[31.26,37.5],5:[44.6],6:[52.8,55.2],8:[68.9,75.0],9:[84.0]};
+window.render=function(T0){
+  $('#rays').style.transform=`rotate(${T0*2.2}deg)`; $('#floor').style.backgroundPosition=`0 ${(T0*40)%110}px`;
+  ST.forEach(s=>{ s.e.style.opacity=0.35+0.65*(0.5+0.5*Math.sin(T0*s.sp+s.ph)); s.e.style.transform=`translateY(${-(T0*6*s.s)%40}px) scale(${s.s})`; });
+  let fl=0;
+  for(let i=0;i<10;i++){ const s=$('#s'+(i+1)); const [a,b]=SC[i]; const t=T0-a; const d=b-a;
+    if(T0<a-0.001||(T0>b+0.35&&i<9)){ s.style.opacity=0; continue; }
+    const fin=i===0?1:eo(t/0.4), fout=i===9?1:1-eio((T0-(b-0.05))/0.4);
+    s.style.opacity=Math.min(fin,fout); s.style.transform=`scale(${1+(1-fout)*0.08-(i===0?0:(1-fin)*0.06)})`; s.style.filter=fout<1?`blur(${(1-fout)*10}px)`:'none';
+    if(i>0&&t<0.3) fl=Math.max(fl,(1-t/0.3)*0.18);
+    const bt=(BEAT[i+1]||[]).map(x=>x-a);
+    const hl=s.querySelector('.hl'); if(hl) words(hl,t,i===0?-0.6:0.05,0.12);
+    const n=s.querySelector('.num'); if(n) pop(n,(t-0.05)/0.5,'');
+    if(i===0){ [['#h1a',-12,0],['#h1b',0,0.0],['#h1c',12,0]].forEach(([q,r,st],k)=>{ const e=$(q); const qq=k===1?1:eo((t+0.3-k*0.25)/0.6); e.style.opacity=qq; e.style.transform=`rotate(${r*qq}deg) translateY(${(1-qq)*120+Math.sin(T0*1.2+k)*10}px) rotateY(${Math.sin(T0*0.8+k)*10}deg)`; });
+      pop($('#w1'),(t-bt[0])/0.5,''); if(t>bt[0]&&t<bt[0]+0.3) fl=Math.max(fl,0.25*(1-(t-bt[0])/0.3)); }
+    if(i===1){ pop($('#f1'),(t-0.3)/0.5); pop($('#f2'),(t-0.55)/0.5); $('#f3').style.opacity=eo((t-0.8)/0.4); }
+    if([2,3,4,6].includes(i)){ const p=s.querySelector('.pp'); const q=eo(t/0.7); p.style.opacity=q; p.style.transform=`translateY(${(1-q)*300+Math.sin(T0*1.3)*12}px) rotateY(${-25+(1-q)*-60+Math.sin(T0*0.9)*12}deg) rotateX(8deg) rotateZ(${-4+Math.sin(T0*0.7)*2}deg)`;
+      const lab=s.querySelector('.lab'); if(lab){ const q2=eo((t-0.6)/0.5); lab.style.opacity=q2; lab.style.transform=`translateY(${(1-q2)*40}px)`; lab.style.filter=`blur(${(1-q2)*10}px)`; } }
+    if(i===2){ pop($('#o3a'),(t-bt[0])/0.5); pop($('#o3b'),(t-bt[0]-0.4)/0.5); pop($('#w3'),(t-bt[1])/0.5); if(t>bt[1]&&t<bt[1]+0.3) fl=Math.max(fl,0.2*(1-(t-bt[1])/0.3)); }
+    if(i===3){ pop($('#o4a'),(t-bt[0])/0.5); pop($('#o4b'),(t-bt[0]-0.4)/0.5); pop($('#w4'),(t-bt[1])/0.5); }
+    if(i===4){ pop($('#o5a'),(t-bt[0]+1.2)/0.5); pop($('#o5b'),(t-bt[0]+0.6)/0.5); pop($('#o5c'),(t-bt[0])/0.5); }
+    if(i===5){ pop($('#o6a'),(t-0.3)/0.5,'translateX(-50%)'); pop($('#w6'),(t-bt[0])/0.5); words($('#sv'),t,bt[1],0.15); const q=back((t-bt[1]-0.2)/0.6); $('#bm').style.opacity=cl((t-bt[1]-0.2)/0.3); $('#bm').style.transform=`translateY(${(1-q)*-200}px) scale(${0.6+0.4*q})`; }
+    if(i===6){ pop($('#o7'),(t-5)/0.5,'translateX(-50%)'); }
+    if(i===7){ const e=$('#emb'); const q=eo((t-bt[0]+0.4)/0.6); e.style.opacity=q; e.style.transform=`scale(${0.8+0.2*q})`; const p=$('#p8'); const q2=eo((t-bt[0]-0.6)/0.6); p.style.opacity=q2; p.style.transform=`rotateY(-20deg) rotateZ(-6deg) translateY(${(1-q2)*200}px)`;
+      const xq=back((t-bt[0]-1.4)/0.5); $('#x8').style.opacity=cl((t-bt[0]-1.4)/0.2); $('#x8').style.transform=`scale(${0.3+0.7*xq})`; if(t>bt[0]+1.4&&t<bt[0]+1.7) fl=Math.max(fl,0.3);
+      pop($('#w8'),(t-bt[1])/0.5); $('#lg8').style.opacity=eo((t-bt[1]-0.5)/0.5)*0.8; }
+    if(i===8){ const p=$('#p9'); const q=eo(t/0.8); p.style.left='240px'; p.style.top=(420+(1-q)*600)+'px'; $('.ph',p).style.transform=`rotateY(${-12+Math.sin(T0*0.8)*6}deg) rotateX(5deg)`; $('img',p).style.top=-(eio((t-1)/(d-1.5))*1400)+'px'; pop($('#pl9'),(t-bt[0])/0.5,'translateX(-50%)'); }
+    if(i===9){ ['#e1','#e2','#e3'].forEach((q,k)=>{ const e=$(q); const qq=back((t-k*0.15)/0.6); e.style.opacity=cl((t-k*0.15)/0.3); e.style.transform=`translateY(${(1-qq)*-200+Math.sin(T0*1.4+k)*10}px) rotate(${(k-1)*8}deg)`; }); pop($('#bub'),(t-0.8)/0.6); $('#lg10').style.opacity=eo((t-1.2)/0.5); }
+  }
+  $('#flash').style.opacity=fl;
+};
+render(0);
+</script></body></html>
