@@ -27,6 +27,7 @@ Save every new script also in `studio/v7/<name>.txt` and every new spec in `stud
 - **Every video:** source on screen, logo + handle, info 100 % correct and current.
 - **Shared files in this repo:** `drafts/<date>/` (scripts from the topic agent), `comments/topic-requests.md` + `comments/handled.json` (comment agent), `reports/insights.md` (weekly report lessons), `laws/updates-*.md` (law watch), `stories/<date>/`.
 - **Knowledge base:** `studio/kb/wissen.html` holds the verified facts (cards). Agents read it before answering/writing; when a new fact is verified, update the matching card (keep the date and source).
+- (15.11.2026, weekly report) Best format now: 60–70 s "which one are you?" residence videos with a comment question at the end (کدوم ۲۵ fa 34.1K / کام ٢٥ ku 15.3K, most comments). 88–117 s explainers and ads underperform. Like rate is stable (fa ≈3 %, ku ≈4.7 %); the problem is reach, not likes. Metricool has only YouTube connected – IG/TikTok numbers come from vidIQ public data.
 
 ## More lessons from the WEGWEISER chat (the user's main working chat, Oct–Nov 2026)
 - **Cover intro (how it was done, 26.10):** render the reel, then overlay the cover for the first sentence (~8 s) with a gentle zoom and fade out:
