@@ -676,7 +676,7 @@ def c_umzug_duldung():
 # ======================= § 16c SGB II (Selbstständigkeit) =======================
 def c_16c():
     c = background([(540, 900, 420, GOLD, 65), (220, 1420, 320, GREEN, 45), (880, 520, 280, BLUE, 55)])
-    frame(c, "خوداشتغالی")
+    frame(c, "خوداشتغالی", handle="@wegweiser_farsi")
     y = 320
     y = place(c, F("می‌خوای کار خودت رو", "Black", 960, 104, WHITE), 540, y) - 8
     y = place(c, F("راه بندازی؟", "Black", 960, 104, WHITE), 540, y) + 40
@@ -695,7 +695,7 @@ def c_16c():
 # ======================= Schwangerschaft: Bundesstiftung Mutter und Kind =======================
 def c_schwanger():
     c = background([(540, 860, 420, GOLD, 60), (220, 1380, 320, RED, 45), (870, 520, 280, BLUE, 55)])
-    frame(c, "کمک برای زن باردار")
+    frame(c, "کمک برای زن باردار", handle="@wegweiser_farsi")
     y = 300
     y = place(c, F("بارداری و پولت کمه؟", "Black", 960, 104, WHITE), 540, y) + 2
     y = place(c, F("این کمک رو پس نمیدی!", "Black", 960, 96, GOLD), 540, y, sh=True) + 30
@@ -725,7 +725,7 @@ def c_schwanger():
 # ======================= Untätigkeitsklage (§ 75 VwGO) =======================
 def c_untaetigkeit():
     c = background([(540, 900, 420, GOLD, 60), (220, 1420, 320, GREEN, 45), (870, 520, 280, BLUE, 55)])
-    frame(c, "اداره جواب نمیده")
+    frame(c, "اداره جواب نمیده", handle="@wegweiser_farsi")
     y = 300
     y = place(c, F("ماه‌هاست منتظر", "Black", 960, 112, WHITE), 540, y) - 8
     y = place(c, F("جواب اداره‌ای؟", "Black", 960, 112, GOLD), 540, y, sh=True) + 36
