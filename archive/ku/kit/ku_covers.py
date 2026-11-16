@@ -551,6 +551,53 @@ JOBS.update({
     "Kurdi-Pass-Jawab": c_pass_jawab,
 })
 
+# ======================= Behinderung Daimi =======================
+def c_behinderung():
+    c = background(); frame(c, "Niederlassung")
+    y = 300
+    y = place(c, F("نەخۆشیت یان Behinderung ت هەیە؟", "Black", 960, 84, INK), 540, y) + 6
+    y = place(c, F("ئیقامەی هەمیشەیی", "Black", 960, 124, GREEN), 540, y) + 40
+    place(c, rcard(700, "unbefristet", highlight=(150, 220, 170)), 600, y + 20, sh=True, rot=-3)
+    place(c, emoji("♿", 170), 170, y - 30, sh=True, rot=6)
+    y += 520
+    y = place(c, pill(F("هەندێک مەرج لادەچن!", "Black", 860, 80, WHITE, pad=4), RED, 50, 18), 540, y, sh=True, rot=-2) + 40
+    place(c, de_card("§ 9 Abs. 2 AufenthG", "مافی خۆتە!", fsize=70), 540, y, sh=True)
+    return c
+
+# ======================= 25b Abs. 4 =======================
+def c_25b_abs4():
+    c = background(); frame(c, "§ 25b Abs. 4")
+    y = 300
+    y = place(c, F("هاوسەرەکەت 25bی وەرگرتووە؟", "Black", 960, 92, INK), 540, y) + 6
+    y = place(c, F("تۆ و منداڵەکانیش ئیقامە وەردەگرن!", "Black", 960, 92, RED), 540, y) + 40
+    place(c, hstack([emoji("👩", 150), emoji("👧", 120), emoji("👨", 150)], 6), 540, y, sh=True)
+    y += 190
+    y = place(c, rcard(800, "25b Abs. 4", highlight=(150, 220, 170)), 540, y, sh=True, rot=3) + 40
+    place(c, pill(F("بێ مەرجی ٦ ساڵ!", "Black", 760, 84, WHITE, pad=4), GREEN, 50, 18), 540, y, sh=True, rot=-2)
+    return c
+
+# ======================= Schwanger Hilfe =======================
+def c_schwanger():
+    c = background(); frame(c, "Mutter und Kind")
+    y = 300
+    y = place(c, F("دووگیانیت و پارەت کەمە؟", "Black", 960, 104, INK), 540, y) + 6
+    y = place(c, F("ئەم یارمەتییە ناگەڕێنیتەوە!", "Black", 960, 96, GREEN), 540, y) + 40
+    place(c, emoji("🤰", 260), 540, y, sh=True)
+    place(c, emoji("🍼", 130), 200, y + 60, sh=True, rot=10)
+    place(c, emoji("👶", 130), 880, y + 60, sh=True, rot=-10)
+    for (x, yy, r) in [(150, y + 250, 50), (930, y + 240, 56)]:
+        place(c, coin(r), x, yy, sh=True)
+    y += 330
+    y = place(c, de_card("Bundesstiftung", "Mutter und Kind", fsize=82), 540, y, sh=True) + 40
+    place(c, pill(F("تەنها پێش لەدایکبوون!", "Black", 820, 78, WHITE, pad=4), RED, 48, 18), 540, y, sh=True, rot=-2)
+    return c
+
+JOBS.update({
+    "Kurdi-Behinderung-Daimi": c_behinderung,
+    "Kurdi-25b-Abs4": c_25b_abs4,
+    "Kurdi-Schwanger-Hilfe": c_schwanger,
+})
+
 if __name__ == "__main__":
     only = sys.argv[1:]
     for n, f in JOBS.items():
