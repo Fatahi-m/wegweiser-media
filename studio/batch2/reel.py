@@ -37,11 +37,11 @@ def euro(num, col=GOLD, size=200):
 cx = W // 2
 
 def header(label):
-    logo = Image.open(D + "/aof/wegweiser-deutschland-logo.png").convert("RGBA").resize((92, 92), Image.LANCZOS)
+    logo = Image.open(D + "/brand/compass-fa.png").convert("RGBA").resize((92, 92), Image.LANCZOS)
     mask = Image.new("L", (92, 92), 0); ImageDraw.Draw(mask).ellipse((0, 0, 91, 91), fill=255); logo.putalpha(mask)
     hdr = Image.new("RGBA", (W, 140), (0, 0, 0, 0)); hdr.alpha_composite(logo, (M, 24))
     hdr.alpha_composite(text_sprite("WEGWEISER", la("Black", 34), WHITE), (M + 112, 30))
-    hdr.alpha_composite(text_sprite("DEUTSCHLAND", la("Medium", 26), SOFT), (M + 113, 74))
+    hdr.alpha_composite(text_sprite("FARSI", la("Medium", 26), SOFT), (M + 113, 74))
     tc = chip(label, fa("Bold", 32), RED, WHITE); hdr.alpha_composite(tc, (W - M - tc.width, 46))
     return El(hdr, 0, 90, 0.0, anim="fade", dur=0.4)
 
@@ -71,7 +71,7 @@ def passport(size=300):
     r = int(S * .2); c0 = (S // 2, int(h * .5))
     d.ellipse((c0[0] - r, c0[1] - r, c0[0] + r, c0[1] + r), outline=(232, 196, 110), width=10)
     d.polygon([(c0[0], c0[1] - r * .6), (c0[0] + r * .45, c0[1] + r * .5), (c0[0] - r * .45, c0[1] + r * .5)], fill=(232, 196, 110))
-    t2 = text_sprite("DEUTSCHLAND", la("Bold", int(S * .085)), (232, 196, 110)); im.alpha_composite(t2, ((S - t2.width) // 2, int(h * .78)))
+    t2 = text_sprite("FARSI", la("Bold", int(S * .085)), (232, 196, 110)); im.alpha_composite(t2, ((S - t2.width) // 2, int(h * .78)))
     return shadowed(im.resize((size, int(size * 1.36)), Image.LANCZOS))
 
 def tile(top, bottom, w=400, h=300, col=CARD, topcol=GOLD):
@@ -92,7 +92,7 @@ def follow_btn(els, t_f, y=1080, label="فالو کن"):
         if o < 1: img.putalpha(img.getchannel("A").point(lambda a: int(a * o)))
         frame.alpha_composite(img, (cx - img.width // 2, y + btn.height // 2 - img.height // 2))
     els.append(Dyn(follow))
-    els.append(El(text_sprite("@wegweiser.deutschland", la("Bold", 40), SOFT), cx, y + 200, t_f + 0.3, anim="fade", anchor="c"))
+    els.append(El(text_sprite("@wegweiser_farsi", la("Bold", 40), SOFT), cx, y + 200, t_f + 0.3, anim="fade", anchor="c"))
 
 def outro(els, t2, line1, line2, icon_txt="📌"):
     els.append(El(T_(line1, 80), cx, 520, t2, anim="up", anchor="c"))

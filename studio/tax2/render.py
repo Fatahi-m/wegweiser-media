@@ -179,11 +179,11 @@ def build(T):
     els = []
     cx = W // 2
     # ---------------- header (always) ----------------
-    logo = Image.open(D + "/aof/wegweiser-deutschland-logo.png").convert("RGBA").resize((92, 92), Image.LANCZOS)
+    logo = Image.open(D + "/brand/compass-fa.png").convert("RGBA").resize((92, 92), Image.LANCZOS)
     mask = Image.new("L", (92, 92), 0); ImageDraw.Draw(mask).ellipse((0, 0, 91, 91), fill=255); logo.putalpha(mask)
     hdr = Image.new("RGBA", (W, 140), (0, 0, 0, 0)); hdr.alpha_composite(logo, (M, 24))
     hdr.alpha_composite(text_sprite("WEGWEISER", la("Black", 34), WHITE), (M + 112, 30))
-    hdr.alpha_composite(text_sprite("DEUTSCHLAND", la("Medium", 26), SOFT), (M + 113, 74))
+    hdr.alpha_composite(text_sprite("FARSI", la("Medium", 26), SOFT), (M + 113, 74))
     tchip = chip("مالیات در آلمان", fa("Bold", 32), RED, WHITE)
     hdr.alpha_composite(tchip, (W - M - tchip.width, 46))
     els.append(El(hdr, 0, 90, 0.0, anim="fade", dur=0.4))
@@ -290,7 +290,7 @@ def build(T):
         if o < 1: img.putalpha(img.getchannel("A").point(lambda a: int(a * o)))
         frame.alpha_composite(img, (cx - img.width // 2, 1130 + btn.height // 2 - img.height // 2))
     els.append(Dyn(follow))
-    hnd = text_sprite("@wegweiser.deutschland", la("Bold", 40), SOFT)
+    hnd = text_sprite("@wegweiser_farsi", la("Bold", 40), SOFT)
     els.append(El(hnd, cx, 1320, t_f + 0.3, anim="fade", anchor="c"))
     return els
 

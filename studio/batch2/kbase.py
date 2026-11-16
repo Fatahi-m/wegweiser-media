@@ -113,9 +113,9 @@ def follow_btn(t_f, y, label="فۆڵۆمان بکە"):
         frame.alpha_composite(img, (cx - img.width // 2, y + btn.height // 2 - img.height // 2))
     return Dyn(f)
 
-HANDLE = "@wegweiser_kurdi.de"
+HANDLE = "@wegweiser_kurdi"
 def logo(size):
-    im = Image.open("/home/claude/wegweiser/brand_k/Kurdi-Profilbild.jpg").convert("RGBA").resize((size * 4, size * 4), Image.LANCZOS)
+    im = Image.open("/home/claude/wegweiser/brand/compass-ku.png").convert("RGBA").resize((size * 4, size * 4), Image.LANCZOS)
     m = Image.new("L", im.size, 0); ImageDraw.Draw(m).ellipse((0, 0, size * 4 - 1, size * 4 - 1), fill=255); im.putalpha(m)
     return im.resize((size, size), Image.LANCZOS)
 
