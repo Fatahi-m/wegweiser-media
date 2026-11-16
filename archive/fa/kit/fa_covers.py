@@ -112,14 +112,14 @@ def logo(size):
     ring("DEUTSCHLAND"[::-1], 30, 150, s * 0.37, False)
     return im.resize((size, size), Image.LANCZOS)
 
-def frame(c, tag, tag_col=RED):
+def frame(c, tag, tag_col=RED, handle="@wegweiser.deutschland"):
     lg = logo(96); c.alpha_composite(lg, (84, 112))
     c.alpha_composite(T("WEGWEISER", la("Black", 40), WHITE, pad=0), (204, 122))
     c.alpha_composite(T("DEUTSCHLAND", la("Medium", 31), SOFT, pad=0), (204, 172))
     tg = pill(T(tag, fa("Bold", 36), WHITE, rtl=True, pad=4), tag_col, 34, 14)
     c.alpha_composite(tg, (W - 84 - tg.width, 160 - tg.height // 2))
     # footer
-    h = T("@wegweiser.deutschland", la("Bold", 38), SOFT)
+    h = T(handle, la("Bold", 38), SOFT)
     save = pill(hstack([T("سیو کن", fa("Bold", 36), INK, rtl=True, pad=4), emoji("📌", 40)], 10), GOLD, 28, 12)
     row = hstack([save, h], 30)
     c.alpha_composite(row, ((W - row.width) // 2, 1700))
@@ -750,7 +750,37 @@ def c_untaetigkeit():
     place(c, pill(F("اداره رو مجبور به جواب کن!", "Black", 840, 70, INK, pad=4), GREEN, 46, 18), 540, y, sh=True, rot=-1)
     return c
 
+# ======================= 25 Arten (§ 25 Abs. 1-5, 25a, 25b) =======================
+def c_25_arten():
+    c = background([(540, 860, 420, BLUE, 70), (860, 1380, 320, GOLD, 50), (220, 520, 280, RED, 45)])
+    frame(c, "انواع اقامت ۲۵", handle="@wegweiser_farsi")
+    y = 300
+    y = place(c, F("اقامتت ۲۵ه؟", "Black", 960, 120, WHITE), 540, y) - 6
+    y = place(c, F("ولی کدوم ۲۵؟", "Black", 960, 132, GOLD), 540, y, sh=True) + 20
+    q = circle_badge(120, RED, T("?", la("Black", 96), WHITE, pad=0), ring=WHITE)
+    card = rcard(620, "§ 25 ?")
+    y = place(c, card, 540, y, sh=True, rot=-3) + 36
+    place(c, q, 190, y - 380, sh=True, anchor="mid")
+    f26 = fa("Bold", 27)
+    def chip(para, sub, col):
+        t = Image.new("RGBA", (236, 168), (0, 0, 0, 0)); d = ImageDraw.Draw(t)
+        d.rounded_rectangle((0, 0, 235, 167), 32, fill=(255, 255, 255, 26), outline=col, width=4)
+        p_ = F(para, "Black", 210, 60, col, latin=True, pad=2); t.alpha_composite(p_, ((236 - p_.width) // 2, 22))
+        s_ = T(sub, f26, WHITE, rtl=True, pad=2)
+        t.alpha_composite(s_, ((236 - s_.width) // 2, 112 - s_.height // 2 + 10))
+        return t
+    row1 = [("Abs. 1", "پناهندگی سیاسی", GOLD), ("Abs. 2", "ژنو / سوبسیدیر", GOLD), ("Abs. 3", "ممنوعیت دیپورت", GOLD), ("Abs. 4", "اقامت موقت", GOLD)]
+    row2 = [("Abs. 5", "برگشت ممکن نیست", GOLD), ("25a", "جوون‌ها", GREEN), ("25b", "خوب جاافتاده‌ها", GREEN)]
+    # RTL reading order: first item on the right
+    for xs, row, yy in [([915, 665, 415, 165], row1, y), ([790, 540, 290], row2, y + 186)]:
+        for x, (pa, su, col) in zip(xs, row):
+            place(c, chip(pa, su, col), x, yy)
+    y += 186 * 2 + 24
+    place(c, pill(F("حق‌هاشون با هم فرق داره!", "Black", 820, 64, INK, pad=4), GOLD, 44, 16), 540, y, sh=True, rot=-1)
+    return c
+
 JOBS = {
+    "Wegweiser-25-Arten": c_25_arten,
     "Wegweiser-Untaetigkeitsklage": c_untaetigkeit,
     "Wegweiser-Schwanger-Hilfe": c_schwanger,
     "Wegweiser-16c-Selbststaendig": c_16c,
