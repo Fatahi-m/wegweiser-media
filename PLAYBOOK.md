@@ -500,3 +500,5 @@ which ffmpeg  # needed
 - After every change: append a line to this file and re-zip:
   `cd /home/claude/wegweiser && zip -qr out/Wegweiser-Projekt-Komplett.zip <dirs> -x "*.wav" "*.mp4" "*__pycache__*"`.
 
+
+- (16.11.2026) Posting rhythm changed: ONE Instagram reel per page per day at 16:00 Berlin (was 14:00 + 18:00). Reason: reach stuck at ~150–250 views/reel with 3 posts/day. Videos must NEVER be under 60 s (TikTok Creator Rewards only pay for videos over 1 minute) → aim 65–75 s, one topic per video, open with a question about the viewer's own situation (best reel so far: "چند ساڵە لە ئەڵمانیایت؟" 471 views), follow/like ask only at the end.
