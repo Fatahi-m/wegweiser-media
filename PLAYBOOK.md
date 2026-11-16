@@ -22,7 +22,7 @@ Save every new script also in `studio/v7/<name>.txt` and every new spec in `stud
 - **Calls to action (28.10.2026):** no mid-video follow/like ask any more; keep the follow/like/comment request at the END only (plus the hook at the start). Ask a specific comment question at the end.
 - **Length:** normal reels around 60 s; the series "one residence, one video" must NOT be under 1 minute (user, Nov 2026, see section below).
 - **Covers:** paragraph (e.g. § 26 Abs. 3) written BIG so viewers see at a glance which paragraph it is about. v2 cover kits: `archive/fa/kit/fa_covers.py`, `archive/ku/kit/ku_covers.py` (see README.md).
-- **Posting:** Instagram posts at 14:00 and 18:00 (2 per page per day) from `queue.json` (Persian) / `queue-ku.json` (Kurdish) by the posting tasks. TikTok and Facebook: the user posts himself.
+- **Posting:** Instagram posts **1 per page per day** (user decision 16.11 – too many similar posts hurt reach; the posting task should only run at 14:00) from `queue.json` (Persian) / `queue-ku.json` (Kurdish) by the posting tasks. TikTok and Facebook: the user posts himself.
 - **Audio:** the user makes the voice in Google AI Studio (Gemini TTS) and emails the WAV to himself with subject fa-1 / fa-2 / ku-1 / ku-2; the video agent picks it up. Use his audio as is.
 - **Every video:** source on screen, logo + handle, info 100 % correct and current.
 - **Shared files in this repo:** `drafts/<date>/` (scripts from the topic agent), `comments/topic-requests.md` + `comments/handled.json` (comment agent), `reports/insights.md` (weekly report lessons), `laws/updates-*.md` (law watch), `stories/<date>/`.
@@ -31,6 +31,7 @@ Save every new script also in `studio/v7/<name>.txt` and every new spec in `stud
 
 ## More lessons from the WEGWEISER chat (the user's main working chat, Oct–Nov 2026)
 - **Cover intro (how it was done, 26.10):** render the reel, then overlay the cover for the first sentence (~8 s) with a gentle zoom and fade out:
+  **NO static cover intro anymore (16.11): the cover is chosen at upload; first frame = hook text (overlay the 0.8 s frame over 0–0.8 s). The old command below is obsolete:**
   `ffmpeg -y -i reel.mp4 -loop 1 -t 8.2 -i cover.jpg -filter_complex "[1]scale=1080:1920,zoompan=z='1+0.00018*on':x='iw/2-(iw/zoom/2)':y='ih/2-(ih/zoom/2)':d=1:s=1080x1920:fps=30,format=yuva420p,fade=t=out:st=7.9:d=0.3:alpha=1[cv];[0][cv]overlay=0:0:enable='lte(t,8.2)'[v]" -map "[v]" -map 0:a -c:v libx264 -crf 20 -preset medium -c:a aac -b:a 192k out.mp4`
   (set -t / st to the end of the first sentence). Keep the zoom gentle (0.00018 per frame).
 - **Reply-to-comment videos:** start with «پرسیاری ئێوە لە کۆمێنت: …» / «سؤال شما توی کامنت: …» and show the comment in a bubble (bubble() in batch2/ks_253.py / ks_255.py) WITHOUT the commenter's name.
