@@ -779,7 +779,38 @@ def c_25_arten():
     place(c, pill(F("حق‌هاشون با هم فرق داره!", "Black", 820, 64, INK, pad=4), GOLD, 44, 16), 540, y, sh=True, rot=-1)
     return c
 
+# ======================= 25.2 Genf oder subsidiär =======================
+def c_25_2_genf():
+    c = background([(540, 860, 430, BLUE, 70), (200, 1400, 300, GOLD, 50), (880, 1380, 300, GREEN, 45)])
+    frame(c, "اقامت ۲۵.۲", handle="@wegweiser_farsi")
+    y = 300
+    # headline: "Geneva or subsidiary?" — RTL: Genf on the right, subsidiär on the left
+    y = place(c, F("ژنو یا سوبسیدیر؟", "Black", 960, 132, GOLD), 540, y, sh=True) + 4
+    y = place(c, F("روی کارت هر دو نوشته:", "Black", 940, 72, WHITE), 540, y) + 26
+    card = rcard(720, "§ 25 Abs. 2")
+    y = place(c, card, 540, y, sh=True, rot=-3) + 30
+    a = pill(T("Genf", la("Black", 72), INK, pad=0), WHITE, 40, 16)
+    b = pill(T("subsidiär", la("Black", 72), INK, pad=0), GOLD, 40, 16)
+    vs = circle_badge(120, RED, T("?", la("Black", 96), WHITE, pad=0), ring=WHITE)
+    place(c, a, 850, y, sh=True, rot=-3); place(c, b, 230, y, sh=True, rot=3)
+    place(c, vs, 540, y + a.height // 2, sh=True, anchor="mid")
+    y = y + a.height + 40
+    # two clues (RTL: first on the right)
+    def clue(icon, txt, sub):
+        t = Image.new("RGBA", (420, 230), (0, 0, 0, 0)); d = ImageDraw.Draw(t)
+        d.rounded_rectangle((0, 0, 419, 229), 40, fill=(255, 255, 255, 26), outline=GOLD, width=4)
+        ic = emoji(icon, 76); t.alpha_composite(ic, ((420 - ic.width) // 2, 22))
+        tx = F(txt, "Black", 380, 56, WHITE, latin=True, pad=2); t.alpha_composite(tx, ((420 - tx.width) // 2, 112))
+        s_ = F(sub, "Bold", 380, 34, SOFT, pad=2); t.alpha_composite(s_, ((420 - s_.width) // 2, 172))
+        return t
+    place(c, clue("🪪", "Anmerkungen", "روی کارت"), 770, y, sh=True)
+    place(c, clue("✉️", "BAMF", "از روی نامه‌ی"), 310, y, sh=True)
+    y += 230 + 30
+    place(c, pill(F("حق‌هاشون خیلی فرق داره!", "Black", 820, 64, INK, pad=4), GREEN, 44, 16), 540, y, sh=True, rot=-1)
+    return c
+
 JOBS = {
+    "Wegweiser-25-2-Genf-Subsidiaer": c_25_2_genf,
     "Wegweiser-25-Arten": c_25_arten,
     "Wegweiser-Untaetigkeitsklage": c_untaetigkeit,
     "Wegweiser-Schwanger-Hilfe": c_schwanger,
