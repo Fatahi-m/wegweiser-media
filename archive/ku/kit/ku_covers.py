@@ -598,6 +598,29 @@ JOBS.update({
     "Kurdi-Schwanger-Hilfe": c_schwanger,
 })
 
+# ======================= § 16c SGB II (Selbstständigkeit) =======================
+def c_16c():
+    c = background(); frame(c, "کاری تایبەت")
+    y = 290
+    y = place(c, F("دەتەوێت کاری خۆت", "Black", 960, 108, INK), 540, y) - 10
+    y = place(c, F("دەست پێ بکەیت؟", "Black", 960, 108, GREEN), 540, y) + 20
+    # illustration: shop badge surrounded by coins
+    iy = y + 170
+    for (x, yy, r) in [(170, iy - 90, 62), (900, iy - 60, 74), (250, iy + 110, 48)]:
+        place(c, coin(r), x, yy, sh=True, anchor="mid")
+    place(c, circle_badge(320, WHITE, emoji("🏪", 200), ring=GOLD), 540, iy, sh=True, anchor="mid")
+    place(c, emoji("💼", 110), 800, iy + 30, sh=True, rot=-10)
+    y = iy + 190
+    y = place(c, F("تا ٥٠٠٠ یۆرۆ", "Black", 980, 196, RED), 540, y, sh=True) - 4
+    y = place(c, F("یارمەتی لە Jobcenter ەوە", "Black", 940, 76, INK), 540, y) + 30
+    y = place(c, pill(hstack([F("بێ گەڕاندنەوە!", "Black", 760, 76, WHITE, pad=4), emoji("✅", 66)], 14), GREEN, 48, 18), 540, y, sh=True, rot=-2) + 30
+    place(c, pill(T("§ 16c SGB II", la("Black", 62), WHITE, pad=2), INK, 40, 14), 540, y, sh=True)
+    return c
+
+JOBS.update({
+    "Kurdi-16c-Selbststaendig": c_16c,
+})
+
 if __name__ == "__main__":
     only = sys.argv[1:]
     for n, f in JOBS.items():
