@@ -129,9 +129,13 @@ body.ku{--c1:#167a50;--c2:#0a4430;--c3:#03170f;--acc:#0f6b45;background:#03170f}
 .big2 small{display:block;font:900 64px V;direction:rtl;margin-top:20px}
 .src{position:absolute;left:0;right:0;bottom:120px;text-align:center;font:700 32px I;color:rgba(255,255,255,.5);direction:ltr}
 #wm{position:absolute;left:50%;top:880px;width:820px;height:820px;margin:-410px 0 0 -410px;opacity:.14;border-radius:50%;filter:grayscale(.2)}
-#nb{position:absolute;left:0;right:0;top:1500px;text-align:center;z-index:20;direction:ltr}
-#nb span{display:inline-block;padding:10px 30px;border-radius:40px;background:rgba(0,0,0,.28);border:2px solid rgba(255,255,255,.18);font:700 32px I;color:rgba(255,255,255,.85);letter-spacing:1px}
-#nb b{color:var(--gold)}
+#scenes{position:absolute;left:0;right:0;top:300px;height:1920px}
+#lg{display:none}
+#nb{position:absolute;left:0;right:0;top:56px;text-align:center;z-index:20;direction:ltr}
+#nb img{width:150px;height:150px;border-radius:50%;box-shadow:0 14px 40px rgba(0,0,0,.45)}
+#nb .t{font:900 60px/1 I;letter-spacing:2px;margin-top:14px;color:#fff}
+#nb .t span{font:700 30px I;letter-spacing:9px;color:rgba(255,255,255,.75);margin-left:10px}
+#nb .h{font:700 36px I;color:rgba(255,255,255,.85);margin-top:8px}
 body.tt #wm,body.tt #nb{display:none}
 .btn{position:absolute;left:50%;transform:translateX(-50%);padding:30px 70px;border-radius:24px;background:#111;color:#fff;font:900 64px I;direction:ltr;white-space:nowrap;box-shadow:0 30px 60px rgba(0,0,0,.5),0 0 0 3px rgba(255,255,255,.25) inset}
 .ckout{position:absolute;left:150px;right:150px;padding:40px 44px;border-radius:40px;background:#f5f6f8;color:#1b2a44;direction:ltr;box-shadow:0 50px 100px rgba(0,0,0,.55);font-family:I}
@@ -231,7 +235,7 @@ body.tt #wm,body.tt #nb{display:none}
  <div class="bub" style="top:420px" data-t="0.2" data-a="pop"><small>تۆ دەتەوێت چ بەشێک بخوێنیت؟</small><b style="font:900 80px V">لە کۆمێنت بینووسە 👇</b></div>
  <div class="logo" style="top:1180px" id="lg"><img src="logo-ku.png" style="width:170px;height:170px"><div class="wm" style="font-size:56px;margin:14px 0 0">WEG<span style="color:#fff">WEISER</span> <span style="font:700 30px I;letter-spacing:8px;color:rgba(255,255,255,.7)">KURDI</span></div><div style="font:700 36px I;color:rgba(255,255,255,.8);margin-top:8px">@wegweiser_kurdi</div></div>
 </div>
-</div><div id="nb"><span><b>Wegweiser Kurdi</b> · @wegweiser_kurdi</span></div><div id="vig"></div><div class="flash" id="flash"></div></div>
+</div><div id="nb"><img src="logo-ku.png"><div class="t">WEGWEISER<span>KURDI</span></div><div class="h">@wegweiser_kurdi</div></div><div id="vig"></div><div class="flash" id="flash"></div></div>
 <script>
 const $=(q,e=document)=>e.querySelector(q);
 const cl=x=>x<0?0:x>1?1:x; const eo=x=>{x=cl(x);return 1-Math.pow(1-x,3)}; const eio=x=>{x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2};
