@@ -1,0 +1,112 @@
+#wm{position:absolute;left:50%;top:880px;width:820px;height:820px;margin:-410px 0 0 -410px;opacity:.14;border-radius:50%;filter:grayscale(.2)}
+#scenes{position:absolute;left:0;right:0;top:300px;height:1920px}
+#lg{display:none}
+#nb{position:absolute;left:0;right:0;top:56px;text-align:center;z-index:20;direction:ltr}
+#nb img{width:150px;height:150px;border-radius:50%;box-shadow:0 14px 40px rgba(0,0,0,.45)}
+#nb .t{font:900 60px/1 I;letter-spacing:2px;margin-top:14px;color:#fff}
+#nb .t span{font:700 30px I;letter-spacing:9px;color:rgba(255,255,255,.75);margin-left:10px}
+#nb .h{font:700 36px I;color:rgba(255,255,255,.85);margin-top:8px}
+body.tt #wm,body.tt #nb{display:none}
+.btn{position:absolute;left:50%;transform:translateX(-50%);padding:30px 70px;border-radius:24px;background:#111;color:#fff;font:900 64px I;direction:ltr;white-space:nowrap;box-shadow:0 30px 60px rgba(0,0,0,.5),0 0 0 3px rgba(255,255,255,.25) inset}
+.ckout{position:absolute;left:150px;right:150px;padding:40px 44px;border-radius:40px;background:#f5f6f8;color:#1b2a44;direction:ltr;box-shadow:0 50px 100px rgba(0,0,0,.55);font-family:I}
+.ckout small{display:block;font:700 28px I;letter-spacing:3px;opacity:.55}
+.ckout .pr{font:900 90px I;margin:6px 0 24px}
+.ckout .bt{padding:24px;border-radius:20px;background:#111;color:#fff;text-align:center;font:900 46px I}
+.stamp{position:absolute;left:50%;padding:20px 50px;border:10px solid #e3262f;border-radius:24px;color:#e3262f;font:900 110px I;direction:ltr;background:rgba(255,255,255,.92);box-shadow:0 0 40px rgba(230,40,50,.6);z-index:12}
+.chain{position:absolute;left:60px;right:60px;display:flex;justify-content:center;align-items:center;gap:18px;direction:ltr}
+.chain .mini{font:900 50px I;margin:0}
+.chain .ar{font:900 60px I;color:var(--gold)}
+.mini.red{background:linear-gradient(160deg,#ff6b74,#e3262f);border-color:transparent}
+</style></head><body class="__CLS__"><div id="st">
+<div id="bg"></div><div id="rays"></div><div id="glow"></div><div id="floor"></div><div id="stars"></div><img id="wm" src="logo-fa.png"><div id="scenes">
+<div class="sc" id="s1">
+ <div class="de" style="top:240px" data-t="0.3" data-a="pop">Nachzahlung · Nebenkosten</div>
+ <div class="hl" style="top:420px;font-size:88px"><span class="w">قبض</span> <span class="w g lt">Nachzahlung</span> <span class="w">اومده؟</span></div>
+ <div class="stamp" style="top:700px;white-space:nowrap;direction:rtl;font-size:92px;transform:translateX(-50%) rotate(-6deg)" data-t="4.3" data-a="pillx">صبر کن!</div>
+ <div class="row" style="top:980px" data-t="5.0" data-a="rise"><span class="k">✓</span><span class="tx">شاید لازم نباشه خودت بدی</span></div>
+</div>
+<div class="sc" id="s2">
+ <div class="hl" style="top:240px;font-size:84px"><span class="w">اینجا</span> <span class="w g lt">Wegweiser Farsi</span></div>
+ <div class="row" style="top:500px" data-t="2.8" data-a="rise"><span class="k">✓</span><span class="tx">اصل ویدیو اینجاست</span></div>
+ <div class="pill" style="top:760px" data-t="6.1" data-a="pillx">فالومون کن +</div>
+ <div class="url nott" style="top:960px" data-t="7.6" data-a="pop">Wegweiser News</div>
+ <div class="de nott" style="top:1160px;direction:rtl;font:900 56px V;color:#fff" data-t="8.3" data-a="pop">لینکش توی بایوئه</div>
+</div>
+<div class="sc" id="s3">
+ <div class="hl" style="top:220px;font-size:88px"><span class="w">خیلی‌ها</span> <span class="w g">نمی‌دونن</span></div>
+ <div class="big2" style="top:420px" data-t="1.7" data-a="pop"><span class="lt">Jobcenter</span><small class="g">ممکنه بده</small></div>
+ <div class="row" style="top:820px" data-t="4.0" data-a="rise"><span class="k">✓</span><span class="tx">حتی اگه کار می‌کنی</span></div>
+ <div class="row" style="top:1000px" data-t="5.2" data-a="rise"><span class="k">✓</span><span class="tx">حتی اگه تا حالا ازش پول نگرفتی</span></div>
+</div>
+<div class="sc" id="s4">
+ <div class="hl" style="top:260px;font-size:100px"><span class="w g">چطوری؟</span></div>
+ <div class="big2" style="top:520px" data-t="1.0" data-a="pop">یک ماه<small class="g">فقط ماهی که باید پرداخت کنی</small></div>
+</div>
+<div class="sc" id="s5">
+ <div class="row" style="top:360px" data-t="0.4" data-a="rise"><span class="k">€</span><span class="tx">درآمدت با Nachzahlung کافی نیست؟</span></div>
+ <div class="pill" style="top:680px" data-t="4.0" data-a="pillx">✓ کمک برای همون یه ماه</div>
+</div>
+<div class="sc" id="s6">
+ <div class="hl" style="top:220px;font-size:88px"><span class="w g">مثلاً</span></div>
+ <div class="row" style="top:440px" data-t="1.5" data-a="rise"><span class="k">+</span><span class="tx">درآمد بازنشسته <bdi dir="ltr">1.500 €</bdi></span></div>
+ <div class="row" style="top:620px" data-t="3.8" data-a="rise"><span class="k">−</span><span class="tx"><bdi dir="ltr">Nachzahlung</bdi> <bdi dir="ltr">1.200 €</bdi></span></div>
+ <div class="big2" style="top:820px" data-t="6.3" data-a="pop">973 €<small class="g">کمک برای همون ماه</small></div>
+</div>
+<div class="sc" id="s7">
+ <div class="hl" style="top:220px;font-size:88px"><span class="w">کجا</span> <span class="w g">درخواست</span> <span class="w">بدی؟</span></div>
+ <div class="row" style="top:440px" data-t="1.6" data-a="rise"><span class="k">1</span><span class="tx">زیر سن بازنشستگی ← Jobcenter</span></div>
+ <div class="row" style="top:620px" data-t="4.0" data-a="rise"><span class="k">2</span><span class="tx">بازنشسته ← Sozialamt</span></div>
+ <div class="row" style="top:800px" data-t="6.5" data-a="rise"><span class="k">✓</span><span class="tx">Wohngeld می‌گیری؟ باز هم می‌تونی</span></div>
+</div>
+<div class="sc" id="s8">
+ <div class="hl" style="top:220px;font-size:88px"><span class="w">مهم‌ترین</span> <span class="w g">نکته</span></div>
+ <div class="warn" style="top:460px;font-size:76px;direction:rtl" data-t="1.8" data-a="pop">فقط توی همون ماه!</div>
+ <div class="row" style="top:760px" data-t="6.3" data-a="rise"><span class="k">✗</span><span class="tx">ماه تموم بشه = فرصت رفته</span></div>
+</div>
+<div class="sc" id="s9">
+ <div class="hl" style="top:220px;font-size:88px"><span class="w">قبض</span> <span class="w g">رسید؟</span></div>
+ <div class="row" style="top:420px" data-t="1.5" data-a="rise"><span class="k">1</span><span class="tx lt">Abrechnung</span></div>
+ <div class="row" style="top:580px" data-t="3.5" data-a="rise"><span class="k">2</span><span class="tx">فیش حقوق</span></div>
+ <div class="row" style="top:740px" data-t="4.8" data-a="rise"><span class="k">3</span><span class="tx">قرارداد اجاره</span></div>
+ <div class="pill" style="top:940px" data-t="6.5" data-a="pillx">کتبی به Jobcenter بفرست</div>
+ <div class="de" style="top:1120px;direction:rtl;font:900 52px V;color:#fff" data-t="9.0" data-a="pop">بقیه‌ی مدارک بعداً هم می‌شه</div>
+</div>
+<div class="sc" id="s10">
+ <div class="bub" style="top:420px" data-t="0.1" data-a="pop"><small>امسال Nachzahlung تو چقدر بود؟</small><b style="font:900 80px V">برام کامنت کن 👇</b></div>
+ <div class="logo" style="top:1180px" id="lg"><img src="logo-fa.png" style="width:170px;height:170px"><div class="wm" style="font-size:56px;margin:14px 0 0">WEG<span style="color:#fff">WEISER</span> <span style="font:700 30px I;letter-spacing:8px;color:rgba(255,255,255,.7)">FARSI</span></div><div style="font:700 36px I;color:rgba(255,255,255,.8);margin-top:8px">@wegweiser_farsi</div></div>
+</div>
+</div><div id="nb"><img src="logo-fa.png"><div class="t">WEGWEISER<span>FARSI</span></div><div class="h">@wegweiser_farsi</div></div><div id="vig"></div><div class="flash" id="flash"></div></div>
+<script>
+const $=(q,e=document)=>e.querySelector(q);
+const cl=x=>x<0?0:x>1?1:x; const eo=x=>{x=cl(x);return 1-Math.pow(1-x,3)}; const eio=x=>{x=cl(x);return x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2};
+const back=x=>{x=cl(x);const c1=1.70158,c3=c1+1;return 1+c3*Math.pow(x-1,3)+c1*Math.pow(x-1,2)};
+let seed=7; const rnd=()=>{seed=(seed*16807)%2147483647; return seed/2147483647;}; const ST=[];
+for(let i=0;i<70;i++){ const e=document.createElement('i'); e.style.left=rnd()*1080+'px'; e.style.top=rnd()*1500+'px'; $('#stars').appendChild(e); ST.push({e,s:0.4+rnd()*1.1,ph:rnd()*6.28,sp:0.6+rnd()*1.6}); }
+const TT=document.body.classList.contains('tt');
+if(TT) document.querySelectorAll('.nott').forEach(e=>e.remove());
+window.SC=__SC__; const N=SC.length;
+function words(root,t,start,step){ root.querySelectorAll('.w').forEach((w,k)=>{ const q=eo((t-start-k*step)/0.45); w.style.opacity=q; w.style.transform=`translateY(${(1-q)*40}px)`; w.style.filter=`blur(${(1-q)*14}px)`; }); }
+window.render=function(T0){
+  $('#rays').style.transform=`rotate(${T0*2.2}deg)`; $('#floor').style.backgroundPosition=`0 ${(T0*40)%110}px`;
+  $('#wm').style.transform=`rotate(${Math.sin(T0*0.3)*4}deg) scale(${1+Math.sin(T0*0.25)*0.02})`;
+  ST.forEach(s=>{ s.e.style.opacity=0.35+0.65*(0.5+0.5*Math.sin(T0*s.sp+s.ph)); s.e.style.transform=`translateY(${-(T0*6*s.s)%40}px) scale(${s.s})`; });
+  let fl=0;
+  for(let i=0;i<N;i++){ const s=$('#s'+(i+1)); const [a,b]=SC[i]; const t=T0-a;
+    if(T0<a-0.001||(T0>b+0.35&&i<N-1)){ s.style.opacity=0; continue; }
+    const fin=i===0?1:eo(t/0.4), fout=i===N-1?1:1-eio((T0-(b-0.05))/0.4);
+    s.style.opacity=Math.min(fin,fout); s.style.transform=`scale(${1+(1-fout)*0.08-(i===0?0:(1-fin)*0.06)})`; s.style.filter=fout<1?`blur(${(1-fout)*10}px)`:'none';
+    if(i>0&&t<0.3) fl=Math.max(fl,(1-t/0.3)*0.18);
+    const hl=s.querySelector('.hl'); if(hl) words(hl,t,i===0?-0.5:0.05,0.1);
+    const n=s.querySelector('.num'); if(n){ const q=back((t-0.05)/0.5); n.style.opacity=cl(t/0.25); n.style.transform=`scale(${0.6+0.4*q})`; }
+    s.querySelectorAll('[data-t]').forEach(e=>{ const q=(t-parseFloat(e.dataset.t))/0.5; const m=e.dataset.a;
+      if(i===0&&parseFloat(e.dataset.t)<0.6&&m==='pop'){ e.style.opacity=1; e.style.transform='scale(1)'; return; }
+      if(m==='pop'){ e.style.opacity=cl(q*1.5); e.style.transform=`scale(${0.6+0.4*back(q)})`; if(q>0&&q<0.6) fl=Math.max(fl,0.12*(1-q/0.6)); }
+      else if(m==='pillx'){ e.style.opacity=cl(q*1.5); e.style.transform=`translateX(-50%) scale(${0.6+0.4*back(q)})`; }
+      else if(m==='rise'){ const k=eo(q); e.style.opacity=k; e.style.transform=`translateX(${(1-k)*-90}px)`; }
+    });
+    if(i===N-1){ $('#lg').style.opacity=TT?0:eo((t-1.5)/0.6); }
+  }
+  $('#flash').style.opacity=fl;
+};
+render(0);
+</script></body></html>
