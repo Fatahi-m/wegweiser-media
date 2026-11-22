@@ -22,54 +22,54 @@ body.tt #wm,body.tt #nb{display:none}
 <div class="sc" id="s1">
  <div class="de" style="top:240px" data-t="0.2" data-a="pop">Krankschreibung · Kündigung</div>
  <div class="hl" style="top:420px;font-size:88px"><span class="w">نەخۆشیت،</span> <span class="w g">دەرت</span> <span class="w g">ناکەن؟</span></div>
- <div class="stamp" style="top:760px;white-space:nowrap;direction:rtl;font-size:96px;transform:translateX(-50%) rotate(-6deg)" data-t="3.5" data-a="pillx">هەڵەیت!</div>
+ <div class="stamp" style="top:760px;white-space:nowrap;direction:rtl;font-size:96px;transform:translateX(-50%) rotate(-6deg)" data-t="4.2" data-a="pillx">هەڵەیت!</div>
 </div>
 <div class="sc" id="s2">
  <div class="hl" style="top:240px;font-size:84px"><span class="w">ئێرە</span> <span class="w g lt">Wegweiser Kurdi</span></div>
- <div class="row" style="top:500px" data-t="3.6" data-a="rise"><span class="k">✓</span><span class="tx">وردەکاریی تەواوی هەموو بابەتەکان</span></div>
- <div class="pill" style="top:740px" data-t="5.5" data-a="pillx">پەیج + ماڵپەڕ</div>
+ <div class="row" style="top:500px" data-t="2.6" data-a="rise"><span class="k">✓</span><span class="tx">وردەکاریی تەواوی هەموو بابەتەکان</span></div>
+ <div class="pill" style="top:740px" data-t="5.0" data-a="pillx">پەیج + ماڵپەڕ</div>
 </div>
 <div class="sc" id="s3">
  <div class="hl" style="top:200px;font-size:92px"><span class="w g">سەرەتا</span></div>
- <div class="row" style="top:420px" data-t="1.5" data-a="rise"><span class="k">📞</span><span class="tx">ڕۆژی یەکەم، پێش کار، بە خاوەنکار بڵێ</span></div>
- <div class="row" style="top:600px" data-t="5.5" data-a="rise"><span class="k">4</span><span class="tx">زیاتر لە ٣ ڕۆژ ← Krankschreibung</span></div>
- <div class="de" style="top:820px" data-t="7.5" data-a="pop">Krankschreibung (AU)</div>
+ <div class="row" style="top:420px" data-t="1.4" data-a="rise"><span class="k">📞</span><span class="tx">ڕۆژی یەکەم، پێش کار، بە خاوەنکار بڵێ</span></div>
+ <div class="row" style="top:600px" data-t="6.3" data-a="rise"><span class="k">4</span><span class="tx">زیاتر لە ٣ ڕۆژ ← Krankschreibung</span></div>
+ <div class="de" style="top:820px" data-t="9.3" data-a="pop">Krankschreibung (AU)</div>
 </div>
 <div class="sc" id="s4">
  <div class="big2" style="top:180px" data-t="0.3" data-a="pop">٦ هەفتە<small class="g">مووچەی تەواو لە خاوەنکار</small></div>
- <div class="de" style="top:620px" data-t="5.2" data-a="pop">Krankengeld ≈ 70 %</div>
- <div class="row" style="top:800px" data-t="6.5" data-a="rise"><span class="k">€</span><span class="tx">دواتر لە Krankenkasse</span></div>
+ <div class="de" style="top:620px" data-t="5.8" data-a="pop">Krankengeld ≈ 70 %</div>
+ <div class="row" style="top:800px" data-t="7.0" data-a="rise"><span class="k">€</span><span class="tx">دواتر لە Krankenkasse</span></div>
 </div>
 <div class="sc" id="s5">
  <div class="hl" style="top:200px;font-size:92px"><span class="w g">دەرکردن؟</span></div>
- <div class="warn" style="top:420px;font-size:76px;direction:rtl" data-t="1.0" data-a="pop">بەڵێ، دەکرێت!</div>
+ <div class="warn" style="top:420px;font-size:76px;direction:rtl" data-t="2.4" data-a="pop">بەڵێ، دەکرێت!</div>
  <div class="row" style="top:640px" data-t="5.7" data-a="rise"><span class="k">6</span><span class="tx">شەش مانگی یەکەم ← ئاسان</span></div>
- <div class="row" style="top:820px" data-t="7.2" data-a="rise"><span class="k">≤10</span><span class="tx">کۆمپانیای بچووک ← ئاسان</span></div>
+ <div class="row" style="top:820px" data-t="7.7" data-a="rise"><span class="k">≤10</span><span class="tx">کۆمپانیای بچووک ← ئاسان</span></div>
 </div>
 <div class="sc" id="s6">
  <div class="hl" style="top:180px;font-size:70px"><span class="w">زیاتر</span> <span class="w">لە</span> <span class="w">٦</span> <span class="w">مانگ</span> <span class="w">و</span> <span class="w g">+10</span> <span class="w g">کارمەند</span></div>
- <div class="pill" style="top:420px" data-t="2.0" data-a="pillx">زۆر قورسە، تەنها ئەگەر:</div>
- <div class="row" style="top:560px" data-t="7.3" data-a="rise"><span class="k">1</span><span class="tx">نەخۆشییەکەت زۆرە</span></div>
- <div class="row" style="top:720px" data-t="9.3" data-a="rise"><span class="k">2</span><span class="tx">لە داهاتوودا بەردەوام دەبێت</span></div>
- <div class="row" style="top:880px" data-t="11.2" data-a="rise"><span class="k">3</span><span class="tx">زیانی گەورە بە کۆمپانیا</span></div>
+ <div class="pill" style="top:420px" data-t="6.1" data-a="pillx">زۆر قورسە، تەنها ئەگەر:</div>
+ <div class="row" style="top:560px" data-t="10.6" data-a="rise"><span class="k">1</span><span class="tx">نەخۆشییەکەت زۆرە</span></div>
+ <div class="row" style="top:720px" data-t="12.2" data-a="rise"><span class="k">2</span><span class="tx">لە داهاتوودا بەردەوام دەبێت</span></div>
+ <div class="row" style="top:880px" data-t="14.0" data-a="rise"><span class="k">3</span><span class="tx">زیانی گەورە بە کۆمپانیا</span></div>
 </div>
 <div class="sc" id="s7">
  <div class="hl" style="top:200px;font-size:88px"><span class="w">پاراستنی</span> <span class="w g">تایبەت</span></div>
- <div class="row" style="top:440px" data-t="0.8" data-a="rise"><span class="k">✓</span><span class="tx">ژنی دووگیان</span></div>
+ <div class="row" style="top:440px" data-t="0.6" data-a="rise"><span class="k">✓</span><span class="tx">ژنی دووگیان</span></div>
  <div class="row" style="top:620px" data-t="2.2" data-a="rise"><span class="k">✓</span><span class="tx lt">Schwerbehinderung</span></div>
 </div>
 <div class="sc" id="s8">
  <div class="hl" style="top:180px;font-size:88px"><span class="w">گرنگترین</span> <span class="w g">خاڵ</span></div>
- <div class="big2" style="top:380px" data-t="1.5" data-a="pop">٣ هەفتە<small class="g lt">Kündigungsschutzklage</small></div>
- <div class="warn" style="top:800px;font-size:72px;direction:rtl" data-t="8.7" data-a="pop">دوای ٣ هەفتە ← هیچ ناکرێت!</div>
+ <div class="big2" style="top:380px" data-t="3.7" data-a="pop">٣ هەفتە<small class="g lt">Kündigungsschutzklage</small></div>
+ <div class="warn" style="top:800px;font-size:72px;direction:rtl" data-t="7.0" data-a="pop">دوای ٣ هەفتە ← هیچ ناکرێت!</div>
 </div>
 <div class="sc" id="s9">
  <div class="hl" style="top:200px;font-size:88px"><span class="w">دەریان</span> <span class="w g">کردیت؟</span></div>
- <div class="big2" style="top:420px" data-t="1.5" data-a="pop">٦ هەفتە<small class="g">هێشتا مووچەکەت دەدات</small></div>
+ <div class="big2" style="top:420px" data-t="0.5" data-a="pop">٦ هەفتە<small class="g">هێشتا مووچەکەت دەدات</small></div>
 </div>
 <div class="sc" id="s10">
  <div class="pill" style="top:220px" data-t="0.1" data-a="pillx">فۆڵۆ لە بیر نەکەیت</div>
- <div class="bub" style="top:460px" data-t="1.5" data-a="pop"><small>لە کاتی نەخۆشیدا کێشەت هەبووە؟</small><b style="font:900 80px V">لە کۆمێنت بینووسە 👇</b></div>
+ <div class="bub" style="top:460px" data-t="1.6" data-a="pop"><small>لە کاتی نەخۆشیدا کێشەت هەبووە؟</small><b style="font:900 80px V">لە کۆمێنت بینووسە 👇</b></div>
  <div class="logo" style="top:1180px" id="lg"><img src="logo-ku.png" style="width:170px;height:170px"><div class="wm" style="font-size:56px;margin:14px 0 0">WEG<span style="color:#fff">WEISER</span> <span style="font:700 30px I;letter-spacing:8px;color:rgba(255,255,255,.7)">KURDI</span></div><div style="font:700 36px I;color:rgba(255,255,255,.8);margin-top:8px">@wegweiser_kurdi</div></div>
 </div>
 </div><div id="nb"><img src="logo-ku.png"><div class="t">WEGWEISER<span>KURDI</span></div><div class="h">@wegweiser_kurdi</div></div><div id="vig"></div><div class="flash" id="flash"></div></div>
