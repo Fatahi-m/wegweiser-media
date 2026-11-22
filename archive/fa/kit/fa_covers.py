@@ -125,14 +125,14 @@ def frame(c, tag, tag_col=RED, handle="@wegweiser.deutschland"):
     c.alpha_composite(row, ((W - row.width) // 2, 1700))
 
 # ---------------- illustrations ----------------
-def passport(w, title="REISEPASS"):
+def passport(w, title="REISEPASS", col=BURG, spine=(100, 18, 34), top=("BUNDESREPUBLIK", "DEUTSCHLAND")):
     h = int(w * 1.38); k = 3; s = Image.new("RGBA", (w * k, h * k), (0, 0, 0, 0)); d = ImageDraw.Draw(s)
     W2, H2 = w * k, h * k
-    d.rounded_rectangle((0, 0, W2 - 1, H2 - 1), 34 * k, fill=BURG)
-    d.rounded_rectangle((0, 0, 34 * k, H2 - 1), 20 * k, fill=(100, 18, 34))
+    d.rounded_rectangle((0, 0, W2 - 1, H2 - 1), 34 * k, fill=col)
+    d.rounded_rectangle((0, 0, 34 * k, H2 - 1), 20 * k, fill=spine)
     gold = (226, 182, 92)
     f1 = la_t("Bold", int(W2 * 0.06)); f2 = la_t("Bold", int(W2 * 0.095))
-    for txt, f, y in [("BUNDESREPUBLIK", f1, 0.12), ("DEUTSCHLAND", f1, 0.18)]:
+    for txt, f, y in [(top[0], f1, 0.12), (top[1], f1, 0.18)]:
         t = T(txt, f, gold, pad=0); s.alpha_composite(t, ((W2 - t.width) // 2 + 10 * k, int(H2 * y)))
     # eagle-ish emblem
     cx, cy, r = W2 // 2 + 10 * k, int(H2 * 0.48), int(W2 * 0.2)
@@ -809,7 +809,33 @@ def c_25_2_genf():
     place(c, pill(F("حق‌هاشون خیلی فرق داره!", "Black", 820, 64, INK, pad=4), GREEN, 44, 16), 540, y, sh=True, rot=-1)
     return c
 
+# ======================= Pass-Farben (blue / grey / own passport) =======================
+def c_pass_farben():
+    c = background([(820, 860, 360, BLUE, 75), (540, 820, 300, (150, 160, 175), 40), (240, 860, 340, BURG, 70), (540, 1450, 360, RED, 40)])
+    frame(c, "رنگ پاس", handle="@wegweiser_farsi")
+    y = 300
+    y = place(c, F("پاس تو چه رنگیه؟", "Black", 960, 140, WHITE), 540, y) + 6
+    y = place(c, F("آبی، خاکستری یا پاس کشور خودت؟", "Black", 960, 66, GOLD), 540, y, sh=True) + 40
+    # RTL order: blue (1) on the right, grey (2) middle, own passport (3) on the left
+    gold = (226, 182, 92)
+    pps = [(passport(250, "REISEAUSWEIS", col=(30, 86, 200), spine=(20, 62, 156), top=("REISEAUSWEIS", "1951")), 830, -7, "آبی", "für Flüchtlinge", BLUE),
+           (passport(250, "REISEAUSWEIS", col=(124, 132, 146), spine=(96, 104, 118), top=("REISEAUSWEIS", "FÜR AUSLÄNDER")), 540, 0, "خاکستری", "für Ausländer", (190, 198, 212)),
+           (passport(250, "PASSPORT", top=("NATIONAL", "PASSPORT")), 250, 7, "پاس کشور خودت", "Nationalpass", (236, 92, 92))]
+    for i, (pp, x, rot, lab, sub, col) in enumerate(pps):
+        place(c, pp, x, y + 60 + (0 if i == 1 else 24), sh=True, rot=rot)
+        n = circle_badge(84, GOLD, T("۱۲۳"[i], fa("Black", 54), INK, rtl=True, pad=0))
+        place(c, n, x, y - 20, sh=True)
+    y = y + 60 + int(250 * 1.38) + 80
+    for i, (pp, x, rot, lab, sub, col) in enumerate(pps):
+        place(c, F(lab, "Black", 320, 60, col), x, y + 46, anchor="mid")
+        place(c, F(sub, "SemiBold", 320, 34, SOFT, latin=True), x, y + 100)
+    y += 200
+    y = place(c, pill(F("یه اشتباه میتونه پناهندگیت رو باطل کنه!", "Black", 900, 56, WHITE, pad=4), RED, 40, 18), 540, y, sh=True, rot=-2) + 30
+    place(c, pill(T("§ 72 AsylG", la("Black", 52), INK, pad=0), WHITE, 32, 12), 540, y, sh=True)
+    return c
+
 JOBS = {
+    "Wegweiser-Pass-Farben": c_pass_farben,
     "Wegweiser-25-2-Genf-Subsidiaer": c_25_2_genf,
     "Wegweiser-25-Arten": c_25_arten,
     "Wegweiser-Untaetigkeitsklage": c_untaetigkeit,
