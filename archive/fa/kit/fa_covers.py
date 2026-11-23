@@ -834,7 +834,39 @@ def c_pass_farben():
     place(c, pill(T("§ 72 AsylG", la("Black", 52), INK, pad=0), WHITE, 32, 12), 540, y, sh=True)
     return c
 
+# ======================= BAMF letter after a home-country trip =======================
+def envelope(w, stamp="ANHÖRUNG"):
+    h = int(w * 0.64); k = 2; s = Image.new("RGBA", (w * k, h * k), (0, 0, 0, 0)); d = ImageDraw.Draw(s)
+    W2, H2 = w * k, h * k
+    d.rounded_rectangle((0, 0, W2 - 1, H2 - 1), 30 * k, fill=(246, 248, 252))
+    d.polygon([(10 * k, 10 * k), (W2 - 10 * k, 10 * k), (W2 // 2, int(H2 * 0.5))], fill=(222, 228, 238))
+    t = T("BAMF", la("Black", int(H2 * 0.15)), (24, 52, 104), pad=0); s.alpha_composite(t, (int(W2 * 0.08), int(H2 * 0.58)))
+    for i in range(2):
+        y = int(H2 * (0.82 + i * 0.07)); d.rounded_rectangle((int(W2 * 0.08), y, int(W2 * (0.62 - i * 0.14)), y + 7 * k), 4 * k, fill=(196, 206, 220))
+    st = T(stamp, la("Black", int(H2 * 0.1)), (206, 32, 40), pad=0)
+    sb = Image.new("RGBA", (st.width + 44 * k, st.height + 26 * k), (0, 0, 0, 0))
+    ImageDraw.Draw(sb).rounded_rectangle((0, 0, sb.width - 1, sb.height - 1), 12 * k, outline=(206, 32, 40), width=6 * k)
+    sb.alpha_composite(st, (22 * k, 13 * k)); sb = sb.rotate(8, resample=Image.BICUBIC, expand=True)
+    s.alpha_composite(sb, (W2 - sb.width - int(W2 * 0.06), int(H2 * 0.16)))
+    return s.resize((w, h), Image.LANCZOS)
+
+def c_bamf_heimatreise():
+    c = background([(540, 900, 430, BLUE, 70), (860, 1420, 300, RED, 45), (220, 520, 280, GOLD, 50)])
+    frame(c, "سفر به کشورت", handle="@wegweiser_farsi")
+    y = 300
+    y = place(c, F("بعد از سفر به کشورت", "Black", 960, 92, WHITE), 540, y) - 4
+    y = place(c, F("نامه از BAMF اومده؟", "Black", 980, 120, GOLD), 540, y, sh=True) + 80
+    # illustration: plane (right, the trip) -> envelope -> home badge
+    ey = y
+    y = place(c, envelope(700), 540, y, sh=True, rot=-3) + 60
+    place(c, circle_badge(150, WHITE, emoji("✈️", 90), ring=GOLD), 900, ey + 10, sh=True, anchor="mid")
+    y = place(c, pill(F("نادیده‌ش نگیر!", "Black", 820, 84, WHITE, pad=4), RED, 50, 18), 540, y, sh=True, rot=-2) + 30
+    y = place(c, pill(hstack([emoji("📩", 64), F("۵ نکته که باید بدونی", "Black", 740, 64, INK, pad=4)], 18), GOLD, 44, 16), 540, y, sh=True, rot=1) + 40
+    place(c, F("BAMF می‌خواد قبل از تصمیم، حرف تو رو بشنوه", "Bold", 900, 42, SOFT), 540, y)
+    return c
+
 JOBS = {
+    "Wegweiser-BAMF-Heimatreise": c_bamf_heimatreise,
     "Wegweiser-Pass-Farben": c_pass_farben,
     "Wegweiser-25-2-Genf-Subsidiaer": c_25_2_genf,
     "Wegweiser-25-Arten": c_25_arten,
