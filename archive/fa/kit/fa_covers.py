@@ -865,7 +865,35 @@ def c_bamf_heimatreise():
     place(c, F("BAMF می‌خواد قبل از تصمیم، حرف تو رو بشنوه", "Bold", 900, 42, SOFT), 540, y)
     return c
 
+# ======================= Business-Eintrag (Wegweiser News web app) =======================
+def c_business_eintrag():
+    c = background([(540, 880, 430, GOLD, 60), (220, 1420, 320, GREEN, 45), (870, 520, 280, BLUE, 60)])
+    frame(c, "معرفی رایگان", handle="@wegweiser_farsi")
+    y = 300
+    y = place(c, F("کسب‌وکار داری", "Black", 960, 112, WHITE), 540, y) - 8
+    y = place(c, F("یا ایونت برگزار می‌کنی؟", "Black", 980, 92, GOLD), 540, y, sh=True) + 40
+    # illustration: shop (right), event (left), phone with the web app in the middle
+    iy = y + 140
+    place(c, circle_badge(150, WHITE, emoji("🏪", 90), ring=GOLD), 870, iy + 30, sh=True, anchor="mid")
+    place(c, circle_badge(150, WHITE, emoji("🎉", 90), ring=GOLD), 210, iy + 30, sh=True, anchor="mid")
+    place(c, circle_badge(270, GOLD, emoji("📱", 170), ring=WHITE), 540, iy, sh=True, anchor="mid")
+    y = iy + 165
+    # card: Wegweiser News web app
+    cw, chh = 880, 230
+    card = Image.new("RGBA", (cw, chh), (0, 0, 0, 0)); d = ImageDraw.Draw(card)
+    d.rounded_rectangle((0, 0, cw - 1, chh - 1), 44, fill=(249, 246, 238))
+    d.rounded_rectangle((44, 28, cw - 44, 40), 6, fill=RED)
+    t = T("Wegweiser News", la("Black", 96), INK, pad=0)
+    card.alpha_composite(t, ((cw - t.width) // 2, 66))
+    sb = F("توی وب‌اپلیکیشن معرفیش کن", "Bold", cw - 120, 44, (70, 86, 110), pad=0)
+    card.alpha_composite(sb, ((cw - sb.width) // 2, 66 + t.height + 16))
+    y = place(c, card, 540, y, sh=True, rot=-2) + 40
+    y = place(c, F("رایگان", "Black", 900, 160, GREEN), 540, y - 10, sh=True) + 10
+    place(c, pill(F("فقط برای ۵۰ تای اول", "Black", 820, 68, WHITE, pad=4), RED, 46, 18), 540, y, sh=True, rot=-1)
+    return c
+
 JOBS = {
+    "Wegweiser-Business-Eintrag": c_business_eintrag,
     "Wegweiser-BAMF-Heimatreise": c_bamf_heimatreise,
     "Wegweiser-Pass-Farben": c_pass_farben,
     "Wegweiser-25-2-Genf-Subsidiaer": c_25_2_genf,
