@@ -27,7 +27,9 @@ body.tt #wm,body.tt #nb{display:none}
 <div class="sc" id="s2">
  <div class="hl" style="top:240px;font-size:84px"><span class="w">اینجا</span> <span class="w g">Wegweiser Farsi</span></div>
  <div class="row" style="top:500px" data-t="2.2" data-a="rise"><span class="k">✓</span><span class="tx">جزئیات کامل همه‌ی مطالب</span></div>
- <div class="pill" style="top:740px" data-t="3.6" data-a="pillx">پیج + سایت</div>
+<style>body.tt .adr{display:none!important}</style>
+ <div class="row adr" style="top:700px" data-t="3.6" data-a="rise"><span class="k">🌐</span><span class="tx lt">wegweiser-news.de/fa</span></div>
+ <div class="row adr" style="top:840px" data-t="4.0" data-a="rise"><span class="k">📱</span><span class="tx lt">Instagram · TikTok  @wegweiser_farsi</span></div>
 </div>
 <div class="sc" id="s3">
  <div class="de" style="top:170px" data-t="0.2" data-a="pop">Niederlassungserlaubnis</div>
