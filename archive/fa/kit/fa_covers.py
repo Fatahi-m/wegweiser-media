@@ -892,7 +892,28 @@ def c_business_eintrag():
     place(c, pill(F("فقط برای ۵۰ تای اول", "Black", 820, 68, WHITE, pad=4), RED, 46, 18), 540, y, sh=True, rot=-1)
     return c
 
+# ======================= App promo (Wegweiser News web app) =======================
+def c_app_promo():
+    c = background([(540, 900, 430, BLUE, 70), (220, 1420, 300, GREEN, 45), (870, 520, 280, GOLD, 50)])
+    frame(c, "وب‌اپ رایگان", handle="@wegweiser_farsi")
+    y = 300
+    y = place(c, F("همه به فارسی", "Black", 960, 130, GOLD), 540, y, sh=True) - 6
+    y = place(c, F("یه جا و مجانی", "Black", 960, 100, WHITE), 540, y) + 50
+    iy = y + 130
+    place(c, circle_badge(260, GOLD, emoji("📲", 160), ring=WHITE), 540, iy, sh=True, anchor="mid")
+    place(c, circle_badge(140, WHITE, emoji("🏛️", 84), ring=GOLD), 860, iy - 40, sh=True, anchor="mid")
+    place(c, circle_badge(140, WHITE, emoji("📜", 84), ring=GOLD), 220, iy - 40, sh=True, anchor="mid")
+    y = iy + 170
+    rows = [("🪪", "اقامت"), ("💼", "جاب‌سنتر"), ("🏢", "اداره‌ها"), ("⚖️", "قانون‌های جدید آلمان")]
+    for i, (e, t) in enumerate(rows):
+        it = pill(hstack([F(t, "Black", 640, 58, INK, pad=4), emoji(e, 56)], 18), WHITE, 40, 12)
+        y = place(c, it, 540, y, sh=True, rot=(-1 if i % 2 else 1)) + 6
+    y += 24
+    place(c, pill(T("www.wegweiser-news.de", la("Black", 56), WHITE, pad=4), RED, 44, 18), 540, y, sh=True, rot=-1)
+    return c
+
 JOBS = {
+    "Wegweiser-App-Promo": c_app_promo,
     "Wegweiser-Business-Eintrag": c_business_eintrag,
     "Wegweiser-BAMF-Heimatreise": c_bamf_heimatreise,
     "Wegweiser-Pass-Farben": c_pass_farben,
