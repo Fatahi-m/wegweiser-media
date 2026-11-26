@@ -25,7 +25,7 @@ body.tt #ft .ad,body.tt .adr{display:none!important}
 body.tt #wm,body.tt #nb{display:none}
 '''
 L={
-'ku':dict(cls='ku',d='٠١٢٣٤٥٦٧٨٩',logo='logo-ku.png',name='KURDI',h='@wegweiser_kurdi',url='wegweiser-news.de/ku',ig='@wegweiser_kurdi',tk='@wegweiser_kurdi.de',
+'ku':dict(cls='ku',d='٠١٢٣٤٥٦٧٨٩',logo='logo-ku.png',name='KURDI',h='@wegweiser_kurdi',url='wegweiser-news.de/ku',ig='@wegweiser_kurdi',tk='@wegweiser_kurdi',
  SC=[[0,11.6],[11.6,17.3],[17.3,28.4],[28.4,55.0],[55.0,66.0],[66.0,71.0],[71.0,77.6],[77.6,87.7],[87.7,96.6],[96.6,104.2]],
  s4t=[0.3,2.1,6.2,8.8,13.6,18.1], s5t=[0.3,3.8,5.7,6.7,7.8,9.2], s8x=7.6, s9b=3.8, s10f=4.6, s3w=4.6, s1w=8.2,
  t=dict(
