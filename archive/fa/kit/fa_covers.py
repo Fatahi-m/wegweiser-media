@@ -912,7 +912,45 @@ def c_app_promo():
     place(c, pill(T("www.wegweiser-news.de", la("Black", 56), WHITE, pad=4), RED, 44, 18), 540, y, sh=True, rot=-1)
     return c
 
+# ======================= Heizkosten (remote-readable meters by 31.12.) =======================
+def radiator(w, fins=7):
+    h = int(w * 0.62); k = 2; s = Image.new("RGBA", (w * k, h * k), (0, 0, 0, 0)); d = ImageDraw.Draw(s)
+    W2, H2 = w * k, h * k
+    fw = W2 * 0.86 / fins; x0 = W2 * 0.07
+    for i in range(fins):
+        x = x0 + i * fw
+        d.rounded_rectangle((x + 6 * k, 0, x + fw - 6 * k, H2 * 0.9), int(fw * 0.4), fill=(244, 244, 240), outline=(200, 204, 210), width=3 * k)
+    d.rectangle((0, H2 * 0.12, W2, H2 * 0.2), fill=(222, 224, 226))
+    d.rectangle((0, H2 * 0.72, W2, H2 * 0.8), fill=(222, 224, 226))
+    d.rectangle((x0 + 20 * k, H2 * 0.9, x0 + 50 * k, H2), fill=(200, 204, 210))
+    return s.resize((w, h), Image.LANCZOS)
+
+def meter(w, val="0815"):
+    h = int(w * 0.86); k = 2; s = Image.new("RGBA", (w * k, h * k), (0, 0, 0, 0)); d = ImageDraw.Draw(s)
+    W2, H2 = w * k, h * k
+    d.rounded_rectangle((0, 0, W2 - 1, H2 - 1), 34 * k, fill=(248, 248, 250), outline=GOLD, width=10 * k)
+    d.rounded_rectangle((W2 * 0.12, H2 * 0.16, W2 * 0.88, H2 * 0.52), 16 * k, fill=(22, 34, 30))
+    t = T(val, la("Black", int(H2 * 0.26)), GREEN, pad=0); s.alpha_composite(t, ((W2 - t.width) // 2, int(H2 * 0.34) - t.height // 2))
+    t = T("((·))", la("Black", int(H2 * 0.2)), RED, pad=0); s.alpha_composite(t, ((W2 - t.width) // 2, int(H2 * 0.62)))
+    return s.resize((w, h), Image.LANCZOS)
+
+def c_heizkosten():
+    c = background([(540, 960, 430, RED, 55), (860, 520, 280, GOLD, 50), (220, 1420, 300, BLUE, 60)])
+    frame(c, "پول گرمایش", handle="@wegweiser_farsi")
+    y = 300
+    y = place(c, F("پول گرمایش", "Black", 960, 120, WHITE), 540, y) - 6
+    y = place(c, F("تا ۱۵٪ کمتر بده!", "Black", 980, 120, GOLD), 540, y, sh=True) + 60
+    ry = y + 20
+    y = place(c, radiator(760), 540, ry, sh=True) + 50
+    place(c, meter(230), 230, ry + 40, sh=True, rot=4, anchor="mid")
+    place(c, circle_badge(210, RED, F("۱۵٪", "Black", 160, 96, WHITE, pad=2), ring=WHITE), 860, ry + 330, sh=True, anchor="mid")
+    place(c, circle_badge(170, WHITE, emoji("🔥", 100), ring=GOLD), 870, ry + 40, sh=True, anchor="mid")
+    y = place(c, pill(F("صاحبخونه تا ۳۱ دسامبر این کارو نکنه؟", "Black", 860, 60, WHITE, pad=4), RED, 40, 18), 540, y, sh=True, rot=-1) + 30
+    place(c, pill(hstack([F("کنتورت رو هنوز یکی میاد می‌خونه؟", "Bold", 760, 46, INK, pad=4), emoji("🧾", 48)], 14), GOLD, 36, 14), 540, y, sh=True, rot=1)
+    return c
+
 JOBS = {
+    "Wegweiser-Heizkosten": c_heizkosten,
     "Wegweiser-App-Promo": c_app_promo,
     "Wegweiser-Business-Eintrag": c_business_eintrag,
     "Wegweiser-BAMF-Heimatreise": c_bamf_heimatreise,
