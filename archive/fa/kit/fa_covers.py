@@ -949,7 +949,35 @@ def c_heizkosten():
     place(c, pill(hstack([F("کنتورت رو هنوز یکی میاد می‌خونه؟", "Bold", 760, 46, INK, pad=4), emoji("🧾", 48)], 14), GOLD, 36, 14), 540, y, sh=True, rot=1)
     return c
 
+# ======================= Wohngeld =======================
+def house(w):
+    h = int(w * 0.95); k = 2; s = Image.new("RGBA", (w * k, h * k), (0, 0, 0, 0)); d = ImageDraw.Draw(s)
+    W2, H2 = w * k, h * k
+    d.polygon([(0, H2 * 0.42), (W2 / 2, 0), (W2, H2 * 0.42)], fill=RED)
+    d.rounded_rectangle((W2 * 0.12, H2 * 0.38, W2 * 0.88, H2 - 1), 26 * k, fill=(248, 248, 250))
+    d.rounded_rectangle((W2 * 0.68, H2 * 0.06, W2 * 0.8, H2 * 0.3), 6 * k, fill=(180, 26, 20))
+    e = T("€", la("Black", int(H2 * 0.42)), NAVY, pad=0); s.alpha_composite(e, ((W2 - e.width) // 2, int(H2 * 0.69) - e.height // 2))
+    return s.resize((w, h), Image.LANCZOS)
+
+def c_wohngeld():
+    c = background([(540, 900, 430, GOLD, 55), (220, 1420, 300, BLUE, 60), (870, 520, 280, RED, 45)])
+    frame(c, "کمک کرایه", handle="@wegweiser_farsi")
+    y = 300
+    y = place(c, F("کرایه‌ی خونه‌ت سنگینه؟", "Black", 960, 100, WHITE), 540, y) - 4
+    y = place(c, F("دولت بخشیش رو می‌ده!", "Black", 980, 110, GOLD), 540, y, sh=True) + 50
+    iy = y
+    y = place(c, house(330), 540, iy, sh=True) + 40
+    place(c, coin(78), 230, iy + 210, sh=True, anchor="mid")
+    place(c, coin(62), 860, iy + 250, sh=True, anchor="mid")
+    place(c, circle_badge(150, WHITE, emoji("🏠", 90), ring=GOLD), 860, iy + 60, sh=True, anchor="mid")
+    sp = T("Wohngeld", la("Black", 150), INK, pad=4)
+    y = place(c, pill(sp, WHITE, 50, 16, r=40), 540, y, sh=True, rot=-2) + 40
+    y = place(c, pill(F("ماهی چقدر بهت می‌رسه؟", "Black", 760, 64, WHITE, pad=4), BLUE, 46, 18), 540, y, sh=True, rot=1) + 26
+    place(c, pill(F("خیلی‌ها خبر ندارن!", "Black", 760, 64, WHITE, pad=4), RED, 46, 18), 540, y, sh=True, rot=-1)
+    return c
+
 JOBS = {
+    "Wegweiser-Wohngeld": c_wohngeld,
     "Wegweiser-Heizkosten": c_heizkosten,
     "Wegweiser-App-Promo": c_app_promo,
     "Wegweiser-Business-Eintrag": c_business_eintrag,
