@@ -621,6 +621,28 @@ JOBS.update({
     "Kurdi-16c-Selbststaendig": c_16c,
 })
 
+# ======================= BAMF Heimatreise =======================
+def c_heimatreise():
+    c = background(); frame(c, "Heimatreise")
+    y = 295
+    y = place(c, F("دوای سەفەر بۆ وڵاتەکەت", "Black", 960, 96, INK), 540, y) - 4
+    y = place(c, F("نامەی BAMF ت بۆ هات؟", "Black", 960, 112, GREEN), 540, y) + 40
+    iy = y
+    place(c, natpass(250), 250, iy + 20, sh=True, rot=10)
+    place(c, letter2(560, "BAMF", INK), 640, iy + 90, sh=True, rot=-5)
+    place(c, emoji("✈️", 150), 520, iy - 10, sh=True, rot=-8)
+    place(c, circle_badge(150, RED, T("!", la("Black", 120), WHITE, pad=0), ring=WHITE), 900, iy + 20, sh=True)
+    y = iy + 520
+    y = place(c, pill(F("پشتگوێی مەخە!", "Black", 760, 92, WHITE, pad=4), RED, 52, 18), 540, y, sh=True, rot=-2) + 36
+    y += 20
+    five = circle_badge(150, GREEN, T("5", la("Black", 96), WHITE, pad=0), ring=GOLD)
+    place(c, hstack([F("خاڵ کە دەبێت بیزانیت", "Black", 760, 84, INK), five], 22), 540, y, sh=True)
+    return c
+
+JOBS.update({
+    "Kurdi-BAMF-Heimatreise": c_heimatreise,
+})
+
 if __name__ == "__main__":
     only = sys.argv[1:]
     for n, f in JOBS.items():
