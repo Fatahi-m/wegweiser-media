@@ -997,7 +997,40 @@ def c_app_promo_rechner():
     place(c, T("www.wegweiser-news.de", la("Black", 48), GOLD, pad=4), 540, y)
     return c
 
+# ======================= 31. Dezember – 5 Dinge =======================
+def c_31_dez():
+    c = background([(540, 880, 430, RED, 55), (860, 1350, 320, GOLD, 45), (200, 1400, 300, BLUE, 60)])
+    frame(c, "تا ۳۱ دسامبر", handle="@wegweiser_farsi")
+    y = 300
+    y = place(c, F("تا ۳۱ دسامبر انجام بده", "Black", 960, 100, WHITE), 540, y) - 6
+    y = place(c, F("وگرنه پولت می‌سوزه!", "Black", 980, 110, GOLD), 540, y, sh=True) + 34
+    iy = y
+    cal = calendar_page(250, month="DEZEMBER", day="31")
+    place(c, cal, 540, iy, sh=True, rot=-4)
+    place(c, circle_badge(150, WHITE, emoji("⏰", 90), ring=GOLD), 230, iy + 130, sh=True, anchor="mid")
+    place(c, circle_badge(150, RED, emoji("🔥", 90), ring=WHITE), 850, iy + 130, sh=True, anchor="mid")
+    y = iy + 290
+    rows = [("۱", "مرخصی امسال", "Urlaub"), ("۲", "حساب هزینه‌های خونه", "Nebenkosten"),
+            ("۳", "بیمه‌ی درمانی", "Krankenkasse"), ("۴", "جابسنتر", "Jobcenter"),
+            ("۵", "اظهارنامه‌ی مالیاتی ۲۰۲۲", "Steuer 2022")]
+    RW, RH = 900, 92
+    for i, (n, fa_t, de_t) in enumerate(rows):
+        it = Image.new("RGBA", (RW, RH), (0, 0, 0, 0)); d = ImageDraw.Draw(it)
+        d.rounded_rectangle((0, 0, RW - 1, RH - 1), 30, fill=WHITE)
+        num = circle_badge(66, GOLD, F(n, "Black", 50, 44, INK, pad=2))
+        it.alpha_composite(num, (RW - 30 - 66, (RH - 66) // 2))
+        txt = F(fa_t, "Black", 500, 46, INK, pad=4)
+        it.alpha_composite(txt, (RW - 30 - 66 - 18 - txt.width, (RH - txt.height) // 2))
+        de = T(de_t, la("Bold", 32), (70, 90, 120), pad=4)
+        it.alpha_composite(de, (30, (RH - de.height) // 2))
+        # RTL reading order: number on the right, Persian next, German note on the left
+        y = place(c, it, 540, y, sh=True) + 16
+    y += 24
+    place(c, pill(F("کدوم رو هنوز انجام ندادی؟", "Black", 800, 58, WHITE, pad=4), RED, 46, 18), 540, y, sh=True, rot=-1)
+    return c
+
 JOBS = {
+    "Wegweiser-31-Dezember": c_31_dez,
     "Wegweiser-App-Promo": c_app_promo_rechner,
     "Wegweiser-Wohngeld": c_wohngeld,
     "Wegweiser-Heizkosten": c_heizkosten,
