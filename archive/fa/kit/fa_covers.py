@@ -976,10 +976,31 @@ def c_wohngeld():
     place(c, pill(F("خیلی‌ها خبر ندارن!", "Black", 760, 64, WHITE, pad=4), RED, 46, 18), 540, y, sh=True, rot=-1)
     return c
 
+# ======================= App promo v2b – matches the video's hook (Wohngeld/Kinderzuschlag calculators) =======================
+def c_app_promo_rechner():
+    c = background([(540, 900, 430, BLUE, 75), (220, 1420, 300, GOLD, 45), (870, 520, 280, GREEN, 40)])
+    frame(c, "محاسبه‌گر رایگان", handle="@wegweiser_farsi")
+    y = 300
+    y = place(c, F("می‌خوای بدونی", "Black", 960, 100, WHITE), 540, y) - 6
+    y = place(c, F("چقدر Wohngeld بهت می‌دن؟", "Black", 980, 96, GOLD), 540, y, sh=True) + 70
+    iy = y + 120
+    place(c, circle_badge(240, GOLD, emoji("📲", 150), ring=WHITE), 540, iy, sh=True, anchor="mid")
+    place(c, circle_badge(140, WHITE, emoji("🏠", 84), ring=GOLD), 220, iy + 10, sh=True, anchor="mid")
+    place(c, circle_badge(140, WHITE, emoji("💶", 84), ring=GOLD), 860, iy + 10, sh=True, anchor="mid")
+    y = iy + 190
+    rows = [("🧮", "محاسبه‌گر Wohngeld"), ("👨‍👩‍👧", "محاسبه‌گر Kinderzuschlag"), ("⏳", "پولت کی میاد به حسابت؟")]
+    for i, (e, t) in enumerate(rows):
+        it = pill(hstack([F(t, "Black", 720, 52, INK, pad=4), emoji(e, 54)], 18), WHITE, 40, 14, r=28)
+        y = place(c, it, 540, y, sh=True, rot=(-1 if i % 2 else 1)) + 14
+    y += 40
+    y = place(c, pill(F("همه‌ش یه جا، به فارسی", "Black", 760, 60, WHITE, pad=4), RED, 46, 16), 540, y, sh=True, rot=-1) + 18
+    place(c, T("www.wegweiser-news.de", la("Black", 48), GOLD, pad=4), 540, y)
+    return c
+
 JOBS = {
+    "Wegweiser-App-Promo": c_app_promo_rechner,
     "Wegweiser-Wohngeld": c_wohngeld,
     "Wegweiser-Heizkosten": c_heizkosten,
-    "Wegweiser-App-Promo": c_app_promo,
     "Wegweiser-Business-Eintrag": c_business_eintrag,
     "Wegweiser-BAMF-Heimatreise": c_bamf_heimatreise,
     "Wegweiser-Pass-Farben": c_pass_farben,
